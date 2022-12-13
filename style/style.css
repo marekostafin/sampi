@@ -2,7 +2,7 @@
     font-size:60px;
 }
 
-.navbar {
+#navbar-include {
     position: sticky;
     top: 0;
     background-color: white;
