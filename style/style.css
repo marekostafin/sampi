@@ -2,8 +2,27 @@
     font-size:60px;
 }
 
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100 !important;
+}
+
+#menu-container {
+    position: fixed;
+    right: 0;
+    height:100%;
+}
+
 #menu {
-    padding-top:5%;
+    overflow:scroll;
+    padding-top:20%;
+    height:100%;
+}
+
+#menu-row {
+    height:100%;
 }
 
 #menu h3 {
@@ -32,23 +51,3 @@
     position:fixed;
     right:0;
 }
-
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-} 
