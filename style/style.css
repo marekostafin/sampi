@@ -2,10 +2,53 @@
     font-size:60px;
 }
 
-#nav-right {
+#menu {
     padding-top:5%;
 }
 
-#nav-right h3 {
+#menu h3 {
     font-size: 20px;
 }
+
+.on {
+    display: block;
+    padding:0;
+    margin:0;
+}
+
+.off {
+    display: none;
+    width:0;
+    padding:0;
+    margin:0;
+}
+
+#menu-button-container {
+    margin:0;
+    padding:0;
+}
+
+.menu-button-hidden {
+    position:fixed;
+    right:0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+} 
