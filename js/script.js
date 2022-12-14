@@ -23,7 +23,7 @@ function includeNavbar() {
     document.getElementById("navbar-include").innerHTML = `
     <nav class="navbar navbar-expand-sm border-bottom border-dark">
         <div class="col-sm-4">
-            <img width="200px" src="../style/img/sampi.png"/>
+            <a href="home.html"><img width="200px" src="../style/img/sampi.png"/></a>
         </div>
         <div class="col-sm-4 text-center">
             <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">Przypominamy, herbata Lipton jest tylko dla zarządu</div>
@@ -41,24 +41,24 @@ function includeMenu() {
     <div id="menu-container" class="col-sm-3 text-center">
         <div id="menu-row" class="row">
             <div id="menu-button-container" class="col-sm-1"></divclass>
-                <button id="menu-button" class="btn btn-light float-right" type="button" onclick="menuButtonClick()"><i id="menu-button-icon" class="bi bi-caret-right-fill"></i></button>
+                <button id="menu-button" class="btn btn-light float-right menu-button-hidden" type="button" onclick="menuButtonClick()"><i id="menu-button-icon" class="bi bi-caret-left-fill"></i></button>
             </div>
-            <div id="menu" class="col-sm-12 border-left border-dark on">
+            <div id="menu" class="col-sm-12 border-left border-dark off">
                 <div class="row">
-                    <div class="col"><h1 class="nav-icon"><i class="bi bi-people-fill"></i></h1><h3>Pracownicy</h3></div>
-                    <div class="col"><h1 class="nav-icon"><i class="bi bi-newspaper"></i></h1><h3>Aktualności</h3></div>
+                    <div class="col"><a href="pracownicy.html"><h1 class="nav-icon"><i class="bi bi-people-fill"></i></h1><h3>Pracownicy</h3></a></div>
+                    <div class="col"><a href="aktualnosci.html"><h1 class="nav-icon"><i class="bi bi-newspaper"></i></h1><h3>Aktualności</h3></a></div>
                 </div>
                 <div class="row">
-                    <div class="col"><h1 class="nav-icon"><i class="bi bi-calendar-week"></i></h1><h3>Grafik</h3></div>
-                    <div class="col"><h1 class="nav-icon"><i class="bi bi-chat-left-dots"></i></h1><h3>Komunikator</h3></div>
+                    <div class="col"><a href="grafik.html"><h1 class="nav-icon"><i class="bi bi-calendar-week"></i></h1><h3>Grafik</h3></a></div>
+                    <div class="col"><a href="komunikator.html"><h1 class="nav-icon"><i class="bi bi-chat-left-dots"></i></h1><h3>Komunikator</h3></a></div>
                 </div>
                 <div class="row">
-                    <div class="col"><h1 class="nav-icon"><i class="bi bi-card-list"></i></h1><h3>Wnioski</h3></div>
-                    <div class="col"><h1 class="nav-icon"><i class="bi bi-briefcase"></i></h1><h3>Szkolenia</h3></div>
+                    <div class="col"><a href="wnioski.html"><h1 class="nav-icon"><i class="bi bi-card-list"></i></h1><h3>Wnioski</h3></a></div>
+                    <div class="col"><a href="szkolenia.html"><h1 class="nav-icon"><i class="bi bi-briefcase"></i></h1><h3>Szkolenia</h3></a></div>
                 </div>
                 <div class="row">
-                    <div class="col"><h1 class="nav-icon"><i class="bi bi-building"></i></h1><h3>Moje biuro</h3></div>
-                    <div class="col"><h1 class="nav-icon"><i class="bi bi-telephone-fill"></i></h1><h3>Kontakt</h3></div>
+                    <div class="col"><a href="moje-biuro.html"><h1 class="nav-icon"><i class="bi bi-building"></i></h1><h3>Moje biuro</h3></a></div>
+                    <div class="col"><a href="kontakt.html"><h1 class="nav-icon"><i class="bi bi-telephone-fill"></i></h1><h3>Kontakt</h3></a></div>
                 </div>
             </div>
         </div>
