@@ -7,13 +7,13 @@ function menuButtonClick() {
     if(menu.classList.contains("on")) {
         menu.classList.replace("on","off");
         menu.classList.remove("col-sm-10");
-        content.classList.replace("col-sm-9","col-sm-11");
+        content.classList.replace("col-sm-9","col-sm-12");
         button.classList.add("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-right-fill", "bi-caret-left-fill");
     } else {
         menu.classList.replace("off","on");
         menu.classList.add("col-sm-10");
-        content.classList.replace("col-sm-11","col-sm-9");
+        content.classList.replace("col-sm-12","col-sm-9");
         button.classList.remove("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-left-fill", "bi-caret-right-fill");
     }
@@ -41,9 +41,9 @@ function includeMenu() {
     <div id="menu-container" class="col-sm-3 text-center">
         <div id="menu-row" class="row">
             <div id="menu-button-container" class="col-sm-1"></divclass>
-                <button id="menu-button" class="btn btn-light border border-dark float-right" type="button" onclick="menuButtonClick()"><i id="menu-button-icon" class="bi bi-caret-right-fill"></i></button>
+                <button id="menu-button" class="btn btn-light float-right" type="button" onclick="menuButtonClick()"><i id="menu-button-icon" class="bi bi-caret-right-fill"></i></button>
             </div>
-            <div id="menu" class="col-sm-11 border-left border-dark on">
+            <div id="menu" class="col-sm-12 border-left border-dark on">
                 <div class="row">
                     <div class="col"><h1 class="nav-icon"><i class="bi bi-people-fill"></i></h1><h3>Pracownicy</h3></div>
                     <div class="col"><h1 class="nav-icon"><i class="bi bi-newspaper"></i></h1><h3>Aktualności</h3></div>
