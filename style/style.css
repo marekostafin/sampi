@@ -89,3 +89,56 @@ a:visited {
     text-decoration: none;
     color: black;
 }
+
+#carousel-container {
+    width:100%;
+}
+
+.carousel-control-prev {
+    width: 5%;
+    margin:35%;
+    margin-top: 85vh;
+    z-index: 100 !important;
+}
+.carousel-control-next {
+    width: 5%;
+    margin:35%;
+    margin-top: 85vh;
+    z-index: 100 !important;
+}
+
+.carousel-item{
+    height: 89vh;
+} 
+
+.carousel-item img{
+    height: 89vh;
+}
+
+.carousel-caption {
+    margin-bottom: 5vh;
+    background-color: rgba(4,156,147,0.7);
+    margin-left:0;
+    margin-right: 0;
+    padding:0;
+    width:100%;
+    left:0;
+}
+
+.carousel-caption h2 {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.navbar {
+    height: 11vh;
+    min-height: 70px;
+}
+
+.carousel-indicators {
+    background-color: rgba(4,156,147,0.7);
+    padding-top: 2.2vh;
+    width:100%;
+    margin:0;
+    padding-bottom: 2.5vh;
+}
