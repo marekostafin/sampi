@@ -1,3 +1,18 @@
+window.addEventListener("resize",navNotificationsOffOn)
+
+function navNotificationsOffOn() {
+    var notification = document.getElementById("notification");
+    var navUser = document.getElementById("nav-user");
+
+    if(window.innerWidth <= 800) {
+        notification.classList.replace("on","off");
+        navUser.classList.replace("on","off");
+    } else {
+        notification.classList.replace("off","on");
+        navUser.classList.replace("off","on");
+    }
+}
+
 function menuButtonClick() {
     var menu = document.getElementById("menu");
     var button = document.getElementById("menu-button");
@@ -25,14 +40,14 @@ function includeNavbar() {
         <div class="col-sm-4">
             <a href="home.html"><img width="200px" src="../style/img/sampi.png"/></a>
         </div>
-        <div class="col-sm-4 text-center">
+        <div id="notification" class="col-sm-4 text-center on">
             <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">Przypominamy, herbata Lipton jest tylko dla zarządu</div>
         </div>
-        <div class="col-sm-3 text-right">
+        <div id="nav-user" class="col-sm-3 text-right float-right on">
             <h4>Jan Kowalski</h4>
             Inżynier Oprogramowania
         </div>
-        <div class="col-sm-1"><h1><i class="bi bi-person-circle"></i></h1></div>
+        <div id="nav-user-icon" class="col-sm-1"><h1><i class="bi bi-person-circle"></i></h1></div>
     </nav>`;
 }
 
