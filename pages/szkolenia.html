@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/style/style.css">
 
     <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/szkolenia.js"></script>
 
     <title>Sampi</title>
 </head>
@@ -21,13 +22,20 @@
 
     <div class="row container-fluid">
         <div id="content" class="col-sm-12">
-            szkolenia
+            <div class="container">
+                <input class="mt-2 mb-2" type="text" name="" id="" placeholder="Szukaj szkolenia" value="ds">
+                <div class="overflow-auto" style="background-color: #00665F; height: 80vh" >
+                    <h2 style="color: white">Dostępne szkolenia:</h2>
+                    <ul class="p-0" id="szkolenia-list"></ul>
+                </div>
+            </div>
         </div>
         <div id="menu-include"></div>
     </div>
     <script>
         includeNavbar();
         includeMenu();
+        loadszkolenia();
     </script> 
 </body>
 </html>
