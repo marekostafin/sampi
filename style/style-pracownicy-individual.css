@@ -15,3 +15,15 @@
 .input-group {
     padding: 5px;
 }
+
+#avatar{
+    position: absolute;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    border: 10px solid #ffffff;
+}
