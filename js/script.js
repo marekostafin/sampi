@@ -38,7 +38,7 @@ function includeNavbar() {
     document.getElementById("navbar-include").innerHTML = `
     <nav class="navbar navbar-expand-sm border-bottom border-dark">
         <div class="col-sm-4">
-            <a href="/sampi/index.html"><img width="200px" src="https://marekostafin.github.io/style/img/sampi.png"/></a>
+            <a href="/sampi/index.html"><img width="200px" src="/sampi/style/img/sampi.png"/></a>
         </div>
         <div id="notification" class="col-sm-4 text-center on">
             <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">Przypominamy, herbata Lipton jest tylko dla zarządu</div>
