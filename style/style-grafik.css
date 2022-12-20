@@ -93,3 +93,7 @@
 .schedule-unavailable {
     background: #a64d79;
 }
+
+.noborder{
+    border: none!important;
+}
