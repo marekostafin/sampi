@@ -11,39 +11,39 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/sampi/style/style.css">
+    <link rel="stylesheet" href="/sampi/style/style-grafik.css">
 
     <script type="text/javascript" src="/sampi/js/script.js"></script>
+
+    <!--    Kalendarz-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/pingcheng/bootstrap4-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Sampi</title>
 </head>
 <body>
 <div id="navbar-include"></div>
 
-<div class="row container-fluid">
-    <div id="content" class="col-sm-9 text-white">
-        <div class="container">
-        <div class="row">
-            <div class="col-md">
-                <table class="table table-bordered" style="table-layout: fixed;" id="grafik">
-                    <tr class="table table-borderless">
-                        <th>Poniedziałek</th>
-                        <th>Wtorek</th>
-                        <th>Środa</th>
-                        <th>Czwartek</th>
-                        <th>Piątek</th>
-                        <th>Sobota</th>
+<div class="row container-fluid border-left-0">
+    <div id="content" class="col-sm-12">
+        <div class="container w-100 p-3">
+
+        <div class="row ">
+            <div class="col-md ">
+                <table class="table table-responsive table-bordered border-right-0 border-top-0 border-left-0 border-bottom-0" style="table-layout: fixed;" id="grafik">
+                    <tr class="noborder">
+                        <th style="text-align: center; width: 14.28%" class="noborder"></th>
+                        <th style="text-align: center; width: 14.28%" class="noborder">Poniedziałek</th>
+                        <th style="text-align: center; width: 14.28%" class="noborder">Wtorek</th>
+                        <th style="text-align: center; width: 14.28%" class="noborder">Środa</th>
+                        <th style="text-align: center; width: 14.28%" class="noborder">Czwartek</th>
+                        <th style="text-align: center; width: 14.28%" class="noborder">Piątek</th>
+                        <th style="text-align: center; width: 14.28%" class="noborder">Sobota</th>
 
                     </tr>
                     <tr>
-                        <td onclick="this.style.backgroundColor = 'Red';"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-                    <tr>
+                        <th scope="row" class="noborder">07:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -53,6 +53,7 @@
 
                     </tr>
                     <tr>
+                        <th scope="row" class="noborder">08:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -62,6 +63,7 @@
 
                     </tr>
                     <tr>
+                        <th scope="row" class="noborder">09:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -71,6 +73,7 @@
 
                     </tr>
                     <tr>
+                        <th scope="row" class="noborder">10:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -80,6 +83,7 @@
 
                     </tr>
                     <tr>
+                        <th scope="row" class="noborder">11:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -89,6 +93,7 @@
 
                     </tr>
                     <tr>
+                        <th scope="row" class="noborder">12:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -98,6 +103,7 @@
 
                     </tr>
                     <tr>
+                        <th scope="row" class="noborder">13:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -107,6 +113,7 @@
 
                     </tr>
                     <tr>
+                        <th scope="row" class="noborder">14:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -116,6 +123,37 @@
 
                     </tr>
                     <tr>
+                        <th scope="row" class="noborder">15:00</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="noborder">16:00</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="noborder">17:00</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row" class="noborder">18:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -126,18 +164,21 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-sm-1 align-self-center">
-                <div class="row m-2">
-                <button type="button" class="schedule-work" id="work">W pracy</button>
+            <div class="col-sm-3 align-self-start flex-wrap" style="margin-top: 50px">
+                <div class="d-flex justify-content-center">
+                    <div id="weekpicker1"></div>
                 </div>
-                <div class="row m-2">
-                <button type="button" class="schedule-call" id="call">Na Wezwanie</button>
+                <div>
+                    <button class="schedule-button" id="work">W Pracy</button>
                 </div>
-                <div class="row m-2">
-                <button type="button" class="schedule-unavailable" id="unavailable">Niedostępny</button>
+                <div>
+                    <button class="schedule-button schedule-button-call" id="call">Na Wezwanie</button>
                 </div>
-                <div class="row m-2">
-                    <button type="button" class="schedule-holiday" id="holiday">Wyjazd Służbowy</button>
+                <div>
+                    <button class="schedule-button schedule-button-trip" id="trip">Wyjazd Służbowy</button>
+                </div>
+                <div>
+                    <button class="schedule-button schedule-button-unavailable" id="unavailable">Niedostępny</button>
                 </div>
             </div>
         </div>
@@ -152,6 +193,13 @@
     includeMenu();
 
 </script>
+<script type="text/javascript" src="https://cdn.rawgit.com/trco/bootstrap-weekpicker/master/src/bootstrap-weekpicker.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/pingcheng/bootstrap4-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="/sampi/js/grafik.js"></script>
+<script type="text/javascript" src="/sampi/js/bootstrap-weekpicker.js"></script>
 </body>
 </html>

@@ -1,0 +1,101 @@
+.schedule-button {
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    font-size: 13px;
+    color: #009d92;
+    background-color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: solid #009d92 2px;
+    border-radius: 50px;
+    display: flex;
+    width: 100%;
+    text-wrap: avoid;
+    white-space: nowrap;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.schedule-button:hover{
+    transition : 0ms;
+    padding: 10px 20px;
+    background-color: #009d92;
+    color: #fff;
+    border: solid 2px #009d92;
+}
+.schedule-button-active{
+    transition : 0ms;
+    padding: 10px 20px;
+    background-color: #009d92;
+    color: #fff;
+    border: solid 2px #009d92;
+}
+ .schedule-button-call{
+     color: #f2c43d;
+    border: solid #f2c43d 2px;
+}
+
+.schedule-button-call:hover{
+    background-color: #f2c43d;
+    border: solid #f2c43d 2px;
+}
+
+.schedule-button-call-active{
+    color:#fff;
+    background-color: #f2c43d;
+    border: solid #f2c43d 2px;
+}
+
+.schedule-button-unavailable{
+    color: #a64d79;
+    border: solid #a64d79 2px;
+}
+
+.schedule-button-unavailable:hover{
+    background-color: #a64d79;
+    border: solid #a64d79 2px;
+}
+
+.schedule-button-unavailable-active{
+    color:#fff;
+    background-color: #a64d79;
+    border: solid #a64d79 2px;
+}
+
+.schedule-button-trip{
+    color: #6fa8dc;
+    border: solid #6fa8dc 2px;
+}
+
+.schedule-button-trip:hover{
+    background-color: #6fa8dc;
+    border: solid #6fa8dc 2px;
+}
+
+.schedule-button-trip-active{
+    color:#fff;
+    background-color: #6fa8dc;
+    border: solid #6fa8dc 2px;
+}
+
+.schedule-work {
+    background: #009d92;
+}
+
+.schedule-call {
+    background: #f2c43d;
+}
+
+.schedule-trip {
+    background: #6fa8dc;
+}
+
+.schedule-unavailable {
+    background: #a64d79;
+}
+
+.noborder{
+    border: none!important;
+}
