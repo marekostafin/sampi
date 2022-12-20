@@ -44,3 +44,7 @@ function revert(a) {
     }
 
 }
+
+$(function() {
+    var weekpicker = $("#weekpicker1").weekpicker();
+});
