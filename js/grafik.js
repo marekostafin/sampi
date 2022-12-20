@@ -8,16 +8,13 @@ $( "#call" ).click(function() {
 $( "#unavailable" ).click(function() {
     mode = "schedule-unavailable"
 });
-$( "#holiday" ).click(function() {
-    mode = "schedule-holiday"
+$( "#trip" ).click(function() {
+    mode = "schedule-trip"
 });
 $(document).ready( function() {
     $('#grafik').click( function(event) {
         var target = $(event.target);
         $td = target.closest('td');
         $td.addClass(mode);
-
-
-
     });
 });

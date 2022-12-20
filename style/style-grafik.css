@@ -1,0 +1,72 @@
+.schedule-button {
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+    font-family: Roboto, sans-serif;
+    font-weight: 0;
+    font-size: 13px;
+    color: #fff;
+    background-color: #009d92;
+    padding: 10px 20px;
+    border: solid #009d92 2px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transition : 0ms;
+    display: flex;
+    white-space: nowrap;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.schedule-button:hover{
+    transition : 0ms;
+    padding: 10px 20px;
+    transform : translateY(-0px);
+    background-color: #fff;
+    color: #009d92;
+    border: solid 2px #009d92;
+}
+
+ .schedule-button-call{
+    background-color: #f2c43d;
+    border: solid #f2c43d 2px;
+}
+
+.schedule-button-call:hover{
+    color: #f2c43d;
+    border: solid #f2c43d 2px;
+}
+
+.schedule-button-unavailable{
+    background-color: #a64d79;
+    border: solid #a64d79 2px;
+}
+
+.schedule-button-unavailable:hover{
+    color: #a64d79;
+    border: solid #a64d79 2px;
+}
+
+.schedule-button-trip{
+    background-color: #6fa8dc;
+    border: solid #6fa8dc 2px;
+}
+
+.schedule-button-trip:hover{
+    color: #6fa8dc;
+    border: solid #6fa8dc 2px;
+}
+
+.schedule-work {
+    background: #009d92;
+}
+
+.schedule-call {
+    background: #f2c43d;
+}
+
+.schedule-trip {
+    background: #6fa8dc;
+}
+
+.schedule-unavailable {
+    background: #a64d79;
+}
