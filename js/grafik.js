@@ -1,15 +1,24 @@
-var mode = "schedule-work"
+var mode = ""
+var active = ""
 $( "#work" ).click(function() {
+    revert(mode)
     mode = "schedule-work"
+    $("#work").addClass("schedule-button-active")
 });
 $( "#call" ).click(function() {
+    revert(mode)
     mode = "schedule-call"
+    $("#call").addClass("schedule-button-call-active")
 });
 $( "#unavailable" ).click(function() {
+    revert(mode)
     mode = "schedule-unavailable"
+    $("#unavailable").addClass("schedule-button-unavailable-active")
 });
 $( "#trip" ).click(function() {
+    revert(mode)
     mode = "schedule-trip"
+    $("#trip").addClass("schedule-button-trip-active")
 });
 $(document).ready( function() {
     $('#grafik').click( function(event) {
@@ -18,3 +27,20 @@ $(document).ready( function() {
         $td.addClass(mode);
     });
 });
+function revert(a) {
+    switch(a){
+        case "schedule-work":
+            $("#work").removeClass("schedule-button-active")
+            break;
+        case "schedule-call":
+            $("#call").removeClass("schedule-button-call-active")
+            break;
+        case "schedule-unavailable":
+            $("#unavailable").removeClass("schedule-button-unavailable-active")
+            break;
+        case "schedule-trip":
+            $("#trip").removeClass("schedule-button-trip-active")
+            break;
+    }
+
+}
