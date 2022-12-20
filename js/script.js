@@ -38,7 +38,7 @@ function includeNavbar() {
     document.getElementById("navbar-include").innerHTML = `
     <nav class="navbar navbar-expand-sm border-bottom border-dark">
         <div class="col-sm-4">
-            <a href="https://marekostafin.github.io/sampi/pages/index.html"><img width="200px" src="https://marekostafin.github.io/style/img/sampi.png"/></a>
+            <a href="/sampi/pages/index.html"><img width="200px" src="https://marekostafin.github.io/style/img/sampi.png"/></a>
         </div>
         <div id="notification" class="col-sm-4 text-center on">
             <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">Przypominamy, herbata Lipton jest tylko dla zarządu</div>
@@ -60,20 +60,20 @@ function includeMenu() {
             </div>
             <div id="menu" class="col-sm-12 border-left border-dark off">
                 <div class="row">
-                    <div class="col"><a href="https://marekostafin.github.io/sampi/pages/pracownicy.html"><h1 class="nav-icon"><i class="bi bi-people-fill"></i></h1><h3>Pracownicy</h3></a></div>
-                    <div class="col"><a href="https://marekostafin.github.io/sampi/pages/aktualnosci.html"><h1 class="nav-icon"><i class="bi bi-newspaper"></i></h1><h3>Aktualności</h3></a></div>
+                    <div class="col"><a href="/sampi/pages/pracownicy.html"><h1 class="nav-icon"><i class="bi bi-people-fill"></i></h1><h3>Pracownicy</h3></a></div>
+                    <div class="col"><a href="/sampi/pages/aktualnosci.html"><h1 class="nav-icon"><i class="bi bi-newspaper"></i></h1><h3>Aktualności</h3></a></div>
                 </div>
                 <div class="row">
-                    <div class="col"><a href="https://marekostafin.github.io/sampi/pages/grafik.html"><h1 class="nav-icon"><i class="bi bi-calendar-week"></i></h1><h3>Grafik</h3></a></div>
-                    <div class="col"><a href="https://marekostafin.github.io/sampi/pages/komunikator.html"><h1 class="nav-icon"><i class="bi bi-chat-left-dots"></i></h1><h3>Komunikator</h3></a></div>
+                    <div class="col"><a href="/sampi/pages/grafik.html"><h1 class="nav-icon"><i class="bi bi-calendar-week"></i></h1><h3>Grafik</h3></a></div>
+                    <div class="col"><a href="/sampi/pages/komunikator.html"><h1 class="nav-icon"><i class="bi bi-chat-left-dots"></i></h1><h3>Komunikator</h3></a></div>
                 </div>
                 <div class="row">
-                    <div class="col"><a href="https://marekostafin.github.io/sampi/pages/wnioski.html"><h1 class="nav-icon"><i class="bi bi-card-list"></i></h1><h3>Wnioski</h3></a></div>
-                    <div class="col"><a href="https://marekostafin.github.io/sampi/pages/szkolenia.html"><h1 class="nav-icon"><i class="bi bi-briefcase"></i></h1><h3>Szkolenia</h3></a></div>
+                    <div class="col"><a href="/sampi/pages/wnioski.html"><h1 class="nav-icon"><i class="bi bi-card-list"></i></h1><h3>Wnioski</h3></a></div>
+                    <div class="col"><a href="/sampi/pages/szkolenia.html"><h1 class="nav-icon"><i class="bi bi-briefcase"></i></h1><h3>Szkolenia</h3></a></div>
                 </div>
                 <div class="row">
-                    <div class="col"><a href="https://marekostafin.github.io/sampi/pages/moje-biuro.html"><h1 class="nav-icon"><i class="bi bi-building"></i></h1><h3>Moje biuro</h3></a></div>
-                    <div class="col"><a href="https://marekostafin.github.io/sampi/pages/kontakt.html"><h1 class="nav-icon"><i class="bi bi-telephone-fill"></i></h1><h3>Kontakt</h3></a></div>
+                    <div class="col"><a href="/sampi/pages/moje-biuro.html"><h1 class="nav-icon"><i class="bi bi-building"></i></h1><h3>Moje biuro</h3></a></div>
+                    <div class="col"><a href="/sampi/pages/kontakt.html"><h1 class="nav-icon"><i class="bi bi-telephone-fill"></i></h1><h3>Kontakt</h3></a></div>
                 </div>
             </div>
         </div>
