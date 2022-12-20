@@ -147,6 +147,19 @@ a:visited {
     margin:0;
     padding-bottom: 2.5vh;
 }
-.greenBg {
-    background: green;
+
+.schedule-work {
+    background: #009d92;
+}
+
+.schedule-call {
+    background: #f2c43d;
+}
+
+.schedule-unavailable {
+    background: #6fa8dc;
+}
+
+.schedule-holiday {
+    background: #a64d79;
 }
