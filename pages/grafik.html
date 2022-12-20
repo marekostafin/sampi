@@ -17,17 +17,141 @@
     <title>Sampi</title>
 </head>
 <body>
-    <div id="navbar-include"></div>
+<div id="navbar-include"></div>
 
-    <div class="row container-fluid">
-        <div id="content" class="col-sm-12">
-            grafik
+<div class="row container-fluid">
+    <div id="content" class="col-sm-9 text-white">
+        <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <table class="table table-bordered" style="table-layout: fixed;" id="grafik">
+                    <tr class="table table-borderless">
+                        <th>Poniedziałek</th>
+                        <th>Wtorek</th>
+                        <th>Środa</th>
+                        <th>Czwartek</th>
+                        <th>Piątek</th>
+                        <th>Sobota</th>
+
+                    </tr>
+                    <tr>
+                        <td onclick="this.style.backgroundColor = 'Red';"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-1 align-self-center">
+                <div class="row m-2">
+                <button type="button" class="schedule-work" id="work">W pracy</button>
+                </div>
+                <div class="row m-2">
+                <button type="button" class="schedule-call" id="call">Na Wezwanie</button>
+                </div>
+                <div class="row m-2">
+                <button type="button" class="schedule-unavailable" id="unavailable">Niedostępny</button>
+                </div>
+                <div class="row m-2">
+                    <button type="button" class="schedule-holiday" id="holiday">Wyjazd Służbowy</button>
+                </div>
+            </div>
         </div>
-        <div id="menu-include"></div>
+        </div>
     </div>
-    <script>
-        includeNavbar();
-        includeMenu();
-    </script> 
+    <div id="menu-include"></div>
+</div>
+
+
+<script>
+    includeNavbar();
+    includeMenu();
+
+</script>
+<script type="text/javascript" src="/js/grafik.js"></script>
 </body>
 </html>
