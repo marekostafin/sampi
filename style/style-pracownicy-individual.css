@@ -31,3 +31,40 @@
     color: white;
     text-align: center;
 }
+
+#btns{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.employee-action-button{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+}
+
+.card-text{
+    margin-bottom: 10px;
+    display: flex;
+}
+
+#mail-list{
+    padding-left: 20%;
+    position: center;
+}
+
+#mail-list p{
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 3px;
+}
+
+#mail-list-title{
+    position: center;
+    text-align: left;
+    padding-left: 15%;
+}
