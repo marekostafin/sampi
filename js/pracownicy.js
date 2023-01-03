@@ -48,9 +48,13 @@ var styles = `
     }
 `
 
-function linkEmp(employeeLink) {
-    console.log("/sampi/pages/pracownicy/" + employeeLink + ".html")
-    window.location = "/sampi/pages/pracownicy/" + employeeLink + ".html"
+function linkEmp() {
+    console.log("/sampi/pages/pracownicy.html")
+    // window.location = "/sampi/pages/pracownicy/" + employeeLink + ".html"
+}
+
+function fun() {
+    alert("Welcome to the javaTpoint.com");
 }
 
 function loadEmployees() {
@@ -68,10 +72,14 @@ function loadEmployees() {
         li.style.marginBottom = "10px"
 
         let buttons = document.createElement("div")
+        let employeeForm = document.createElement("form")
+        employeeForm.action="/sampi/pages/pracownicy/" + employee.link + ".html"
         let employeeButton = document.createElement("button")
+        employeeButton.id="button"+employee.link
         employeeButton.className = "btn btn-outline-dark mt-1 mb-1 col-9"
         employeeButton.innerText = "Zobacz profil"
-        buttons.appendChild(employeeButton)
+        employeeForm.appendChild(employeeButton)
+        buttons.appendChild(employeeForm)
 
         let avatarDiv = document.createElement("div")
         let avatar = document.createElement("img");
@@ -91,6 +99,7 @@ function loadEmployees() {
             </div>
             <div class="col-sm-3 text-center" style="margin-left: 5%; margin-top: 2.5%">
                 ${buttons.innerHTML}
+                <script></script>
             </div>
         </div>
         `;
