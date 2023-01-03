@@ -3,6 +3,31 @@ var data = [
         first_name: "Michał",
         last_name: "Szkot",
         email: "michal.szkot@dundermifflin.com",
+        location: "Kraków",
+        link: "szkot-michal"
+    },
+    {
+        first_name: "Michał",
+        last_name: "Szkot",
+        email: "michal.szkot@dundermifflin.com",
+        location: "Kraków"
+    },
+    {
+        first_name: "Michał",
+        last_name: "Szkot",
+        email: "michal.szkot@dundermifflin.com",
+        location: "Kraków"
+    },
+    {
+        first_name: "Michał",
+        last_name: "Szkot",
+        email: "michal.szkot@dundermifflin.com",
+        location: "Kraków"
+    },
+    {
+        first_name: "Michał",
+        last_name: "Szkot",
+        email: "michal.szkot@dundermifflin.com",
         location: "Kraków"
     }
 ]
@@ -16,7 +41,17 @@ var styles = `
         border-radius: 50%;
         border: 10px solid #ffffff;
     }
+    
+    #scroll{
+        height 10%;
+        overflow-y: scroll;
+    }
 `
+
+function linkEmp(employeeLink) {
+    console.log("/sampi/pages/pracownicy/" + employeeLink + ".html")
+    window.location = "/sampi/pages/pracownicy/" + employeeLink + ".html"
+}
 
 function loadEmployees() {
     console.log("Loading employees...")
@@ -40,7 +75,7 @@ function loadEmployees() {
 
         let avatarDiv = document.createElement("div")
         let avatar = document.createElement("img");
-        avatar.src="/sampi/style/img/avatar-" + employee.last_name + employee.first_name + ".png"
+        avatar.src="/sampi/style/img/avatar-" + employee.link + ".png"
         avatar.id="avatar"
         avatarDiv.appendChild(avatar)
 
