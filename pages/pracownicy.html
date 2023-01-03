@@ -13,22 +13,29 @@
     <link rel="stylesheet" href="/sampi/style/style.css">
 
     <script type="text/javascript" src="/sampi/js/script.js"></script>
+    <script type="text/javascript" src="/sampi/js/pracownicy.js"></script>
 
     <title>Sampi</title>
 </head>
 <body>
     <div id="navbar-include"></div>
 
-    <div class="row container-fluid">
+    <div class="row container-fluid align-items-center justify-content-center">
         <div id="content" class="col-sm-9">
-            <p>pracownicy</p>
-            <a href="/sampi/pages/pracownicy/szkot-michal.html">Michał Szkot</a>
+            <div class="container">
+                <input class="mt-2 mb-2" type="text" name="" id="" placeholder="Szukaj pracowników" value="">
+                <div class="overflow-auto" style="background-color: #00665F; height: 80vh" >
+                    <h2 style="color: white">Pracownicy</h2>
+                    <ul class="p-0" id="employee-list"></ul>
+                </div>
+            </div>
         </div>
         <div id="menu-include"></div>
     </div>
     <script>
         includeNavbar();
         includeMenu();
+        loadEmployees();
     </script> 
 </body>
 </html>
