@@ -20,6 +20,7 @@
     height:100%;
     margin:0;
     padding:0;
+    z-index: 150 !important;
 }
 
 #menu {
@@ -137,7 +138,7 @@ a:visited {
 
 .navbar {
     height: 11vh;
-    min-height: 70px;
+    min-height: 80px;
 }
 
 .carousel-indicators {
