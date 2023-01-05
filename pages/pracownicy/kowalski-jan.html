@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/sampi/style/style.css">
+  <link rel="stylesheet" href="/sampi/style/style-pracownicy-individual.css">
+
+  <script src='https://kit.fontawesome.com/4dacb3403d.js' crossorigin='anonymous'></script>
+  <script type="text/javascript" src="/sampi/js/script.js"></script>
+
+  <title>Sampi</title>
+</head>
+<body>
+<div id="navbar-include"></div>
+
+<div class="row container-fluid">
+  <div id="content" class="col-sm-12">
+    <div class="row">
+
+      <div class="col-sm" id="pracownicy-individual-left-col">
+        <div id="pracownicy-individual-left-col-content">
+          <div class="input-group">
+            <input type="search" class="form-control rounded" placeholder="Wyszukaj współpracowników" aria-label="Wyszukaj współpracowników" aria-describedby="search-addon" />
+            <span class="input-group-text border-0" id="search-addon">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+          <div id="avatar">
+            <img src="/sampi/style/img/avatar-szkot.png" alt="Profile picture">
+          </div>
+          <div id="employee-head">
+            <h3>Michał Szkot</h3>
+            <p>Kierownik działu wdrażania</p>
+            <div id="btns">
+              <p>
+                <button class="employee-action-button"><i class="fa fa-paper-plane"></i> Napisz wiadomość</button>
+              </p>
+              <p>
+                <button class="employee-action-button"><i class="fa fa-users"></i> Dodaj do grupy</button>
+              </p>
+            </div>
+            <h5 id="mail-list-title">Email</h5>
+            <div id="mail-list">
+              <p><i class="fa fa-envelope"></i> michal.szkot@dundermifflin.com</p>
+              <p><i class="fa fa-envelope"></i> m.szkot@dunder.com</p>
+              <p><i class="fa fa-envelope"></i> michal.szkot89@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card mt-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <p class="card-text">Firma: Dunder Mifflin sp. z o.o.</p>
+                <p class="card-text">Lokalizacja: Kraków</p>
+              </div>
+              <div class="col">
+                <p class="card-text">Przełożony: Janusz Kowalski</p>
+                <p class="card-text">Staż pracy: 4 lata</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title">Informacje służbowe</h5>
+            <div class="row">
+              <div class="col">
+                <p class="card-text">Tytuł biznesowy:</p>
+                <p class="card-text">Typ pracownika:</p>
+                <p class="card-text">Organizacja:</p>
+                <p class="card-text">Adres służbowy:</p>
+                <p class="card-text">Nr telefonu:</p>
+                <p class="card-text">Adres e-mail:</p>
+              </div>
+              <div class="col">
+                <p class="card-text">Kierownik działu wdrażania</p>
+                <p class="card-text">Kierownik</p>
+                <p class="card-text">Dunder Mifflin Polska</p>
+                <p class="card-text">Tulipanowa 31, 00-110 Warszawa</p>
+                <p class="card-text">+48 110 110 100</p>
+                <p class="card-text">michal.szkot@dundermifflin.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title">Umiejętności:</h5>
+            <p>Certyfikowany kurs obsługi niszczarki do dokumentów</p>
+            <p>Prawo jazdy kategorii T</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title">Współpracownicy</h5>
+            <p class="card-text">Janusz Kowalski</p>
+            <p class="card-text">Agata Gałęza</p>
+            <p class="card-text">Odeta Brosz</p>
+            <p class="card-text">Adam Nowak</p>
+            <p class="card-text">Andrzej Wyż</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="menu-include"></div>
+</div>
+<script>
+  includeNavbar();
+  includeMenu();
+</script>
+</body>
+</html>

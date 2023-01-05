@@ -43,11 +43,21 @@ function includeNavbar() {
         <div id="notification" class="col-sm-4 text-center on">
             <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">Przypominamy, herbata Lipton jest tylko dla zarządu</div>
         </div>
-        <div id="nav-user" class="col-sm-3 text-right float-right on">
-            <h4>Jan Kowalski</h4>
-            Inżynier Oprogramowania
+        <div class="col-sm-2 offset-sm-2">
+            <a href="/sampi/pages/pracownicy/kowalski-jan.html">
+                <div class="row">
+                    <div id="nav-user" class="col-sm-10 text-right float-right on"">
+                        <h4 style="margin-bottom: 0px">Jan Kowalski</h4>
+                            Inżynier Oprogramowania
+                    </div>
+                    <div id="nav-user-icon" class="col-sm-2" style="padding-left: 0px">
+                        <h1>
+                            <img width="50em" src="/sampi/style/img/avatar-kowalski-jan.png" style="border-radius: 50%;">
+                        </h1>
+                    </div>
+                </div>
+            </a>
         </div>
-        <div id="nav-user-icon" class="col-sm-1"><h1><i class="bi bi-person-circle"></i></h1></div>
     </nav>`;
 }
 
