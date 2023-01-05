@@ -14,15 +14,6 @@ var styles = `
     }
 `
 
-function linkEmp() {
-    console.log("/sampi/pages/pracownicy.html")
-    // window.location = "/sampi/pages/pracownicy/" + employeeLink + ".html"
-}
-
-function fun() {
-    alert("Welcome to the javaTpoint.com");
-}
-
 function loadEmployees() {
     console.log("Loading employees...")
     var styleSheet = document.createElement("style")
