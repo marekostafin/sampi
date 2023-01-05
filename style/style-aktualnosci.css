@@ -1,0 +1,16 @@
+#aktualnosci-header h1 {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+}
+
+#articles-container {
+    background-color: rgb(0,102,95);
+    color: white;
+    height: 73vh;
+}
+
+#articles-buttons {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
