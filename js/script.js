@@ -14,6 +14,7 @@ function navNotificationsOffOn() {
 }
 
 function menuButtonClick() {
+    var menuContainer = document.getElementById("menu-container")
     var menu = document.getElementById("menu");
     var button = document.getElementById("menu-button");
     var content = document.getElementById("content");
@@ -22,12 +23,14 @@ function menuButtonClick() {
     if(menu.classList.contains("on")) {
         menu.classList.replace("on","off");
         menu.classList.remove("col-sm-10");
+        menuContainer.classList.remove("col-sm-3")
         content.classList.replace("col-sm-9","col-sm-12");
         button.classList.add("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-right-fill", "bi-caret-left-fill");
     } else {
         menu.classList.replace("off","on");
         menu.classList.add("col-sm-10");
+        menuContainer.classList.add("col-sm-3");
         content.classList.replace("col-sm-12","col-sm-9");
         button.classList.remove("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-left-fill", "bi-caret-right-fill");
@@ -63,7 +66,7 @@ function includeNavbar() {
 
 function includeMenu() {
     document.getElementById("menu-include").innerHTML = `
-    <div id="menu-container" class="col-sm-3 text-center">
+    <div id="menu-container" class="text-center">
         <div id="menu-row" class="row">
             <div id="menu-button-container" class="col-sm-1"></divclass>
                 <button id="menu-button" class="btn btn-light float-right menu-button-hidden" type="button" onclick="menuButtonClick()"><i id="menu-button-icon" class="bi bi-caret-left-fill"></i></button>
