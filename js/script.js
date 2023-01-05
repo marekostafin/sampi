@@ -66,7 +66,7 @@ function includeNavbar() {
 
 function includeMenu() {
     document.getElementById("menu-include").innerHTML = `
-    <div id="menu-container" class="col-sm-3 text-center">
+    <div id="menu-container" class="text-center">
         <div id="menu-row" class="row">
             <div id="menu-button-container" class="col-sm-1"></divclass>
                 <button id="menu-button" class="btn btn-light float-right menu-button-hidden" type="button" onclick="menuButtonClick()"><i id="menu-button-icon" class="bi bi-caret-left-fill"></i></button>
