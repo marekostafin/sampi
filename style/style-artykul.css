@@ -20,13 +20,13 @@
     width: 100%;
     height: 40%;
     bottom:0;
-    z-index: 100 !important;
+    z-index: 10;
     background-image: linear-gradient(to top, rgb(1000,1000,1000), rgba(1000,1000,1000,0));
 }
 
 #article-title {
     position: absolute;
-    z-index: 200 !important;
+    z-index: 11;
     bottom:5%;
     margin-left: 5%;
 }
@@ -36,4 +36,18 @@
     padding-bottom: 5vh;
     padding-right: 2%;
     text-align: justify;
+}
+
+#articles-side-list {
+    margin-top: 20%;
+}
+
+#articles-side-list-article-image {
+    position: relative;
+    padding-top: 50%;
+    text-align: center;
+}
+
+#articles-side-list-element {
+    margin-bottom: 10px;
 }
