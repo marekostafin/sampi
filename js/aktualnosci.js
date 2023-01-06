@@ -113,7 +113,7 @@ function loadArticles() {
         article_description.innerText = article.content.slice(0,200)+'...';
 
         li.innerHTML = `
-        <a href="/sampi/pages/artykul.html" style="color:white;">
+        <a href="javascript:SetArticleTitle('${article.title}');" style="color:white;" onclick="SetArticleTitle(${article.title});">
             <div class="row container-fluid">
                 <div class="col-sm-9" style="margin-top: 5vh;">
                     <h3>${article_title.innerHTML}</h3>
@@ -131,3 +131,34 @@ function loadArticles() {
         list.appendChild(li);
     }
 }
+
+function SetArticleTitle(article_title) {
+    localStorage.setItem("articleTitle", article_title);
+    window.location.href="/sampi/pages/artykul.html";
+}
+
+function loadArticle() {
+    var article_image = document.getElementById("article-img");
+    var article_title = document.getElementById("article-title");
+    var article_text = document.getElementById("article-text");
+
+    for(const article of articles) {
+        if(article.title == localStorage.getItem("articleTitle")) {
+            article_image.src = '/sampi/style/img/'+article.image;
+            article_title.innerText = article.title;
+            article_text.innerText = article.content;
+        }
+    }
+}
+
+function refreshArticle() {
+    var article_title = document.getElementById("article-title").innerText;
+    console.log(article_title);
+    if(article_title != "" && article_title != null) {
+        console.log(article_title);
+        localStorage.setItem("articleTitle", article_title);
+    }
+}
+
+window.onbeforeunload = refreshArticle;
+

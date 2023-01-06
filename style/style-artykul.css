@@ -1,0 +1,39 @@
+#article-container {
+    padding:0;
+    margin:0;
+}
+
+#article-img {
+    width: 100%;
+    position: absolute;
+    top:-35%;
+}
+
+#article-img-container {
+    height:40vh;
+    overflow: hidden;
+    position: relative;
+}
+
+#article-img-gradient {
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    bottom:0;
+    z-index: 100 !important;
+    background-image: linear-gradient(to top, rgb(1000,1000,1000), rgba(1000,1000,1000,0));
+}
+
+#article-title {
+    position: absolute;
+    z-index: 200 !important;
+    bottom:5%;
+    margin-left: 5%;
+}
+
+#article-text {
+    padding-left: 5%;
+    padding-bottom: 5vh;
+    padding-right: 2%;
+    text-align: justify;
+}
