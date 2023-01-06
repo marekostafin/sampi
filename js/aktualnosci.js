@@ -193,4 +193,3 @@ function loadArticlesSideList() {
         list.appendChild(li);
     }
 }
-
