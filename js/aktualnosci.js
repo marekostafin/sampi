@@ -137,7 +137,16 @@ function SetArticleTitle(article_title) {
     window.location.href="/sampi/pages/artykul.html";
 }
 
+function SetChangeArticle(article_title) {
+    localStorage.setItem("changeArticle", 1);
+    SetArticleTitle(article_title);
+}
+
 function loadArticle() {
+    if(localStorage.getItem("changeArticle") == 1) {
+        localStorage.setItem("changeArticle", 0);
+    }
+
     var article_image = document.getElementById("article-img");
     var article_title = document.getElementById("article-title");
     var article_text = document.getElementById("article-text");
@@ -153,12 +162,35 @@ function loadArticle() {
 
 function refreshArticle() {
     var article_title = document.getElementById("article-title").innerText;
-    console.log(article_title);
-    if(article_title != "" && article_title != null) {
-        console.log(article_title);
+    if(article_title != "" && article_title != null && localStorage.getItem("changeArticle") != true) {
         localStorage.setItem("articleTitle", article_title);
     }
 }
 
 window.onbeforeunload = refreshArticle;
+
+function loadArticlesSideList() {
+    var list = document.getElementById('articles-side-list');
+
+    for(const article of articles) {
+        if(article.title == localStorage.getItem("articleTitle")) {
+            continue;
+        }
+        let li = document.createElement('li');
+
+        li.innerHTML = `
+        <a href="javascript:SetChangeArticle('${article.title}');" style="color:white;" onclick="SetChangeArticle(${article.title});">
+            <div id="articles-side-list-article-image" style='width:100%; height:20vh; background-image: linear-gradient(to top, rgba(0,102,95, 1), rgba(0,102,95,0.2)), url("/sampi/style/img/${article.image}"); background-size: cover;'>
+                ${article.title}
+            </div>
+            <script></script>
+        </a>
+        `;
+
+        li.style.border =  'solid 2px black';
+        li.id = "articles-side-list-element";
+
+        list.appendChild(li);
+    }
+}
 

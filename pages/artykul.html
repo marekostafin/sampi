@@ -33,7 +33,10 @@
                     <div id="article-text"></div>
                 </div>
                 <div class="col-sm-2">
-                    <a href="/sampi/pages/artykuly-edytor.html" type="button" class="btn btn-outline-dark btn-block">Edytuj artykuł</a>
+                    <a href="/sampi/pages/artykuly-edytor.html" type="button" class="btn btn-outline-dark btn-block" style="margin-top: 5px;">Edytuj artykuł</a>
+                    <div id="articles-side-list-container">
+                        <ul id="articles-side-list" style="list-style: none; list-style-type: none; padding:0;"></ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,6 +46,7 @@
         includeNavbar();
         includeMenu();
         loadArticle();
+        loadArticlesSideList();
     </script> 
 </body>
 </html>
