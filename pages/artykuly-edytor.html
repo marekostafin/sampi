@@ -11,17 +11,45 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/sampi/style/style.css">
+    <link rel="stylesheet" href="/sampi/style/style-artykuly-edytor.css">
 
     <script type="text/javascript" src="/sampi/js/script.js"></script>
+    <script type="text/javascript" src="/sampi/js/aktualnosci.js"></script>
 
     <title>Sampi</title>
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#editor',
+            skin: 'bootstrap',
+            plugins: 'lists',
+            toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link | removeformat',
+            menubar: false,
+        });
+    </script>
 </head>
 <body>
 <div id="navbar-include"></div>
 
 <div class="row container-fluid">
     <div id="content" class="col-sm-12">
-        edytor
+        <div class="col-sm-11" id="editor-container">
+        <div class="row">
+            <div class="col-sm-9">
+                <input type="text" value="Tytuł artykułu">
+                <a href="" type="button" class="btn btn-outline-dark" style="margin-top: 5px;">Dodaj tło artykułu</a>
+            </div>
+            <div class="col-sm-3">
+                <a href="" type="button" class="btn btn-outline-dark" style="margin-top: 5px;">Podgląd artykułu</a>
+                <a href="" type="button" class="btn btn-outline-dark" style="margin-top: 5px;">Opublikuj artykuł</a>
+            </div>
+        </div>
+        <div class="form-group" id="editor-textarea-container">
+            <textarea id="editor"></textarea>
+        </div>
+    </div>
     </div>
     <div id="menu-include"></div>
 </div>
