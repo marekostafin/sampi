@@ -11,8 +11,10 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/sampi/style/style.css">
+    <link rel="stylesheet" href="/sampi/style/style-artykul.css">
 
     <script type="text/javascript" src="/sampi/js/script.js"></script>
+    <script type="text/javascript" src="/sampi/js/aktualnosci.js"></script>
 
     <title>Sampi</title>
 </head>
@@ -21,13 +23,26 @@
 
     <div class="row container-fluid">
         <div id="content" class="col-sm-12">
-            artykuł
+            <div class="row">
+                <div class="col-sm-9" id="article-container">
+                    <div id="article-img-container">
+                        <div id="article-img-gradient"></div>
+                        <img id="article-img">
+                        <h1 id="article-title"></h1>
+                    </div>
+                    <div id="article-text"></div>
+                </div>
+                <div class="col-sm-2">
+                    <a href="/sampi/pages/artykuly-edytor.html" type="button" class="btn btn-outline-dark btn-block">Edytuj artykuł</a>
+                </div>
+            </div>
         </div>
         <div id="menu-include"></div>
     </div>
     <script>
         includeNavbar();
         includeMenu();
+        loadArticle();
     </script> 
 </body>
 </html>
