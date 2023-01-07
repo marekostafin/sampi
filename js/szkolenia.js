@@ -45,30 +45,45 @@ var data = [
     },
 ]
 
+function storeData() {
+    sessionStorage.setItem("szkolenia", JSON.stringify(data))
+}
+
+function retriveData() {
+    data = JSON.parse(sessionStorage.getItem("szkolenia"))
+}
+
 
 function loadszkolenia() {
     let contener = document.getElementById("szkolenia-list")
+    retriveData();
+    while (contener.firstChild) {
+        contener.removeChild(contener.lastChild)
+    }
+    let index = 0;
     for (const szkolenie of data) {
         let li = document.createElement("li")
+        li.id = szkolenie.name
         li.style.border = 'solid 3px'
         li.style.backgroundColor = 'white';
         li.style.listStyle = 'none'
         li.style.marginBottom = "10px"
         let buttons = document.createElement("div")
-        if(szkolenie.signed == true) {
+        if (szkolenie.signed == true) {
             let st = document.createElement("button")
             let nd = document.createElement("button")
             st.className = "btn btn-outline-dark mt-1 mb-1 col-9 active"
             nd.className = "btn btn-outline-dark mt-1 mb-1 col-9"
             st.innerText = "Zapisano na szkolenie"
             nd.innerText = "Zrezygnuj"
+            nd.id = index;
             buttons.appendChild(st)
             buttons.appendChild(nd)
-        }
-        else {
+        } else {
             let st = document.createElement("button")
             st.className = "btn btn-outline-dark mt-1 mb-1 col-9 mt-4"
             st.innerText = "Zapisz się na szkolenie"
+            st.id = index;
             buttons.appendChild(st)
         }
         li.innerHTML = `
@@ -87,7 +102,51 @@ function loadszkolenia() {
             </div>
         </div>
         `;
-
+        index++;
         contener.appendChild(li);
     }
+
+    hideSzkolenia(document.getElementById("wyszukiwarka").value);
 }
+
+function buttonlistener() {
+    document.body.addEventListener("click", function (event) {
+        if(event.target.innerText == "Zapisz się na szkolenie") {
+            data[event.target.id].signed = true;
+            storeData();
+            loadszkolenia();
+        }
+
+        if(event.target.innerText == "Zrezygnuj") {
+            data[event.target.id].signed = false;
+            storeData();
+            loadszkolenia();
+        }
+    })
+}
+
+
+function onStart(){
+    let szkolenia = sessionStorage.getItem("szkolenia")
+    if(szkolenia == null) {
+        storeData()
+    }
+}
+
+function hideSzkolenia(value) {
+    let regex = value.toLowerCase()
+    for (const szkolenie of data) {
+        let check1 = (szkolenie.name.toLowerCase()).match(regex)
+        let check2 = (szkolenie.description.toLowerCase()).match(regex)
+
+        if(!check1 && !check2) {
+            document.getElementById(szkolenie.name).style.display = "none"
+        }
+    }
+}
+
+onStart()
+document.addEventListener("DOMContentLoaded", buttonlistener)
+document.addEventListener("input", loadszkolenia)
+
+
