@@ -15,20 +15,13 @@
 
     <script type="text/javascript" src="/sampi/js/script.js"></script>
     <script type="text/javascript" src="/sampi/js/aktualnosci.js"></script>
+    <script type="text/javascript" src="/sampi/js/edytor.js"></script>
+
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
 
     <title>Sampi</title>
 
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-
-    <script>
-        tinymce.init({
-            selector: 'textarea#editor',
-            skin: 'bootstrap',
-            plugins: 'lists',
-            toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link | removeformat',
-            menubar: false,
-        });
-    </script>
 </head>
 <body>
 <div id="navbar-include"></div>
@@ -38,8 +31,18 @@
         <div class="col-sm-11" id="editor-container">
         <div class="row">
             <div class="col-sm-9">
-                <input type="text" value="Tytuł artykułu">
-                <a href="" type="button" class="btn btn-outline-dark" style="margin-top: 5px;">Dodaj tło artykułu</a>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label for="formFile" class="form-label">Tytuł artykułu</label>
+                        <input type="text" class="form-control" id="editor-title" placeholder="Tytuł artykułu">
+                    </div>
+                    <div class="col-sm-3 custom-file" id="editor-choose-file">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Tło artykułu</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-3">
                 <a href="" type="button" class="btn btn-outline-dark" style="margin-top: 5px;">Podgląd artykułu</a>
@@ -47,7 +50,7 @@
             </div>
         </div>
         <div class="form-group" id="editor-textarea-container">
-            <textarea id="editor"></textarea>
+            <div id="editor"></div>
         </div>
     </div>
     </div>
@@ -56,6 +59,7 @@
 <script>
     includeNavbar();
     includeMenu();
+    loadEditor();
 </script>
 </body>
 </html>
