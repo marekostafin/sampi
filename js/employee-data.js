@@ -1,4 +1,4 @@
-var employeeData = [
+let employeeData = [
     {
         first_name: "Odeta",
         last_name: "Brosz",
@@ -48,4 +48,4 @@ var employeeData = [
         location: "Kraków",
         link: "wyz-andrzej"
     }
-]
+];
