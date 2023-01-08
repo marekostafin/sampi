@@ -45,8 +45,9 @@
                 </div>
             </div>
             <div class="col-sm-3">
-                <a href="javascript:articlePreview();" type="button" class="btn btn-outline-dark" style="margin-top: 5px;">Podgląd artykułu</a>
-                <a href="javascript:articlePublish();" type="button" class="btn btn-outline-dark" style="margin-top: 5px;">Opublikuj artykuł</a>
+                <a href="javascript:articlePreview();" type="button" class="btn btn-outline-dark" style="margin-top: 5px;width:48%;">Podgląd artykułu</a>
+                <a href="/sampi/pages/aktualnosci.html" type="button" class="btn btn-outline-dark" style="margin-top: 5px;width:48%;">Anuluj</a>
+                <a href="javascript:articlePublish();" type="button" class="btn btn-outline-dark btn-block" style="margin-top: 5px;">Opublikuj artykuł</a>
             </div>
         </div>
         <div class="form-group" id="editor-textarea-container">
@@ -61,6 +62,7 @@
     includeNavbar();
     includeMenu();
     loadEditor();
+    loadArticleToEditor();
 </script>
 </body>
 </html>

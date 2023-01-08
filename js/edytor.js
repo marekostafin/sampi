@@ -15,14 +15,26 @@ formFile.addEventListener('change', () => {
 
 function loadEditor() {
     editor = new FroalaEditor('#editor', {
-        height: 400
+        height: 400,
+        toolbarButtons: [
+            ['bold', 'italic', 'underline', 'paragraphFormat', 'formatOL', 'formatUL'],
+        ]
+    }, function () {
+        if(sessionStorage.getItem('editArticle') != "" && sessionStorage.getItem('editArticle') != null) {
+            for (const article of JSON.parse(sessionStorage.getItem('articlesList'))) {
+                if (article.title === sessionStorage.getItem("editArticle")) {
+                    editor.html.insert(article.content);
+                }
+            }
+        }
     });
 }
 
 function validate() {
     if(document.getElementById("editor-title").value === "") {
         return false;
-    } else if(document.getElementById("formFile").value === "") {
+    } else if(document.getElementById("formFile").value === "" && (sessionStorage.getItem('editArticle') === null || sessionStorage.getItem('editArticle')==="")) {
+        console.log(document.getElementById("formFile").value)
         return false;
     } else if(editor.html.get() === "") {
         return false;
@@ -112,7 +124,20 @@ function articlePublish() {
         newArticle['title'] = document.getElementById("editor-title").value;
         newArticle['content'] = editor.html.get();
         var articlesUpdated = JSON.parse(sessionStorage.getItem('articlesList'));
-        articlesUpdated.push(newArticle);
+
+        if(sessionStorage.getItem('editArticle') != null && sessionStorage.getItem('editArticle') != "") {
+            for(var article of articlesUpdated) {
+                if(article.title === sessionStorage.getItem('editArticle')) {
+                    article.title = newArticle.title;
+                    article.content = newArticle.content;
+                    if(Object.keys(newArticle).includes('image')) {
+                        article.image = newArticle.image;
+                    }
+                }
+            }
+        } else {
+            articlesUpdated.push(newArticle);
+        }
         sessionStorage.setItem("articlesList", JSON.stringify(articlesUpdated));
         sessionStorage.setItem("articleTitle", newArticle.title);
 
@@ -120,5 +145,19 @@ function articlePublish() {
 
     } else {
         window.alert("Uzupełnij brakujące informacje!");
+    }
+}
+
+function editArticle() {
+    var title = document.getElementById("article-title").innerText;
+    sessionStorage.setItem('editArticle', title);
+
+    window.location.href='/sampi/pages/artykuly-edytor.html';
+}
+
+function loadArticleToEditor() {
+    if(sessionStorage.getItem('editArticle') != "" && sessionStorage.getItem('editArticle') != null) {
+        var editor_title = document.getElementById("editor-title");
+        editor_title.value = sessionStorage.getItem("editArticle");
     }
 }
