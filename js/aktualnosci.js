@@ -202,3 +202,8 @@ function loadArticlesSideList() {
         list.appendChild(li);
     }
 }
+
+function goToEditorToAddNewArticle() {
+    sessionStorage.setItem('editArticle',"");
+    window.location.href="/sampi/pages/artykuly-edytor.html";
+}
