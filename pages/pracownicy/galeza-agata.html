@@ -40,9 +40,9 @@
             <h3>Agata Gałęza</h3>
             <p>Recepcjonistka</p>
             <div id="btns">
-              <p>
+              <a href="/sampi/pages/komunikator.html" onclick="linkToChat()">
                 <button class="employee-action-button"><i class="fa fa-paper-plane"></i> Napisz wiadomość</button>
-              </p>
+              </a>
             </div>
             <h5 id="mail-list-title">Email</h5>
             <div id="mail-list">
@@ -137,6 +137,9 @@
 <script>
   includeNavbar();
   includeMenu();
+  function linkToChat() {
+    window.sessionStorage.setItem("openChat", "galeza-agata");
+  }
 </script>
 </body>
 </html>

@@ -56,7 +56,7 @@ async function loadOpenChats() {
             window.sessionStorage.setItem("openChat", link);
             document.location.reload();
         }
-        if (link == window.sessionStorage.getItem("openChat")) {
+        if (link === window.sessionStorage.getItem("openChat")) {
             a.classList.remove("list-group-item-light")
             a.classList.add("active");
             a.classList.add("text-white");

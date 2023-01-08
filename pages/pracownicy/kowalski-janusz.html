@@ -40,9 +40,9 @@
             <h3>Janusz Kowalski</h3>
             <p>Prezes</p>
             <div id="btns">
-              <p>
+              <a href="/sampi/pages/komunikator.html" onclick="linkToChat()">
                 <button class="employee-action-button"><i class="fa fa-paper-plane"></i> Napisz wiadomość</button>
-              </p>
+              </a>
             </div>
             <h5 id="mail-list-title">Email</h5>
             <div id="mail-list">
@@ -131,6 +131,9 @@
 <script>
   includeNavbar();
   includeMenu();
+  function linkToChat() {
+    window.sessionStorage.setItem("openChat", "kowalski-janusz");
+  }
 </script>
 </body>
 </html>
