@@ -138,8 +138,8 @@ function loadCarousel() {
     article2_p.innerHTML = JSON.parse(sessionStorage.getItem('articlesList'))[1].content.replace(/<[^>]+>/g, '').slice(0,100)+'...';
     article2_a.href = "javascript:SetArticleTitle('"+article2_h2.innerText+"');";
 
-    article3_image.src = JSON.parse(sessionStorage.getItem('articlesList'))[3].image;
-    article3_h2.innerText = JSON.parse(sessionStorage.getItem('articlesList'))[3].title;
-    article3_p.innerHTML = JSON.parse(sessionStorage.getItem('articlesList'))[3].content.replace(/<[^>]+>/g, '').slice(0,100)+'...';
+    article3_image.src = JSON.parse(sessionStorage.getItem('articlesList'))[2].image;
+    article3_h2.innerText = JSON.parse(sessionStorage.getItem('articlesList'))[2].title;
+    article3_p.innerHTML = JSON.parse(sessionStorage.getItem('articlesList'))[2].content.replace(/<[^>]+>/g, '').slice(0,100)+'...';
     article3_a.href = "javascript:SetArticleTitle('"+article3_h2.innerText+"');";
 }
