@@ -44,13 +44,15 @@ function loadEmployees() {
         avatar.id="avatar"
         avatarDiv.appendChild(avatar)
 
+        li.id = employee.first_name + " " + employee.last_name;
+
         li.innerHTML = `
         <div class="row container-fluid">
             <div class="col-sm-1 p-0">
                 ${avatarDiv.innerHTML}
             </div>
             <div class="head col-sm-7 p-1" style="margin-left: 2%">
-                <h4 style="padding-top: 1%">${employee.first_name} ${employee.last_name}</h4>
+                <h4 style="padding-top: 1%" id="name">${employee.first_name} ${employee.last_name}</h4>
                 <div class="col-sm p-0 h6">Adres e-mail: ${employee.email}</div>
                 <div class="col-sm p-0 h6">Lokalizacja: &nbsp ${employee.location}</div>
             </div>
@@ -63,4 +65,36 @@ function loadEmployees() {
 
         container.appendChild(li)
     }
+}
+
+function findEmployees(inp) {
+    inp.addEventListener("input", function(e) {
+        var val = this.value;
+        let container = document.getElementById("employee-list");
+        var children = container.getElementsByTagName("li");
+        for (let i = children.length - 1; i >= 0; i--) {
+            if (!(children[i].id.toLowerCase()).includes(val.toLowerCase())) {
+                container.removeChild(children[i]);
+            }
+        }
+    });
+
+    inp.addEventListener("keydown", function (e){
+        var val = this.value;
+        let container = document.getElementById("employee-list");
+        var children = container.getElementsByTagName("li");
+        if (e.key === "Enter") {
+            container.innerHTML = ``;
+            loadEmployees();
+            this.value = "";
+        } else if (e.key === "Backspace") {
+            container.innerHTML = ``;
+            loadEmployees();
+            for (let i = children.length - 1; i >= 0; i--) {
+                if (!(children[i].id.toLowerCase()).includes(val.toLowerCase())) {
+                    container.removeChild(children[i]);
+                }
+            }
+        }
+    });
 }
