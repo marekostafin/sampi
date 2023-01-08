@@ -37,7 +37,7 @@
             selectedYear = year;
 
             element.val("Tydzień " + calendarWeek + ", " + year);
-            loadCalendar(calendarWeek,year)
+            loadCalendar(calendarWeek,year);
         }
 
         function createButton (direction, siblingElement) {

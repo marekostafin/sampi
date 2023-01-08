@@ -24,26 +24,44 @@ let year
 let week
 // let date
 let tds
+const classnames = ["schedule-work","schedule-trip","schedule-unavailable","schedule-call"];
 function loadCalendar(inputweek, inputyear) {
-    // var calendar = $('#weekpicker1').weekpicker()
-    year = inputyear
-    week = inputweek
+
+    year = inputyear;
+    week = inputweek;
     // date = selecteddate
-    tds = $("td");
+    tds = $("#grafik td");
     for (var i = 0; i < tds.length; i++) {
 
         //Get the previous state of the td:
         var prevState = sessionStorage.getItem(i + ":" + week + year);
-        console.log(prevState);
+        var cell = $(tds.get(i));
+        cell.removeClass()
+        // cell.classList.remove("schedule-work","schedule-trip","schedule-unavailable","schedule-call");
         //If prevState is null, set it to "first":
         if (prevState === null) {
+            // var cell = $(tds.get(i));
+            // cell.removeClass()
+            // for(i=0; i < classnames.length; i++){
+            //     if(cell.classList.contains(classnames[i])){
+            //         cell.removeClass(classnames[i]);
+            //     }
+            // }
             sessionStorage.setItem(i + ":" + week + year, "none");
         }
+
         //Otherwise, restore prevState:
         else {
             //Get the td:
             var cell = $(tds.get(i));
-            cell.removeClass()
+            // cell.removeClass()
+            // for(i=0; i < classnames.length; i++){
+            //     if(cell.classList.contains(classnames[i])){
+            //         cell.removeClass(classnames[i]);
+            //     }
+            //
+            // }
+
             //Depending on prevState:
             switch (prevState) {
                 case "none":
