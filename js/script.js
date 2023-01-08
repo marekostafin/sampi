@@ -37,6 +37,22 @@ function menuButtonClick() {
     }
 }
 
+function randomBanner() {
+    let banners = [
+        "Przypominamy, że herbata Lipton jest tylko dla zarządu",
+        "Uwaga! Ciężkie opady śniegu w open space #3! Zachowaj szcze...",
+        "Loteria pracownicza! Wygraj nadgodziny i inne nagrody!",
+        "Przypominamy! Spożycie większej ilości owoców niż zadeklaro...",
+        "Webinar \"Podwyżki - dlaczego nie dają szczęścia\" już dost...",
+        "Konkurs na bukiet ze spinaczy biurowych wygrał Andrzej Wyż!",
+        "Poszukiwany niebieski długopis biurowy, ostatnio widziany w...",
+        "Poradnik \"10 zamienników dla Lorem Ipsum\" już dostępny w...",
+        "Przypominamy, że składkę za korzystanie z windy należy uiśc..."
+    ]
+    let index = Math.floor(Math.random() * banners.length);
+    return banners[index];
+}
+
 function includeNavbar() {
     document.getElementById("navbar-include").innerHTML = `
     <nav class="navbar navbar-expand-sm border-bottom border-dark">
@@ -44,7 +60,7 @@ function includeNavbar() {
             <a href="/sampi/index.html"><img width="200px" src="/sampi/style/img/sampi.png"/></a>
         </div>
         <div id="notification" class="col-sm-4 text-center on">
-            <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">Przypominamy, herbata Lipton jest tylko dla zarządu</div>
+            <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">${randomBanner()}</div>
         </div>
         <div class="col-sm-2 offset-sm-2">
             <a href="/sampi/pages/pracownicy/kowalski-jan.html">

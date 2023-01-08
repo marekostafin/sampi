@@ -5,3 +5,23 @@
 #editor-textarea-container {
     margin-top: 5vh;
 }
+
+#editor-title {
+    height: 5vh;
+}
+
+#editor-choose-file {
+    width: 30%;
+    margin:0;
+    padding:0;
+}
+
+#preview-banner {
+    z-index: 12;
+    color: red;
+    position: absolute;
+    background-color: white;
+    padding: 2%;
+    border: 2px solid red;
+    margin-left: 40%;
+}

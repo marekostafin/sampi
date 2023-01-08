@@ -20,6 +20,10 @@
 
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
 
+
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
+
     <title>Sampi</title>
 
 </head>
@@ -31,26 +35,38 @@
         <div class="col-sm-11" id="editor-container">
         <div class="row">
             <div class="col-sm-9">
-                <input type="text" value="Tytuł artykułu" style="width: 25em; height: 2.5rem">
-                <a href="" type="button" class="btn btn-outline-dark" style="margin-top: 0px;">Dodaj tło artykułu</a>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label for="formFile" class="form-label">Tytuł artykułu</label>
+                        <input type="text" class="form-control" id="editor-title" placeholder="Tytuł artykułu">
+                    </div>
+                    <div class="col-sm-3 custom-file" id="editor-choose-file">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Tło artykułu</label>
+                            <input class="form-control" accept="image/jpg,image/png,image/jpeg" type="file" id="formFile">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-3">
-                <a href="" type="button" class="btn btn-outline-dark" style="margin-top: 5px;">Podgląd artykułu</a>
-                <a href="" type="button" class="btn btn-outline-dark" style="margin-top: 5px;">Opublikuj artykuł</a>
+                <a href="javascript:articlePreview();" type="button" class="btn btn-outline-dark" style="margin-top: 5px;width:48%;">Podgląd artykułu</a>
+                <a href="/sampi/pages/aktualnosci.html" type="button" class="btn btn-outline-dark" style="margin-top: 5px;width:48%;">Anuluj</a>
+                <a href="javascript:articlePublish();" type="button" class="btn btn-outline-dark btn-block" style="margin-top: 5px;">Opublikuj artykuł</a>
             </div>
         </div>
         <div class="form-group" id="editor-textarea-container">
             <div id="editor"></div>
-
         </div>
     </div>
     </div>
     <div id="menu-include"></div>
 </div>
+<script type="text/javascript" src="/sampi/js/edytor.js"></script>
 <script>
     includeNavbar();
     includeMenu();
     loadEditor();
+    loadArticleToEditor();
 </script>
 </body>
 </html>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/sampi/style/style.css">
     <link rel="stylesheet" href="/sampi/style/style-artykul.css">
+    <link rel="stylesheet" href="/sampi/style/style-artykuly-edytor.css">
 
     <script type="text/javascript" src="/sampi/js/script.js"></script>
     <script type="text/javascript" src="/sampi/js/aktualnosci.js"></script>
@@ -20,34 +21,30 @@
     <title>Sampi</title>
 </head>
 <body>
-    <div id="navbar-include"></div>
+<div id="navbar-include"></div>
+    <div id="preview-banner"><h1>Podgląd</h1></div>
 
-    <div class="row container-fluid">
-        <div id="content" class="col-sm-12">
-            <div class="row">
-                <div class="col-sm-9" id="article-container">
-                    <div id="article-img-container">
-                        <div id="article-img-gradient"></div>
-                        <img id="article-img">
-                        <h1 id="article-title"></h1>
-                    </div>
-                    <div id="article-text"></div>
+<div class="row container-fluid">
+    <div id="content" class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-9" id="article-container">
+                <div id="article-img-container">
+                    <div id="article-img-gradient"></div>
+                    <img id="article-img">
+                    <h1 id="article-title"></h1>
                 </div>
-                <div class="col-sm-2">
-                    <a href="javascript:editArticle();" type="button" class="btn btn-outline-dark btn-block" style="margin-top: 5px;">Edytuj artykuł</a>
-                    <div id="articles-side-list-container">
-                        <ul id="articles-side-list" style="list-style: none; list-style-type: none; padding:0;"></ul>
-                    </div>
-                </div>
+                <div id="article-text"></div>
+            </div>
+            <div class="col-sm-2">
             </div>
         </div>
-        <div id="menu-include"></div>
     </div>
-    <script>
-        includeNavbar();
-        includeMenu();
-        loadArticle();
-        loadArticlesSideList();
-    </script> 
+    <div id="menu-include"></div>
+</div>
+<script>
+    includeNavbarForPreview();
+    includeMenuForPreview();
+    loadArticlePreview();
+</script>
 </body>
 </html>
