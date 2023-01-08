@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/sampi/style/style.css">
+    <link rel="stylesheet" href="/sampi/style/style-artykul.css">
+    <link rel="stylesheet" href="/sampi/style/style-artykuly-edytor.css">
+
+    <script type="text/javascript" src="/sampi/js/script.js"></script>
+    <script type="text/javascript" src="/sampi/js/aktualnosci.js"></script>
+    <script type="text/javascript" src="/sampi/js/edytor.js"></script>
+
+    <title>Sampi</title>
+</head>
+<body>
+<div id="navbar-include"></div>
+    <div id="preview-banner"><h1>Podgląd</h1></div>
+
+<div class="row container-fluid">
+    <div id="content" class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-9" id="article-container">
+                <div id="article-img-container">
+                    <div id="article-img-gradient"></div>
+                    <img id="article-img">
+                    <h1 id="article-title"></h1>
+                </div>
+                <div id="article-text"></div>
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+    </div>
+    <div id="menu-include"></div>
+</div>
+<script>
+    includeNavbarForPreview();
+    includeMenuForPreview();
+    loadArticlePreview();
+</script>
+</body>
+</html>
