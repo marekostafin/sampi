@@ -53,7 +53,7 @@
                                 <form action="#" class="bg-light">
                                     <div class="input-group">
 
-                                        <input type="text" placeholder="Napisz wiadomość" aria-describedby="button-addon2" class="form-control  border-0 py-4 bg-light" id="chat-box">
+                                        <input type="text" placeholder="Napisz wiadomość" aria-describedby="button-addon2" class="form-control  border-0 py-4 bg-light" id="chat-box" autocomplete="off">
                                         <div class="input-group-append">
                                             <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
                                         </div>
@@ -71,8 +71,9 @@
     <script>
         includeNavbar();
         includeMenu();
+        loadSavedChats();
         loadOpenChats();
-        loadCurrentChat("nowak-adam");
+        loadCurrentChat(window.sessionStorage.getItem("openChat"));
     </script> 
 </body>
 </html>
