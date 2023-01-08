@@ -1,16 +1,20 @@
 let editor = null;
 let newArticle = {};
-const formFile = document.getElementById("formFile");
-formFile.addEventListener('change', () => {
-    const fr = new FileReader();
+let formFile = null;
 
-    fr.readAsDataURL(formFile.files[0]);
+function loadFormFile() {
+    formFile = document.getElementById("formFile");
+    formFile.addEventListener('change', () => {
+        const fr = new FileReader();
 
-    fr.addEventListener('load', () => {
-        const url = fr.result;
-        newArticle['image'] = url;
-    })
-})
+        fr.readAsDataURL(formFile.files[0]);
+
+        fr.addEventListener('load', () => {
+            const url = fr.result;
+            newArticle['image'] = url;
+        })
+    });
+}
 
 function loadEditor() {
     editor = new FroalaEditor('#editor', {
@@ -44,7 +48,7 @@ function articlePreview() {
     if(validate() == true) {
         newArticle['title'] = document.getElementById("editor-title").value;
         newArticle['content'] = editor.html.get();
-        localStorage.setItem("newArticle", JSON.stringify(newArticle));
+        sessionStorage.setItem("newArticle", JSON.stringify(newArticle));
         window.open("/sampi/pages/artykul-podglad.html", "Preview", "toolbar=yes,scrollbars=yes,resizable=yes,left=200,width=1200,height=1000");
     } else {
         window.alert("Uzupełnij brakujące informacje!");
@@ -56,9 +60,17 @@ function loadArticlePreview() {
     var article_title = document.getElementById("article-title");
     var article_text = document.getElementById("article-text");
 
-    var article = JSON.parse(localStorage.getItem("newArticle"));
+    var article = JSON.parse(sessionStorage.getItem("newArticle"));
 
-    article_image.src = article.image;
+    if(Object.keys(article).includes('image')) {
+        article_image.src = article.image;
+    } else {
+        for(const art of JSON.parse(sessionStorage.getItem('articlesList'))) {
+            if(art.title === sessionStorage.getItem('editArticle')) {
+                article_image.src = art.image;
+            }
+        }
+    }
     article_title.innerText = article.title;
     article_text.innerHTML = article.content;
 }
