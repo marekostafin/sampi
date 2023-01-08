@@ -48,8 +48,6 @@ function loadArticlePreview() {
 
     var article = JSON.parse(localStorage.getItem("newArticle"));
 
-    console.log(article.image);
-
     article_image.src = article.image;
     article_title.innerText = article.title;
     article_text.innerHTML = article.content;
@@ -107,4 +105,20 @@ function includeMenuForPreview() {
             </div>
         </div>
     </div>`;
+}
+
+function articlePublish() {
+    if(validate() == true) {
+        newArticle['title'] = document.getElementById("editor-title").value;
+        newArticle['content'] = editor.html.get();
+        var articlesUpdated = JSON.parse(sessionStorage.getItem('articlesList'));
+        articlesUpdated.push(newArticle);
+        sessionStorage.setItem("articlesList", JSON.stringify(articlesUpdated));
+        sessionStorage.setItem("articleTitle", newArticle.title);
+
+        window.location.href="/sampi/pages/artykul.html";
+
+    } else {
+        window.alert("Uzupełnij brakujące informacje!");
+    }
 }

@@ -99,18 +99,25 @@ var articles = [
             'Etiam fermentum orci nec efficitur ultrices. Cras vel sollicitudin purus. Maecenas dapibus malesuada lectus eu aliquam. Curabitur eu eros ac justo accumsan interdum eu sed eros. Suspendisse elementum elit sit amet libero posuere, a placerat dui egestas. Phasellus turpis dui, aliquam id tincidunt nec, ullamcorper a est. Aliquam vestibulum facilisis semper. '
     }
 ];
+function loadArticlesToStorage() {
+    if(sessionStorage.getItem('articlesList')===null) {
+        sessionStorage.setItem('articlesList', JSON.stringify(articles));
+    }
+}
+
+loadArticlesToStorage();
 
 function loadArticles() {
     var list = document.getElementById('articles-list');
 
-    for(const article of articles) {
+    for(const article of JSON.parse(sessionStorage.getItem('articlesList'))) {
         let li = document.createElement('li');
 
         var article_title = document.createElement("h2");
         var article_description = document.createElement("h4");
 
         article_title.innerText = article.title;
-        article_description.innerText = article.content.slice(0,200)+'...';
+        article_description.innerHTML = article.content.replace(/<[^>]+>/g, '').slice(0,200)+'...';
 
         li.innerHTML = `
         <a href="javascript:SetArticleTitle('${article.title}');" style="color:white;" onclick="SetArticleTitle(${article.title});">
@@ -133,37 +140,39 @@ function loadArticles() {
 }
 
 function SetArticleTitle(article_title) {
-    localStorage.setItem("articleTitle", article_title);
+    sessionStorage.setItem("articleTitle", article_title);
     window.location.href="/sampi/pages/artykul.html";
 }
 
 function SetChangeArticle(article_title) {
-    localStorage.setItem("changeArticle", 1);
+    sessionStorage.setItem("changeArticle", 1);
     SetArticleTitle(article_title);
 }
 
 function loadArticle() {
-    if(localStorage.getItem("changeArticle") == 1) {
-        localStorage.setItem("changeArticle", 0);
+    if(sessionStorage.getItem("changeArticle") == 1) {
+        sessionStorage.setItem("changeArticle", 0);
     }
 
     var article_image = document.getElementById("article-img");
     var article_title = document.getElementById("article-title");
     var article_text = document.getElementById("article-text");
 
-    for(const article of articles) {
-        if(article.title == localStorage.getItem("articleTitle")) {
+    console.log(sessionStorage.getItem('articlesList'));
+    console.log(sessionStorage.getItem('articleTitle'));
+    for(const article of JSON.parse(sessionStorage.getItem('articlesList'))) {
+        if(article.title == sessionStorage.getItem("articleTitle")) {
             article_image.src = article.image;
             article_title.innerText = article.title;
-            article_text.innerText = article.content;
+            article_text.innerHTML = article.content;
         }
     }
 }
 
 function refreshArticle() {
     var article_title = document.getElementById("article-title").innerText;
-    if(article_title != "" && article_title != null && localStorage.getItem("changeArticle") != true) {
-        localStorage.setItem("articleTitle", article_title);
+    if(article_title != "" && article_title != null && sessionStorage.getItem("changeArticle") != true) {
+        sessionStorage.setItem("articleTitle", article_title);
     }
 }
 
@@ -172,8 +181,8 @@ window.onbeforeunload = refreshArticle;
 function loadArticlesSideList() {
     var list = document.getElementById('articles-side-list');
 
-    for(const article of articles) {
-        if(article.title == localStorage.getItem("articleTitle")) {
+    for(const article of JSON.parse(sessionStorage.getItem('articlesList'))) {
+        if(article.title == sessionStorage.getItem("articleTitle")) {
             continue;
         }
         let li = document.createElement('li');
