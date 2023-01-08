@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/sampi/style/style.css">
 
     <script type="text/javascript" src="/sampi/js/script.js"></script>
+    <script type="text/javascript" src="/sampi/js/wnioski.js"></script>
 
     <title>Sampi</title>
 </head>
@@ -21,13 +22,20 @@
 
     <div class="row container-fluid">
         <div id="content" class="col-sm-12">
-            wnioski
+            <div class="container">
+                <input class="mt-2 mb-2" type="text" name="" id="wyszukiwarka" placeholder="Szukaj wniosku" value="">
+                <h2 style="color: #00665F">Dostępne Wnioski:</h2>
+                <div class="overflow-auto p-3" style="background-color: #00665F; height: 75vh" >
+                    <ul class="p-0" id="wnioski-list"></ul>
+                </div>
+            </div>
         </div>
         <div id="menu-include"></div>
     </div>
     <script>
         includeNavbar();
         includeMenu();
+        loadWnioski()
     </script> 
 </body>
 </html>
