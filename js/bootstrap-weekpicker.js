@@ -22,6 +22,7 @@
         }
 
         function setCurrentDate (element, selectedDate) {
+            loadCalendar()
             return element.data("DateTimePicker").date(selectedDate);
         }
 
