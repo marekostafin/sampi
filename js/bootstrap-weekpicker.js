@@ -22,7 +22,6 @@
         }
 
         function setCurrentDate (element, selectedDate) {
-            loadCalendar()
             return element.data("DateTimePicker").date(selectedDate);
         }
 
@@ -37,7 +36,8 @@
             }
             selectedYear = year;
 
-            element.val("Week " + calendarWeek + ", " + year);
+            element.val("Tydzień " + calendarWeek + ", " + year);
+            loadCalendar(calendarWeek,year)
         }
 
         function createButton (direction, siblingElement) {

@@ -20,23 +20,24 @@ $( "#trip" ).click(function() {
     mode = "schedule-trip"
     $("#trip").addClass("schedule-button-trip-active")
 });
-// let year
-// let week
+let year
+let week
+// let date
 let tds
-function loadCalendar(selecteddate) {
+function loadCalendar(inputweek, inputyear) {
     // var calendar = $('#weekpicker1').weekpicker()
-    // year = calendar.getYear()
-    // week = calendar.getWeek()
-
+    year = inputyear
+    week = inputweek
+    // date = selecteddate
     tds = $("td");
     for (var i = 0; i < tds.length; i++) {
 
         //Get the previous state of the td:
-        var prevState = sessionStorage.getItem(i + week + year);
+        var prevState = sessionStorage.getItem(i + ":" + week + year);
         console.log(prevState);
         //If prevState is null, set it to "first":
         if (prevState === null) {
-            sessionStorage.setItem(i + week + year, "none");
+            sessionStorage.setItem(i + ":" + week + year, "none");
         }
         //Otherwise, restore prevState:
         else {
@@ -78,7 +79,7 @@ $(document).ready( function() {
         $td.addClass(mode);
 
         var index = tds.index(target);
-        sessionStorage.setItem(index + week + year, mode);
+        sessionStorage.setItem(index + ":" + week + year, mode);
     });
 });
 function revert(a) {
