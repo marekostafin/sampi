@@ -3,7 +3,6 @@ let newArticle = {};
 const formFile = document.getElementById("formFile");
 formFile.addEventListener('change', () => {
     const fr = new FileReader();
-    console.log("in event listener");
 
     fr.readAsDataURL(formFile.files[0]);
 
@@ -34,7 +33,6 @@ function validate() {
     if(document.getElementById("editor-title").value === "") {
         return false;
     } else if(document.getElementById("formFile").value === "" && (sessionStorage.getItem('editArticle') === null || sessionStorage.getItem('editArticle')==="")) {
-        console.log(document.getElementById("formFile").value)
         return false;
     } else if(editor.html.get() === "") {
         return false;
