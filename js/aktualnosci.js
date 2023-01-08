@@ -158,8 +158,6 @@ function loadArticle() {
     var article_title = document.getElementById("article-title");
     var article_text = document.getElementById("article-text");
 
-    console.log(sessionStorage.getItem('articlesList'));
-    console.log(sessionStorage.getItem('articleTitle'));
     for(const article of JSON.parse(sessionStorage.getItem('articlesList'))) {
         if(article.title == sessionStorage.getItem("articleTitle")) {
             article_image.src = article.image;

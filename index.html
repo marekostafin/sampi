@@ -31,30 +31,30 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <a href="javascript:SetArticleTitle('Witamy nowych pracowników!');">
-                                <img class="d-block w-100" src="/sampi/style/img/szkot.png" alt="First article">
+                            <a id="First-article-a" href="javascript:SetArticleTitle('Witamy nowych pracowników!');">
+                                <img class="d-block w-100" src="/sampi/style/img/szkot.png" alt="First article" id="First-article-image">
                             </a>
                                 <div class="carousel-caption">
-                                    <h2>Witamy nowych pracowników!</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis, orci quis semper placerat, magna urna dapibus ipsum, id commodo dui mauris sit amet tortor. Pellentesque sed rhoncus metus, id efficitur dolor. Etiam vitae congue purus. Suspendisse non ex mollis, accumsan sem at, accumsan nisl.</p>
+                                    <h2 id="First-article-h2">Witamy nowych pracowników!</h2>
+                                    <p id="First-article-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis, orci quis semper placerat, magna urna dapibus ipsum, id commodo dui mauris sit amet tortor. Pellentesque sed rhoncus metus, id efficitur dolor. Etiam vitae congue purus. Suspendisse non ex mollis, accumsan sem at, accumsan nisl.</p>
                                 </div>
                         </div>
                         <div class="carousel-item">
-                            <a href="javascript:SetArticleTitle('Podwyżki od nowego roku!');">
-                                <img class="d-block w-100" src="/sampi/style/img/zdj2.png" alt="Second article">
+                            <a id="Second-article-a" href="javascript:SetArticleTitle('Podwyżki od nowego roku!');">
+                                <img class="d-block w-100" src="/sampi/style/img/zdj2.png" alt="Second article" id="Second-article-image">
                             </a>
                             <div class="carousel-caption">
-                                <h2>Podwyżki od nowego roku!</h2>
-                                <p>Lorem ipsum Lorem ipsum</p>
+                                <h2 id="Second-article-h2">Podwyżki od nowego roku!</h2>
+                                <p id="Second-article-p">Lorem ipsum Lorem ipsum</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <a href="javascript:SetArticleTitle('Jak dostać kartę multisport?');">
-                                <img class="d-block w-100" src="/sampi/style/img/zdj1.jpg" alt="Third article">
+                            <a id="Third-article-a" href="javascript:SetArticleTitle('Jak dostać kartę multisport?');">
+                                <img class="d-block w-100" src="/sampi/style/img/zdj1.jpg" alt="Third article" id="Third-article-image">
                             </a>
                             <div class="carousel-caption">
-                                <h2>Jak dostać kartę multisport?</h2>
-                                <p>Lorem ipsum Lorem ipsum</p>
+                                <h2 id="Third-article-h2">Jak dostać kartę multisport?</h2>
+                                <p id="Third-article-p">Lorem ipsum Lorem ipsum</p>
                             </div>
                         </div>
                     </div>
@@ -75,6 +75,7 @@
         includeNavbar();
         includeMenu();
         menuButtonClick();
+        loadCarousel();
     </script> 
 </body>
 </html>
