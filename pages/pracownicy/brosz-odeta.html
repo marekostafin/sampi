@@ -15,6 +15,7 @@
 
   <script src='https://kit.fontawesome.com/4dacb3403d.js' crossorigin='anonymous'></script>
   <script type="text/javascript" src="/sampi/js/script.js"></script>
+  <script type="text/javascript" src="/sampi/js/pracownicy-individual.js"></script>
 
   <title>Sampi</title>
 </head>
@@ -27,12 +28,14 @@
 
       <div class="col-sm" id="pracownicy-individual-left-col">
         <div id="pracownicy-individual-left-col-content">
-          <div class="input-group">
-            <input type="search" class="form-control rounded" placeholder="Wyszukaj współpracowników" aria-label="Wyszukaj współpracowników" aria-describedby="search-addon" />
-            <span class="input-group-text border-0" id="search-addon">
-              <i class="fas fa-search"></i>
-            </span>
-          </div>
+          <form autocomplete="off" class="input-group" action="">
+            <div class="autocomplete col-12" style="padding-left: 0px; padding-right: 0px;">
+              <input id="myInput" type="search" class="form-control rounded" placeholder="Wyszukaj współpracowników" aria-label="Wyszukaj współpracowników" aria-describedby="search-addon" />
+            </div>
+          </form>
+          <a class="d-flex justify-content-center" href="/sampi/pages/pracownicy.html">
+            <button class="btn btn-light mt-1 mb-1 col-11">Wróć do listy pracowników</button>
+          </a>
           <div id="avatar">
             <img src="/sampi/style/img/avatar-brosz-odeta.png" alt="Profile picture">
           </div>
@@ -40,9 +43,9 @@
             <h3>Odeta Brosz</h3>
             <p>Główna Księgowa</p>
             <div id="btns">
-              <p>
+              <a href="/sampi/pages/komunikator.html" onclick="linkToChat()">
                 <button class="employee-action-button"><i class="fa fa-paper-plane"></i> Napisz wiadomość</button>
-              </p>
+              </a>
             </div>
             <h5 id="mail-list-title">Email</h5>
             <div id="mail-list">
@@ -135,6 +138,11 @@
 <script>
   includeNavbar();
   includeMenu();
+  function linkToChat() {
+    window.sessionStorage.setItem("openChat", "brosz-odeta");
+  }
+  autocomplete(document.getElementById("myInput"), employees);
+  submitForm("myInput");
 </script>
 </body>
 </html>

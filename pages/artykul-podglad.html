@@ -11,34 +11,40 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/sampi/style/style.css">
-    <link rel="stylesheet" href="/sampi/style/style-aktualnosci.css">
+    <link rel="stylesheet" href="/sampi/style/style-artykul.css">
+    <link rel="stylesheet" href="/sampi/style/style-artykuly-edytor.css">
 
     <script type="text/javascript" src="/sampi/js/script.js"></script>
     <script type="text/javascript" src="/sampi/js/aktualnosci.js"></script>
+    <script type="text/javascript" src="/sampi/js/edytor.js"></script>
 
     <title>Sampi</title>
 </head>
 <body>
-    <div id="navbar-include"></div>
+<div id="navbar-include"></div>
+    <div id="preview-banner"><h1>Podgląd</h1></div>
 
-    <div class="row container-fluid">
-        <div id="content" class="col-sm-12">
-            <div class="row">
-                <div id="aktualnosci-header" class="col-sm-9"><h1>Aktualności</h1></div>
-                <div id="articles-buttons" class="col-sm-2">
-                    <a href="javascript:goToEditorToAddNewArticle();" type="button" class="btn btn-outline-dark btn-block">Dodaj artykuł</a>
+<div class="row container-fluid">
+    <div id="content" class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-9" id="article-container">
+                <div id="article-img-container">
+                    <div id="article-img-gradient"></div>
+                    <img id="article-img">
+                    <h1 id="article-title"></h1>
                 </div>
+                <div id="article-text"></div>
             </div>
-            <div id="articles-container" class="col-sm-11" style="overflow-y: scroll;">
-                <ul id="articles-list" style="list-style: none; list-style-type: none; padding:0;"></ul>
+            <div class="col-sm-2">
             </div>
         </div>
-        <div id="menu-include"></div>
     </div>
-    <script>
-        includeNavbar();
-        includeMenu();
-        loadArticles();
-    </script> 
+    <div id="menu-include"></div>
+</div>
+<script>
+    includeNavbarForPreview();
+    includeMenuForPreview();
+    loadArticlePreview();
+</script>
 </body>
 </html>

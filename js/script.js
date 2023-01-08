@@ -108,3 +108,38 @@ function includeMenu() {
         </div>
     </div>`;
 }
+
+function loadCarousel() {
+    //wiem, że syfnie to wygląda, ale nie chce mi się inaczej
+
+    var article1_image = document.getElementById("First-article-image");
+    var article2_image = document.getElementById("Second-article-image");
+    var article3_image = document.getElementById("Third-article-image");
+
+    var article1_h2 = document.getElementById("First-article-h2");
+    var article2_h2 = document.getElementById("Second-article-h2");
+    var article3_h2 = document.getElementById("Third-article-h2");
+
+    var article1_p = document.getElementById("First-article-p");
+    var article2_p = document.getElementById("Second-article-p");
+    var article3_p = document.getElementById("Third-article-p");
+
+    var article1_a = document.getElementById("First-article-a");
+    var article2_a = document.getElementById("Second-article-a");
+    var article3_a = document.getElementById("Third-article-a");
+
+    article1_image.src = JSON.parse(sessionStorage.getItem('articlesList'))[0].image;
+    article1_h2.innerText = JSON.parse(sessionStorage.getItem('articlesList'))[0].title;
+    article1_p.innerHTML = JSON.parse(sessionStorage.getItem('articlesList'))[0].content.replace(/<[^>]+>/g, '').slice(0,100)+'...';
+    article1_a.href = "javascript:SetArticleTitle('"+article1_h2.innerText+"');";
+
+    article2_image.src = JSON.parse(sessionStorage.getItem('articlesList'))[1].image;
+    article2_h2.innerText = JSON.parse(sessionStorage.getItem('articlesList'))[1].title;
+    article2_p.innerHTML = JSON.parse(sessionStorage.getItem('articlesList'))[1].content.replace(/<[^>]+>/g, '').slice(0,100)+'...';
+    article2_a.href = "javascript:SetArticleTitle('"+article2_h2.innerText+"');";
+
+    article3_image.src = JSON.parse(sessionStorage.getItem('articlesList'))[2].image;
+    article3_h2.innerText = JSON.parse(sessionStorage.getItem('articlesList'))[2].title;
+    article3_p.innerHTML = JSON.parse(sessionStorage.getItem('articlesList'))[2].content.replace(/<[^>]+>/g, '').slice(0,100)+'...';
+    article3_a.href = "javascript:SetArticleTitle('"+article3_h2.innerText+"');";
+}

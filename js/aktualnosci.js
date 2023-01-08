@@ -1,7 +1,7 @@
 var articles = [
     {
         title: 'Witamy nowych pracowników!',
-        image: 'szkot.png',
+        image: '/sampi/style/img/szkot.png',
         content: '\n' +
             '\n' +
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non elit vitae est sollicitudin rhoncus. Aenean cursus mauris ut tellus commodo venenatis et a diam. Nam dignissim turpis non nisi vulputate, eu viverra massa convallis. Nulla eget dapibus leo, non elementum lacus. Vivamus mi lacus, ornare non elementum eu, vulputate nec erat. Ut congue lorem vel sem faucibus lobortis. Nulla quis nunc sed dui viverra aliquam. Etiam posuere rutrum nulla id iaculis. Donec malesuada nec justo a tincidunt. Ut porttitor eros eu luctus fermentum. Integer sed nibh malesuada, congue diam quis, efficitur est. Nam nec augue ornare, blandit magna nec, tempor ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse non pretium eros, non vulputate turpis. Pellentesque semper massa nec mauris porttitor cursus. Praesent tincidunt consectetur velit, eget pulvinar neque.\n' +
@@ -46,7 +46,7 @@ var articles = [
     },
     {
         title: 'Podwyżki od nowego roku!',
-        image: 'zdj2.png',
+        image: '/sampi/style/img/zdj2.png',
         content: '\n' +
             'Integer vitae massa sed arcu laoreet imperdiet ut vel felis. Curabitur tortor enim, imperdiet non placerat eu, interdum mollis nunc. Pellentesque tincidunt dapibus urna, quis ultricies velit. Etiam turpis massa, condimentum eget nisi eu, feugiat ultrices ligula. Donec mattis ut lectus non dictum. Suspendisse ac augue nisl. Vestibulum felis risus, interdum eu justo in, dapibus rutrum eros. Donec ut tempor erat. Sed placerat arcu lorem, non vulputate eros tincidunt nec. Donec suscipit lorem at consequat dapibus. Donec lacus mauris, dictum eget laoreet commodo, ultrices sagittis quam. Praesent efficitur porta luctus. Curabitur lorem nunc, condimentum quis ex id, tempor ultrices ligula. Duis sed elit id dolor luctus venenatis. Praesent et nisi eget nunc porta egestas ut quis dui.\n' +
             '\n' +
@@ -72,7 +72,7 @@ var articles = [
     },
     {
         title: 'Jak dostać kartę multisport?',
-        image: 'zdj1.jpg',
+        image: '/sampi/style/img/zdj1.jpg',
         content: '\n' +
             'Maecenas orci enim, malesuada non pulvinar in, rhoncus quis nunc. Integer sed eleifend enim. Nulla felis ipsum, hendrerit eu libero ut, malesuada ullamcorper nibh. Nunc maximus mi vel nulla tincidunt pulvinar. Nunc vestibulum viverra orci non congue. Aliquam erat volutpat. Ut porttitor elementum leo vel consectetur. Maecenas vel efficitur arcu. Donec malesuada nisl dui, eu pretium lacus vulputate vitae. Vestibulum tincidunt suscipit lacinia. Vestibulum sagittis lectus sed laoreet gravida.\n' +
             '\n' +
@@ -99,18 +99,25 @@ var articles = [
             'Etiam fermentum orci nec efficitur ultrices. Cras vel sollicitudin purus. Maecenas dapibus malesuada lectus eu aliquam. Curabitur eu eros ac justo accumsan interdum eu sed eros. Suspendisse elementum elit sit amet libero posuere, a placerat dui egestas. Phasellus turpis dui, aliquam id tincidunt nec, ullamcorper a est. Aliquam vestibulum facilisis semper. '
     }
 ];
+function loadArticlesToStorage() {
+    if(sessionStorage.getItem('articlesList')===null) {
+        sessionStorage.setItem('articlesList', JSON.stringify(articles));
+    }
+}
+
+loadArticlesToStorage();
 
 function loadArticles() {
     var list = document.getElementById('articles-list');
 
-    for(const article of articles) {
+    for(const article of JSON.parse(sessionStorage.getItem('articlesList'))) {
         let li = document.createElement('li');
 
         var article_title = document.createElement("h2");
         var article_description = document.createElement("h4");
 
         article_title.innerText = article.title;
-        article_description.innerText = article.content.slice(0,200)+'...';
+        article_description.innerHTML = article.content.replace(/<[^>]+>/g, '').slice(0,200)+'...';
 
         li.innerHTML = `
         <a href="javascript:SetArticleTitle('${article.title}');" style="color:white;" onclick="SetArticleTitle(${article.title});">
@@ -119,7 +126,7 @@ function loadArticles() {
                     <h3>${article_title.innerHTML}</h3>
                     ${article_description.innerHTML}
                 </div>
-                <div id="articles-list-article-image" class="col-sm-3" style='width:100%; height:35vh; background-image: linear-gradient(to right, rgb(0,102,95), rgba(4,156,147,0.2)), url("/sampi/style/img/${article.image}"); background-size: cover;'>
+                <div id="articles-list-article-image" class="col-sm-3" style='width:100%; height:35vh; background-image: linear-gradient(to right, rgb(0,102,95), rgba(4,156,147,0.2)), url("${article.image}"); background-size: cover;'>
                     <script></script>
                 </div>
             </div>
@@ -133,54 +140,45 @@ function loadArticles() {
 }
 
 function SetArticleTitle(article_title) {
-    localStorage.setItem("articleTitle", article_title);
+    sessionStorage.setItem("articleTitle", article_title);
     window.location.href="/sampi/pages/artykul.html";
 }
 
 function SetChangeArticle(article_title) {
-    localStorage.setItem("changeArticle", 1);
+    sessionStorage.setItem("changeArticle", 1);
     SetArticleTitle(article_title);
 }
 
 function loadArticle() {
-    if(localStorage.getItem("changeArticle") == 1) {
-        localStorage.setItem("changeArticle", 0);
+    if(sessionStorage.getItem("changeArticle") == 1) {
+        sessionStorage.setItem("changeArticle", 0);
     }
 
     var article_image = document.getElementById("article-img");
     var article_title = document.getElementById("article-title");
     var article_text = document.getElementById("article-text");
 
-    for(const article of articles) {
-        if(article.title == localStorage.getItem("articleTitle")) {
-            article_image.src = '/sampi/style/img/'+article.image;
+    for(const article of JSON.parse(sessionStorage.getItem('articlesList'))) {
+        if(article.title == sessionStorage.getItem("articleTitle")) {
+            article_image.src = article.image;
             article_title.innerText = article.title;
-            article_text.innerText = article.content;
+            article_text.innerHTML = article.content;
         }
     }
 }
 
-function refreshArticle() {
-    var article_title = document.getElementById("article-title").innerText;
-    if(article_title != "" && article_title != null && localStorage.getItem("changeArticle") != true) {
-        localStorage.setItem("articleTitle", article_title);
-    }
-}
-
-window.onbeforeunload = refreshArticle;
-
 function loadArticlesSideList() {
     var list = document.getElementById('articles-side-list');
 
-    for(const article of articles) {
-        if(article.title == localStorage.getItem("articleTitle")) {
+    for(const article of JSON.parse(sessionStorage.getItem('articlesList'))) {
+        if(article.title == sessionStorage.getItem("articleTitle")) {
             continue;
         }
         let li = document.createElement('li');
 
         li.innerHTML = `
         <a href="javascript:SetChangeArticle('${article.title}');" style="color:white;" onclick="SetChangeArticle(${article.title});">
-            <div id="articles-side-list-article-image" style='width:100%; height:20vh; background-image: linear-gradient(to top, rgba(0,102,95, 1), rgba(0,102,95,0.2)), url("/sampi/style/img/${article.image}"); background-size: cover;'>
+            <div id="articles-side-list-article-image" style='width:100%; height:20vh; background-image: linear-gradient(to top, rgba(0,102,95, 1), rgba(0,102,95,0.2)), url("${article.image}"); background-size: cover;'>
                 ${article.title}
             </div>
             <script></script>
@@ -192,4 +190,9 @@ function loadArticlesSideList() {
 
         list.appendChild(li);
     }
+}
+
+function goToEditorToAddNewArticle() {
+    sessionStorage.setItem('editArticle',"");
+    window.location.href="/sampi/pages/artykuly-edytor.html";
 }
