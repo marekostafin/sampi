@@ -5,9 +5,7 @@ let users = [
 ]
 
 function checkLogged() {
-    if(sessionStorage.getItem('isLogged') != null && sessionStorage.getItem('loggedUser') != "") {
-        window.location.href="/sampi/index.html";
-    } else if(window.location.href != "/sampi/pages/logowanie.html"){
+    if(sessionStorage.getItem('loggedUser') === null || sessionStorage.getItem('loggedUser') === "") {
         window.location.href="/sampi/pages/logowanie.html";
     }
 }
