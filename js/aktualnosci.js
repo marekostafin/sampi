@@ -120,7 +120,7 @@ function loadArticles() {
         article_description.innerHTML = article.content.replace(/<[^>]+>/g, '').slice(0,200)+'...';
 
         li.innerHTML = `
-        <a href="javascript:SetArticleTitle('${article.title}');" style="color:white;" onclick="SetArticleTitle(${article.title});">
+        <a href="javascript:SetArticleTitle('${article.title}');" style="color:white !important;" onclick="SetArticleTitle(${article.title});">
             <div class="row container-fluid">
                 <div class="col-sm-9" style="margin-top: 5vh;">
                     <h3>${article_title.innerHTML}</h3>
