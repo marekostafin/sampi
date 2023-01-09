@@ -17,10 +17,16 @@
     <script type="text/javascript" src="/sampi/js/aktualnosci.js"></script>
     <script type="text/javascript" src="/sampi/js/edytor.js"></script>
     <script type="text/javascript" src="/sampi/js/artykul.js"></script>
+    <script type="text/javascript" src="/sampi/js/logowanie.js"></script>
+
 
     <title>Sampi</title>
 </head>
 <body>
+    <script>
+        checkLogged();
+    </script>
+
     <div id="navbar-include"></div>
 
     <div class="row container-fluid">
@@ -35,7 +41,7 @@
                     <div id="article-text"></div>
                 </div>
                 <div class="col-sm-2">
-                    <a href="javascript:editArticle();" type="button" class="btn btn-outline-dark btn-block" style="margin-top: 5px;">Edytuj artykuł</a>
+                    <a href="javascript:editArticle();" id="edit-article-button" type="button" class="btn btn-outline-dark btn-block" style="margin-top: 5px;">Edytuj artykuł</a>
                     <div id="articles-side-list-container">
                         <ul id="articles-side-list" style="list-style: none; list-style-type: none; padding:0;"></ul>
                     </div>
@@ -49,6 +55,7 @@
         includeMenu();
         loadArticle();
         loadArticlesSideList();
+        disableEditArticleButtonIfNotHr();
     </script> 
 </body>
 </html>

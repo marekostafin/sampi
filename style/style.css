@@ -164,3 +164,18 @@ a:visited {
 .schedule-holiday {
     background: #a64d79;
 }
+
+#log-out-button {
+    text-align: center;
+    color: gray;
+    margin:0;
+    padding:0;
+    margin-top: 0.5vh;
+    margin-left: 30%;
+    font-size: 13px;
+}
+
+#log-out-icon {
+    margin-left: 150%;
+    font-size: 18px;
+}

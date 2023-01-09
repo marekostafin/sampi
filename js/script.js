@@ -54,6 +54,10 @@ function randomBanner() {
 }
 
 function includeNavbar() {
+    let loggedInLink = "/sampi/pages/pracownicy/" + window.sessionStorage.getItem("loggedUserPage") + ".html";
+    let loggedInName = window.sessionStorage.getItem("loggedUser");
+    let loggedInPosition = window.sessionStorage.getItem("loggedUserPosition");
+    let loggedInAvatar = "/sampi/style/img/avatar-" + window.sessionStorage.getItem("loggedUserPage") + ".png";
     document.getElementById("navbar-include").innerHTML = `
     <nav class="navbar navbar-expand-sm border-bottom border-dark">
         <div class="col-sm-4">
@@ -62,25 +66,35 @@ function includeNavbar() {
         <div id="notification" class="col-sm-4 text-center on">
             <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">${randomBanner()}</div>
         </div>
-        <div class="col-sm-2 offset-sm-2">
-            <a href="/sampi/pages/pracownicy/kowalski-jan.html">
+        <div class="col-sm-3 offset-sm-1">
+        <div class="row">
+        <div class="col-sm-9">
+            <a href=${loggedInLink}>
                 <div class="row">
                     <div id="nav-user" class="col-sm-10 text-right float-right on"">
-                        <h4 style="margin-bottom: 0px">Jan Kowalski</h4>
-                            Inżynier Oprogramowania
+                        <h4 style="margin-bottom: 0px">${loggedInName}</h4>
+                            ${loggedInPosition}
                     </div>
                     <div id="nav-user-icon" class="col-sm-2" style="padding-left: 0px">
                         <h1>
-                            <img width="50em" src="/sampi/style/img/avatar-kowalski-jan.png" style="border-radius: 50%;">
+                            <img width="50em" src=${loggedInAvatar} style="border-radius: 50%;">
                         </h1>
                     </div>
                 </div>
             </a>
+            </div>
+            <a href="javascript:logOut();"><div class="col-sm-3"  id="log-out-button">Wyloguj<div id="log-out-icon"><i class="bi bi-box-arrow-right"></i></div></div></a>
+            </div>
         </div>
     </nav>`;
 }
 
 function includeMenu() {
+    var wnioski = 'wnioski.html';
+    if(sessionStorage.getItem('isLoggedUserHr') == 1) {
+        wnioski = 'wnioski-hr.html';
+    }
+
     document.getElementById("menu-include").innerHTML = `
     <div id="menu-container" class="text-center">
         <div id="menu-row" class="row">
@@ -97,7 +111,7 @@ function includeMenu() {
                     <div class="col"><a href="/sampi/pages/komunikator.html"><h1 class="nav-icon"><i class="bi bi-chat-left-dots"></i></h1><h3>Komunikator</h3></a></div>
                 </div>
                 <div class="row">
-                    <div class="col"><a href="/sampi/pages/wnioski.html"><h1 class="nav-icon"><i class="bi bi-card-list"></i></h1><h3>Wnioski</h3></a></div>
+                    <div class="col"><a href="/sampi/pages/${wnioski}"><h1 class="nav-icon"><i class="bi bi-card-list"></i></h1><h3>Wnioski</h3></a></div>
                     <div class="col"><a href="/sampi/pages/szkolenia.html"><h1 class="nav-icon"><i class="bi bi-briefcase"></i></h1><h3>Szkolenia</h3></a></div>
                 </div>
                 <div class="row">
