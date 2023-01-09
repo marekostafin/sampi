@@ -57,7 +57,7 @@ function includeNavbar() {
     let loggedInLink = "/sampi/pages/pracownicy/" + window.sessionStorage.getItem("loggedUserPage") + ".html";
     let loggedInName = window.sessionStorage.getItem("loggedUser");
     let loggedInPosition = window.sessionStorage.getItem("loggedUserPosition");
-    let loggedInAvatar = "/sampi/style/img/" + window.sessionStorage.getItem("loggedUserPage") + ".png";
+    let loggedInAvatar = "/sampi/style/img/avatar-" + window.sessionStorage.getItem("loggedUserPage") + ".png";
     document.getElementById("navbar-include").innerHTML = `
     <nav class="navbar navbar-expand-sm border-bottom border-dark">
         <div class="col-sm-4">
