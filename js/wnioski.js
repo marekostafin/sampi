@@ -131,7 +131,7 @@ function loadWnioski() {
 
 function sendWniosek(index) {
     retriveData()
-    data[index].send = "send";
+    data[index].send = "oczekujący";
     let now = new Date();
     let day = now.getDate()
     if(day < 10) {
