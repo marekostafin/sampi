@@ -76,6 +76,9 @@ function loadArticlePreview() {
 }
 
 function includeNavbarForPreview() {
+    let loggedInName = window.sessionStorage.getItem("loggedUser");
+    let loggedInPosition = window.sessionStorage.getItem("loggedUserPosition");
+    let loggedInAvatar = "/sampi/style/img/avatar-" + window.sessionStorage.getItem("loggedUserPage") + ".png";
     document.getElementById("navbar-include").innerHTML = `
     <nav class="navbar navbar-expand-sm border-bottom border-dark">
         <div class="col-sm-4">
@@ -87,12 +90,12 @@ function includeNavbarForPreview() {
         <div class="col-sm-2 offset-sm-2">
                 <div class="row">
                     <div id="nav-user" class="col-sm-10 text-right float-right on"">
-                        <h4 style="margin-bottom: 0px">Jan Kowalski</h4>
-                            Inżynier Oprogramowania
+                        <h4 style="margin-bottom: 0px">${loggedInName}</h4>
+                            ${loggedInPosition}
                     </div>
                     <div id="nav-user-icon" class="col-sm-2" style="padding-left: 0px">
                         <h1>
-                            <img width="50em" src="/sampi/style/img/avatar-kowalski-jan.png" style="border-radius: 50%;">
+                            <img width="50em" src=${loggedInAvatar} style="border-radius: 50%;">
                         </h1>
                     </div>
                 </div>
