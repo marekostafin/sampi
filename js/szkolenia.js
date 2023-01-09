@@ -12,7 +12,7 @@ var data = [
     },
     {
         name: "Owocowe Czwartki - Szkolenie BHP",
-        description: "Szkolenie obejmuje podłączenie poprawną technikę chwytania\n" +
+        description: "Szkolenie obejmuje poprawną technikę chwytania\n" +
             "owoców, mycie owoców przed ich spożyciem oraz recykling\n" +
             "pozostałości po spożytych owocach.",
         data: "12.05.2023r.",
