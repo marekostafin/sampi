@@ -4,7 +4,7 @@ var data = [
         name: "Zwrot kosztów delegacji",
         link: "/sampi/pages/wnioski/zwrot-kosztów-delegacji.html",
         data: "05/01/2022",
-        send: "send",
+        send: "oczekujący",
         firstInput: "Konferencja",
         secondInput: "Wrocław",
         thirdInput: 10,
@@ -16,7 +16,7 @@ var data = [
         name: "Zwrot kosztów delegacji",
         link: "/sampi/pages/wnioski/zwrot-kosztów-delegacji.html",
         data: "08/01/2022",
-        send: "send",
+        send: "oczekujący",
         firstInput: "Meet-up",
         secondInput: "Kraków",
         thirdInput: 500,
@@ -28,7 +28,7 @@ var data = [
         name: "Zwrot kosztów delegacji",
         link: "/sampi/pages/wnioski/zwrot-kosztów-delegacji.html",
         data: "09/01/2022",
-        send: "send",
+        send: "oczekujący",
         firstInput: "Spotkanie służobwe",
         secondInput: "Warszawa",
         thirdInput: 100,
@@ -40,7 +40,7 @@ var data = [
         name: "Wniosek o urlop macierzyński",
         link: "/sampi/pages/wnioski/wniosek-o-urlop-macierzynski.html",
         data: "04/01/2022",
-        send: "send",
+        send: "oczekujący",
         firstInput: "Natan Bąk",
         secondInput: "2023-02-05",
         thirdInput: "2023-05-25",
@@ -52,7 +52,7 @@ var data = [
         name: "Wniosek o urlop macierzyński",
         link: "/sampi/pages/wnioski/wniosek-o-urlop-macierzynski.html",
         data: "05/01/2022",
-        send: "send",
+        send: "oczekujący",
         firstInput: "Tytus Bomba",
         secondInput: "2023-03-20",
         thirdInput: "2023-09-28",
@@ -64,7 +64,7 @@ var data = [
         name: "Zgłoszenie członka rodziny do ubezpieczenia",
         link: "/sampi/pages/wnioski/zgłoszenie-członka-rodziny-do-ubezpieczenia.html",
         data: "22/12/2021",
-        send: "send",
+        send: "oczekujący",
         firstInput: "Tomasz",
         secondInput: "Karolak",
         thirdInput: 123456789,
@@ -76,7 +76,7 @@ var data = [
         name: "Zgłoszenie członka rodziny do ubezpieczenia",
         link: "/sampi/pages/wnioski/zgłoszenie-członka-rodziny-do-ubezpieczenia.html",
         data: "24/12/2021",
-        send: "send",
+        send: "oczekujący",
         firstInput: "Marcin",
         secondInput: "Kajman",
         thirdInput: 921321313,
@@ -102,7 +102,7 @@ function onStart(){
     if(wnioski != null) {
         wnioski = JSON.parse(wnioski)
         for(let wniosek of wnioski) {
-            if(wniosek.send == "send")
+            if(wniosek.send == "oczekujący")
                 data.push(wniosek);
         }
         storeData()
