@@ -1,0 +1,27 @@
+#sign-in-container {
+    width: 500px;
+    height: 40vh;
+    background-color: #00665F;
+    margin:auto;
+    margin-top:25vh;
+    color: white;
+    text-align: center;
+}
+
+#login-field {
+    width: 70%;
+    height: 6vh;
+    margin:3%;
+    margin-top: 8vh;
+}
+
+#password-field {
+    width: 70%;
+    height: 6vh;
+    margin:3%;
+    margin-top: 0;
+}
+
+#sign-in-button {
+    width: 50%;
+}
