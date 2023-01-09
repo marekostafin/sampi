@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/sampi/style/style.css">
 
     <script type="text/javascript" src="/sampi/js/script.js"></script>
-    <script type="text/javascript" src="/sampi/js/wnioski.js"></script>
+    <script type="text/javascript" src="/sampi/js/wnioski-hr.js"></script>
 
     <title>Sampi - Zgłoszenie członka rodziny do ubezpieczenia</title>
 </head>
@@ -55,8 +55,8 @@
                         <input type="checkbox" id="fifthInput">
                     </div>
                     <div class="container-fluid d-flex justify-content-center mt-5">
-                        <a href="/sampi/pages/wnioski.html" id="powrot" class="btn btn-outline-dark mt-1 mb-1 ml-1 mr-1 col-2">Powrót</a>
-                        <button id="send" class="btn btn-outline-dark mt-1 mb-1 ml-1 mr-1 col-2">Wyślij wniosek</button>
+                        <a href="/sampi/pages/wnioski-hr.html" id="powrot" class="btn btn-outline-dark mt-1 mb-1 ml-1 mr-1 col-2">Powrót</a>
+                        <button class="btn btn-outline-dark mt-1 mb-1 ml-1 mr-1 col-2">Wyślij wniosek</button>
                     </div>
                 </div>
             </div>
@@ -67,10 +67,7 @@
 <script>
     includeNavbar();
     includeMenu();
-    document.getElementById("send").addEventListener("click", () => {
-        sendWniosek(2)
-        location.href = "/sampi/pages/wnioski.html"
-    })
+    fillWniosek();
 </script>
 </body>
 </html>

@@ -49,6 +49,9 @@
   onStart();
   loadWnioskiHR()
   document.addEventListener("input", loadWnioskiHR)
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("wniosek-type").value = "Zwrot kosztów delegacji"
+  })
 </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 var data = [
     {
+        user: "Jan Kowalski",
         name: "Zwrot kosztów delegacji",
         link: "/sampi/pages/wnioski/zwrot-kosztów-delegacji.html",
         data: "01/01/2000",
@@ -11,6 +12,7 @@ var data = [
         fifthInput: null,
     },
     {
+        user: "Jan Kowalski",
         name: "Wniosek o urlop macierzyński",
         link: "/sampi/pages/wnioski/wniosek-o-urlop-macierzynski.html",
         data: "01/01/2000",
@@ -22,6 +24,7 @@ var data = [
         fifthInput: null,
     },
     {
+        user: "Jan Kowalski",
         name: "Zgłoszenie członka rodziny do ubezpieczenia",
         link: "/sampi/pages/wnioski/zgłoszenie-członka-rodziny-do-ubezpieczenia.html",
         data: "01/01/2000",
@@ -55,6 +58,7 @@ function retriveData() {
 function onStart(){
     let szkolenia = sessionStorage.getItem("wnioski")
     if(szkolenia == null) {
+        console.log("wczytano")
         storeData()
     }
 }
@@ -88,11 +92,11 @@ function loadWnioski() {
         let buttondiv = document.createElement("div");
         let datediv = document.createElement("div");
         if(wniosek.send === false) {
-            let button = document.createElement("a")
+            let button = document.createElement("div")
             button.className = "btn btn-outline-dark mt-1 mb-1 col-9"
             button.id = index;
             button.innerText = "Wypełnij wniosek"
-            button.href = wniosek.link;
+            button.link = wniosek.link;
             buttondiv.appendChild(button)
         } else {
             let button = document.createElement("button")
@@ -101,7 +105,6 @@ function loadWnioski() {
             button.innerText = "Wniosek został wypełniony"
             buttondiv.appendChild(button)
             let date = document.createElement("h6")
-            console.log(data.innerHTML)
             date.innerText = "Data złożenia wniosku: " + wniosek.data;
             datediv.appendChild(date);
         }
@@ -127,9 +130,18 @@ function loadWnioski() {
 }
 
 function sendWniosek(index) {
-    data[index].send = true;
+    retriveData()
+    data[index].send = "send";
     let now = new Date();
-    data[index].data = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`
+    let day = now.getDate()
+    if(day < 10) {
+        day = "0" + day;
+    }
+    let month = now.getMonth() + 1
+    if(month < 10) {
+        month = "0" + month;
+    }
+    data[index].data = `${day}/${month}/${now.getFullYear()}`
     data[index].firstInput = document.getElementById("firstInput").value;
     data[index].secondInput = document.getElementById("secondInput").value;
     data[index].thirdInput = document.getElementById("thirdInput").value;
@@ -137,3 +149,16 @@ function sendWniosek(index) {
     data[index].fifthInput = document.getElementById("fifthInput").value;
     storeData();
 }
+
+function buttonlistener() {
+    document.body.addEventListener("click", function (event) {
+        if(event.target.innerText == "Wypełnij wniosek") {
+            storeData();
+            console.log(sessionStorage.getItem("wnioski"))
+            console.log(data[event.target.id].link)
+            location.href = data[event.target.id].link
+        }
+    })
+}
+
+document.addEventListener("DOMContentLoaded", buttonlistener)
