@@ -85,6 +85,11 @@ function includeNavbar() {
 }
 
 function includeMenu() {
+    var wnioski = 'wnioski.html';
+    if(sessionStorage.getItem('isLoggedUserHr') == 1) {
+        wnioski = 'wnioski-hr.html';
+    }
+
     document.getElementById("menu-include").innerHTML = `
     <div id="menu-container" class="text-center">
         <div id="menu-row" class="row">
@@ -101,7 +106,7 @@ function includeMenu() {
                     <div class="col"><a href="/sampi/pages/komunikator.html"><h1 class="nav-icon"><i class="bi bi-chat-left-dots"></i></h1><h3>Komunikator</h3></a></div>
                 </div>
                 <div class="row">
-                    <div class="col"><a href="/sampi/pages/wnioski.html"><h1 class="nav-icon"><i class="bi bi-card-list"></i></h1><h3>Wnioski</h3></a></div>
+                    <div class="col"><a href="/sampi/pages/${wnioski}"><h1 class="nav-icon"><i class="bi bi-card-list"></i></h1><h3>Wnioski</h3></a></div>
                     <div class="col"><a href="/sampi/pages/szkolenia.html"><h1 class="nav-icon"><i class="bi bi-briefcase"></i></h1><h3>Szkolenia</h3></a></div>
                 </div>
                 <div class="row">
