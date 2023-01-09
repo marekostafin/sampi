@@ -2,6 +2,7 @@ function loadSavedChats() {
     if (window.sessionStorage.getItem("loaded") == null) {
         window.sessionStorage.setItem("openChat", "nowak-adam");
         window.sessionStorage.setItem("brosz-odeta", "brosz-odeta;14:57;22 grudnia;Wesołych świąt! :)\nOdpocznij porządnie na urlopie;kowalski-jan;15:02;22 grudnia;nawzajem!");
+        window.sessionStorage.setItem("kowalski-jan", "brosz-odeta;14:57;22 grudnia;Wesołych świąt! :)\nOdpocznij porządnie na urlopie;kowalski-jan;15:02;22 grudnia;nawzajem!");
         window.sessionStorage.setItem("galeza-agata", "galeza-agata;9:43;19 grudnia;Cześć, podesłałbyś mi proszę informacje na temat twojego urlopu?");
         window.sessionStorage.setItem("kowalski-janusz", "kowalski-janusz;13:59;9 grudnia;Podejdź proszę do mojego biura.");
         window.sessionStorage.setItem("nowak-adam", "kowalski-jan;11:48;4 stycznia;Cześć!;nowak-adam;12:03;4 stycznia;No hej;nowak-adam;12:03;4 stycznia;jak tam się masz?");
@@ -13,6 +14,7 @@ function loadSavedChats() {
 var chatsToOpen = [
     "nowak-adam",
     "brosz-odeta",
+    "kowalski-jan",
     "wyz-andrzej",
     "galeza-agata",
     "kowalski-janusz",
@@ -37,32 +39,34 @@ function getPersonData(getPerson) {
         }
     }
 }
+const currentlyLoggedIn = window.sessionStorage.getItem("loggedUserPage");
 
 async function loadOpenChats() {
     let messageBox = document.getElementById("chat-list");
     for (let chat of chatsToOpen) {
-        let chatArray = getChatWith(chat).split(";");
-        let link = chat;
-        let person = getPersonData(chat);
-        let lastMessage = chatArray[chatArray.length - 1].substring(0, 90);
-        let lastMessageDate = chatArray[chatArray.length - 2];
-        let a = document.createElement("a");
-        a.classList.add("list-group-item");
-        a.classList.add("list-group-item-action");
-        a.classList.add("list-group-item-light");
-        a.classList.remove("text-white");
-        a.onclick = function () {
-            window.sessionStorage.setItem("loaded", "yes");
-            window.sessionStorage.setItem("openChat", link);
-            document.location.reload();
-        }
-        if (link === window.sessionStorage.getItem("openChat")) {
-            a.classList.remove("list-group-item-light")
-            a.classList.add("active");
-            a.classList.add("text-white");
-        }
-        let avatarLink = "/sampi/style/img/avatar-" + link + ".png";
-        a.innerHTML = `
+        if (chat !== currentlyLoggedIn) {
+            let chatArray = getChatWith(chat).split(";");
+            let link = chat;
+            let person = getPersonData(chat);
+            let lastMessage = chatArray[chatArray.length - 1].substring(0, 90);
+            let lastMessageDate = chatArray[chatArray.length - 2];
+            let a = document.createElement("a");
+            a.classList.add("list-group-item");
+            a.classList.add("list-group-item-action");
+            a.classList.add("list-group-item-light");
+            a.classList.remove("text-white");
+            a.onclick = function () {
+                window.sessionStorage.setItem("loaded", "yes");
+                window.sessionStorage.setItem("openChat", link);
+                document.location.reload();
+            }
+            if (link === window.sessionStorage.getItem("openChat")) {
+                a.classList.remove("list-group-item-light")
+                a.classList.add("active");
+                a.classList.add("text-white");
+            }
+            let avatarLink = "/sampi/style/img/avatar-" + link + ".png";
+            a.innerHTML = `
             <div class="media">
                 <img src=${avatarLink} alt=${link} width="50" class="rounded-circle">
                 <div class="media-body ml-4">
@@ -73,11 +77,11 @@ async function loadOpenChats() {
                 </div>
             </div>
         `;
-        messageBox.appendChild(a);
+            messageBox.appendChild(a);
+        }
     }
 }
 
-const currentlyLoggedIn = "kowalski-jan"; //TODO
 async function loadCurrentChat(person) {
     let messageBox = document.getElementById("current-chat");
     let chatData = getChatWith(person);
