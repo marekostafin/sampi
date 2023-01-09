@@ -1,6 +1,8 @@
+var loggedUser = sessionStorage.getItem("loggedUser")
+
 var data = [
     {
-        user: "Jan Kowalski",
+        user: loggedUser,
         name: "Zwrot kosztów delegacji",
         link: "/sampi/pages/wnioski/zwrot-kosztów-delegacji.html",
         data: "01/01/2000",
@@ -12,7 +14,7 @@ var data = [
         fifthInput: null,
     },
     {
-        user: "Jan Kowalski",
+        user: loggedUser,
         name: "Wniosek o urlop macierzyński",
         link: "/sampi/pages/wnioski/wniosek-o-urlop-macierzynski.html",
         data: "01/01/2000",
@@ -24,7 +26,7 @@ var data = [
         fifthInput: null,
     },
     {
-        user: "Jan Kowalski",
+        user: loggedUser,
         name: "Zgłoszenie członka rodziny do ubezpieczenia",
         link: "/sampi/pages/wnioski/zgłoszenie-członka-rodziny-do-ubezpieczenia.html",
         data: "01/01/2000",
@@ -48,18 +50,17 @@ var data = [
 ]
 
 function storeData() {
-    sessionStorage.setItem("wnioski", JSON.stringify(data))
+    sessionStorage.setItem("wnioski-" + loggedUser, JSON.stringify(data))
 }
 
 function retriveData() {
-    data = JSON.parse(sessionStorage.getItem("wnioski"))
+    data = JSON.parse(sessionStorage.getItem("wnioski-" + loggedUser))
 }
 
 function onStart(){
-    let szkolenia = sessionStorage.getItem("wnioski")
-    if(szkolenia == null) {
-        console.log("wczytano")
-        storeData()
+    let szkolenia = sessionStorage.getItem("wnioski-" + loggedUser)
+    if(szkolenia != null) {
+        retriveData();
     }
 }
 
@@ -98,7 +99,31 @@ function loadWnioski() {
             button.innerText = "Wypełnij wniosek"
             button.link = wniosek.link;
             buttondiv.appendChild(button)
-        } else {
+        } else if(wniosek.send === "Odrzucony"){
+            let button = document.createElement("div")
+            button.className = "btn btn-outline-dark mt-1 mb-1 col-9"
+            button.id = index;
+            button.innerText = "Wypełnij wniosek ponownie"
+            button.link = wniosek.link;
+            buttondiv.appendChild(button)
+            let status = document.createElement("h6")
+            status.className = "text-danger"
+            status.innerText = "Wniosek został odrzucony"
+            datediv.appendChild(status);
+        }
+        else if(wniosek.send === "Zaakceptowany") {
+            let button = document.createElement("div")
+            button.className = "btn btn-outline-dark mt-1 mb-1 col-9"
+            button.id = index;
+            button.innerText = "Wypełnij wniosek ponownie"
+            button.link = wniosek.link;
+            buttondiv.appendChild(button)
+            let status = document.createElement("h6")
+            status.className = "text-success"
+            status.innerText = "Wniosek został zaakceptowny"
+            datediv.appendChild(status);
+        }
+        else {
             let button = document.createElement("button")
             button.className = "btn btn-outline-dark mt-1 mb-1 col-9 active"
             button.id = index;
@@ -131,7 +156,7 @@ function loadWnioski() {
 
 function sendWniosek(index) {
     retriveData()
-    data[index].send = "oczekujący";
+    data[index].send = "Oczekujący";
     let now = new Date();
     let day = now.getDate()
     if(day < 10) {
@@ -152,9 +177,9 @@ function sendWniosek(index) {
 
 function buttonlistener() {
     document.body.addEventListener("click", function (event) {
-        if(event.target.innerText == "Wypełnij wniosek") {
+        if(event.target.innerText == "Wypełnij wniosek" || event.target.innerText == "Wypełnij wniosek ponownie") {
             storeData();
-            console.log(sessionStorage.getItem("wnioski"))
+            console.log(sessionStorage.getItem("wnioski-" + loggedUser))
             console.log(data[event.target.id].link)
             location.href = data[event.target.id].link
         }

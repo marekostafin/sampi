@@ -1,22 +1,10 @@
 var data = [
     {
-        user: "Michał Szkot",
-        name: "Zwrot kosztów delegacji",
-        link: "/sampi/pages/wnioski/zwrot-kosztów-delegacji.html",
-        data: "05/01/2022",
-        send: "oczekujący",
-        firstInput: "Konferencja",
-        secondInput: "Wrocław",
-        thirdInput: 10,
-        fourthInput: "Komunikacja miejska",
-        fifthInput: 2,
-    },
-    {
         user: "Julia Kowalska",
         name: "Zwrot kosztów delegacji",
         link: "/sampi/pages/wnioski/zwrot-kosztów-delegacji.html",
         data: "08/01/2022",
-        send: "oczekujący",
+        send: "Oczekujący",
         firstInput: "Meet-up",
         secondInput: "Kraków",
         thirdInput: 500,
@@ -28,7 +16,7 @@ var data = [
         name: "Zwrot kosztów delegacji",
         link: "/sampi/pages/wnioski/zwrot-kosztów-delegacji.html",
         data: "09/01/2022",
-        send: "oczekujący",
+        send: "Oczekujący",
         firstInput: "Spotkanie służobwe",
         secondInput: "Warszawa",
         thirdInput: 100,
@@ -40,7 +28,7 @@ var data = [
         name: "Wniosek o urlop macierzyński",
         link: "/sampi/pages/wnioski/wniosek-o-urlop-macierzynski.html",
         data: "04/01/2022",
-        send: "oczekujący",
+        send: "Oczekujący",
         firstInput: "Natan Bąk",
         secondInput: "2023-02-05",
         thirdInput: "2023-05-25",
@@ -52,7 +40,7 @@ var data = [
         name: "Wniosek o urlop macierzyński",
         link: "/sampi/pages/wnioski/wniosek-o-urlop-macierzynski.html",
         data: "05/01/2022",
-        send: "oczekujący",
+        send: "Oczekujący",
         firstInput: "Tytus Bomba",
         secondInput: "2023-03-20",
         thirdInput: "2023-09-28",
@@ -64,7 +52,7 @@ var data = [
         name: "Zgłoszenie członka rodziny do ubezpieczenia",
         link: "/sampi/pages/wnioski/zgłoszenie-członka-rodziny-do-ubezpieczenia.html",
         data: "22/12/2021",
-        send: "oczekujący",
+        send: "Oczekujący",
         firstInput: "Tomasz",
         secondInput: "Karolak",
         thirdInput: 123456789,
@@ -76,7 +64,7 @@ var data = [
         name: "Zgłoszenie członka rodziny do ubezpieczenia",
         link: "/sampi/pages/wnioski/zgłoszenie-członka-rodziny-do-ubezpieczenia.html",
         data: "24/12/2021",
-        send: "oczekujący",
+        send: "Oczekujący",
         firstInput: "Marcin",
         secondInput: "Kajman",
         thirdInput: 921321313,
@@ -85,12 +73,28 @@ var data = [
     },
 ]
 
+var usersTable = [
+    "Michał Szkot",
+    "Jan Kowalski",
+]
+
+
 function storeData() {
-    sessionStorage.setItem("wnioski-hr", JSON.stringify(data))
+    sessionStorage.setItem("wnioski-hr", JSON.stringify(data.slice(0, 6)))
 }
 
 function retriveData() {
     data = JSON.parse(sessionStorage.getItem("wnioski-hr"))
+    for(const iUser of usersTable) {
+        wnioski = sessionStorage.getItem("wnioski-" + iUser)
+        if (wnioski != null) {
+            wnioski = JSON.parse(wnioski)
+            for (let wniosek of wnioski) {
+                if (wniosek.send == "Oczekujący" || wniosek.send == "Zaakceptowany" || wniosek.send == "Odrzucony")
+                    data.push(wniosek);
+            }
+        }
+    }
 }
 
 function onStart(){
@@ -98,15 +102,7 @@ function onStart(){
     if(wnioski == null) {
         storeData()
     }
-    wnioski = sessionStorage.getItem("wnioski")
-    if(wnioski != null) {
-        wnioski = JSON.parse(wnioski)
-        for(let wniosek of wnioski) {
-            if(wniosek.send == "oczekujący")
-                data.push(wniosek);
-        }
-        storeData()
-    }
+    retriveData()
 }
 
 function currentWniosek(index) {
@@ -173,11 +169,21 @@ function buttonlistener() {
             currentWniosek(event.target.id)
             location.href = data[event.target.id].link.split(".")[0] + "-wypełniony.html"
         }
+
+        if(event.target.innerText === "Zaakceptuj") {
+            changeState("Zaakceptowany")
+            location.href = "/sampi/pages/wnioski-hr.html"
+        }
+
+        if(event.target.innerText === "Odrzuć") {
+            changeState("Odrzucony")
+            location.href = "/sampi/pages/wnioski-hr.html"
+        }
     })
 }
 
 function fillWniosek() {
-    data = JSON.parse(sessionStorage.getItem("wnioski-hr"))
+    retriveData()
     current = sessionStorage.getItem("current-wniosek");
     document.getElementById("firstInput").value = data[current].firstInput
     document.getElementById("secondInput").value = data[current].secondInput
@@ -202,6 +208,26 @@ function fillWniosek() {
     else {
         document.getElementById("fifthInput").value = data[current].fifthInput
     }
+}
+
+function changeState(state) {
+    current = sessionStorage.getItem("current-wniosek");
+    data[current].send = state;
+    var getdata = sessionStorage.getItem("wnioski-" + data[current].user)
+    if(getdata != null) {
+        getdata = JSON.parse(getdata)
+        if(data[current].name === "Zwrot kosztów delegacji") {
+            getdata[0].send = state;
+        }
+        else if(data[current].name === "Wniosek o urlop macierzyński") {
+            getdata[1].send = state;
+        }
+        else {
+            getdata[2].send = state;
+        }
+        sessionStorage.setItem("wnioski-Michał Szkot", JSON.stringify(getdata));
+    }
+    storeData();
 }
 
 document.addEventListener("DOMContentLoaded", buttonlistener)
