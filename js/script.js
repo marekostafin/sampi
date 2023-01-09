@@ -66,7 +66,9 @@ function includeNavbar() {
         <div id="notification" class="col-sm-4 text-center on">
             <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">${randomBanner()}</div>
         </div>
-        <div class="col-sm-2 offset-sm-2">
+        <div class="col-sm-3 offset-sm-1">
+        <div class="row">
+        <div class="col-sm-9">
             <a href=${loggedInLink}>
                 <div class="row">
                     <div id="nav-user" class="col-sm-10 text-right float-right on"">
@@ -80,6 +82,9 @@ function includeNavbar() {
                     </div>
                 </div>
             </a>
+            </div>
+            <a href="javascript:logOut();"><div class="col-sm-3"  id="log-out-button">Wyloguj<div id="log-out-icon"><i class="bi bi-box-arrow-right"></i></div></div></a>
+            </div>
         </div>
     </nav>`;
 }
