@@ -177,7 +177,7 @@ function loadArticlesSideList() {
         let li = document.createElement('li');
 
         li.innerHTML = `
-        <a href="javascript:SetChangeArticle('${article.title}');" style="color:white;" onclick="SetChangeArticle(${article.title});">
+        <a href="javascript:SetChangeArticle('${article.title}');" style="color:white !important;" onclick="SetChangeArticle(${article.title});">
             <div id="articles-side-list-article-image" style='width:100%; height:20vh; background-image: linear-gradient(to top, rgba(0,102,95, 1), rgba(0,102,95,0.2)), url("${article.image}"); background-size: cover;'>
                 ${article.title}
             </div>

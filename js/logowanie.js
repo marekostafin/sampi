@@ -11,7 +11,7 @@ function checkLogged() {
 }
 
 function checkLoggedForLoginPage() {
-    if(sessionStorage.getItem('loggedUser') != null && sessionStorage.getItem('isLogged') != "") {
+    if(sessionStorage.getItem('loggedUser') != null && sessionStorage.getItem('loggedUser') != "") {
         window.location.href="/sampi/index.html";
     }
 }
@@ -35,4 +35,13 @@ function signIn() {
         login.style.border = '2px solid red';
         password.style.border = '2px solid red';
     }
+}
+
+function logOut() {
+    sessionStorage.setItem('loggedUser', '');
+    sessionStorage.setItem('loggedUserPage', '');
+    sessionStorage.setItem('isLoggedUserHr', '');
+    sessionStorage.setItem('loggedUserPosition', '');
+
+    window.location.href="/sampi/pages/logowanie.html";
 }

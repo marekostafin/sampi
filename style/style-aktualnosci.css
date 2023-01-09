@@ -6,7 +6,7 @@
 
 #articles-container {
     background-color: rgb(0,102,95);
-    color: white;
+    color: white !important;
     height: 73vh;
 }
 
