@@ -54,6 +54,10 @@ function randomBanner() {
 }
 
 function includeNavbar() {
+    let loggedInLink = "/sampi/pages/pracownicy/" + window.sessionStorage.getItem("loggedUserPage") + ".html";
+    let loggedInName = window.sessionStorage.getItem("loggedUser");
+    let loggedInPosition = window.sessionStorage.getItem("loggedUserPosition");
+    let loggedInAvatar = "/sampi/style/img/" + window.sessionStorage.getItem("loggedUserPage") + ".png";
     document.getElementById("navbar-include").innerHTML = `
     <nav class="navbar navbar-expand-sm border-bottom border-dark">
         <div class="col-sm-4">
@@ -63,15 +67,15 @@ function includeNavbar() {
             <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">${randomBanner()}</div>
         </div>
         <div class="col-sm-2 offset-sm-2">
-            <a href="/sampi/pages/pracownicy/kowalski-jan.html">
+            <a href=${loggedInLink}>
                 <div class="row">
                     <div id="nav-user" class="col-sm-10 text-right float-right on"">
-                        <h4 style="margin-bottom: 0px">Jan Kowalski</h4>
-                            Inżynier Oprogramowania
+                        <h4 style="margin-bottom: 0px">${loggedInName}</h4>
+                            ${loggedInPosition}
                     </div>
                     <div id="nav-user-icon" class="col-sm-2" style="padding-left: 0px">
                         <h1>
-                            <img width="50em" src="/sampi/style/img/avatar-kowalski-jan.png" style="border-radius: 50%;">
+                            <img width="50em" src=${loggedInAvatar} style="border-radius: 50%;">
                         </h1>
                     </div>
                 </div>

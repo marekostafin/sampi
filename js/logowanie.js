@@ -1,7 +1,7 @@
 let users = [
-    {login: 'jkowalski', password: 'jkowalski', hr: 0, name: 'Jan Kowalski', page: 'kowalski-jan'},
-    {login: 'mszkot', password: 'mszkot', hr: 0, name: 'Michał Szkot', page: 'szkot-michal'},
-    {login: 'obrosz', password: 'obrosz', hr: 1, name: 'Odeta Brosz', page: 'brosz-odeta'}
+    {login: 'jkowalski', password: 'jkowalski', hr: 0, name: 'Jan Kowalski', page: 'kowalski-jan', position: 'Inżynier Oprogramowania'},
+    {login: 'mszkot', password: 'mszkot', hr: 0, name: 'Michał Szkot', page: 'szkot-michal', position: 'Kierownik działu wdrażania'},
+    {login: 'obrosz', password: 'obrosz', hr: 1, name: 'Odeta Brosz', page: 'brosz-odeta', position: 'Główna księgowa'}
 ]
 
 function checkLogged() {
@@ -28,6 +28,7 @@ function signIn() {
             sessionStorage.setItem('loggedUser', user.name);
             sessionStorage.setItem('loggedUserPage', user.page);
             sessionStorage.setItem('isLoggedUserHr', user.hr);
+            sessionStorage.setItem('loggedUserPosition', user.position);
             found = true;
             window.location.href="/sampi/index.html";
         }
