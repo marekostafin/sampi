@@ -18,6 +18,9 @@
     <title>Sampi</title>
 </head>
 <body>
+<div class="row container-fluid justify-content-center" style="margin-top: 10vh">
+    <img width="300vh" src="/sampi/style/img/sampi.png">
+</div>
 <div class="row container-fluid">
     <div id="content" class="col-sm-12">
         <div id="sign-in-container">
@@ -30,6 +33,16 @@
 </div>
 <script>
     checkLoggedForLoginPage();
+    document.getElementById("login-field").addEventListener("keydown", function (e) {
+        if (e.key === 'Enter') {
+            signIn();
+        }
+    });
+    document.getElementById("password-field").addEventListener("keydown", function (e) {
+        if (e.key === 'Enter') {
+            signIn();
+        }
+    });
 </script>
 </body>
 </html>
