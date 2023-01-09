@@ -145,6 +145,7 @@ function hideSzkolenia(value) {
     }
 }
 
+
 onStart()
 document.addEventListener("DOMContentLoaded", buttonlistener)
 document.addEventListener("input", loadszkolenia)

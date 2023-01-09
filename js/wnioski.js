@@ -3,19 +3,34 @@ var data = [
         name: "Zwrot kosztów delegacji",
         link: "/sampi/pages/wnioski/zwrot-kosztów-delegacji.html",
         data: "01/01/2000",
-        send: false
+        send: false,
+        firstInput: null,
+        secondInput: null,
+        thirdInput: null,
+        fourthInput: null,
+        fifthInput: null,
     },
     {
         name: "Wniosek o urlop macierzyński",
         link: "/sampi/pages/wnioski/wniosek-o-urlop-macierzynski.html",
         data: "01/01/2000",
-        send: false
+        send: false,
+        firstInput: null,
+        secondInput: null,
+        thirdInput: null,
+        fourthInput: null,
+        fifthInput: null,
     },
     {
         name: "Zgłoszenie członka rodziny do ubezpieczenia",
         link: "/sampi/pages/wnioski/zgłoszenie-członka-rodziny-do-ubezpieczenia.html",
         data: "01/01/2000",
-        send: false
+        send: false,
+        firstInput: null,
+        secondInput: null,
+        thirdInput: null,
+        fourthInput: null,
+        fifthInput: null,
     },
     // {
     //     name: "Oświadczenie o wysokości podstawy ZUS",
@@ -111,5 +126,14 @@ function loadWnioski() {
     hideWnioski(document.getElementById("wyszukiwarka").value);
 }
 
-onStart()
-document.addEventListener("input", loadWnioski)
+function sendWniosek(index) {
+    data[index].send = true;
+    let now = new Date();
+    data[index].data = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`
+    data[index].firstInput = document.getElementById("firstInput").value;
+    data[index].secondInput = document.getElementById("secondInput").value;
+    data[index].thirdInput = document.getElementById("thirdInput").value;
+    data[index].fourthInput = document.getElementById("fourthInput").value;
+    data[index].fifthInput = document.getElementById("fifthInput").value;
+    storeData();
+}

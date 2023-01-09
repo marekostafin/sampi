@@ -58,7 +58,7 @@
 
           <div class="container-fluid d-flex justify-content-center mt-5">
             <a href="/sampi/pages/wnioski.html" id="powrot" class="btn btn-outline-dark mt-1 mb-1 ml-1 mr-1 col-2">Powrót</a>
-            <button class="btn btn-outline-dark mt-1 mb-1 ml-1 mr-1 col-2">Wyślij wniosek</button>
+            <button id="send" class="btn btn-outline-dark mt-1 mb-1 ml-1 mr-1 col-2">Wyślij wniosek</button>
           </div>
         </div>
       </div>
@@ -69,6 +69,11 @@
 <script>
   includeNavbar();
   includeMenu();
+
+  document.getElementById("send").addEventListener("click", () => {
+    sendWniosek(0)
+    location.href = "/sampi/pages/wnioski.html"
+  })
 </script>
 </body>
 </html>

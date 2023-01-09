@@ -35,7 +35,9 @@
     <script>
         includeNavbar();
         includeMenu();
+        onStart();
         loadWnioski()
+        document.addEventListener("input", loadWnioski)
     </script> 
 </body>
 </html>
