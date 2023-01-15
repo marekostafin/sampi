@@ -84,9 +84,7 @@ function includeNavbarForPreview() {
         <div class="col-sm-4">
             <img width="200px" src="/sampi/style/img/sampi.png"/>
         </div>
-        <div id="notification" class="col-sm-4 text-center on">
-            <div style="white-space: nowrap;overflow:hidden;" class="rounded border border-dark">${randomBanner()}</div>
-        </div>
+        <div class="col-sm-4 text-center on"></div>
         <div class="col-sm-2 offset-sm-2">
                 <div class="row">
                     <div id="nav-user" class="col-sm-10 text-right float-right on"">
