@@ -37,3 +37,8 @@ input::placeholder {
     background-color: #00665F;
     border: none;
 }
+
+#button-addon2 {
+    color: #00665F;
+    font-size: 22px;
+}
