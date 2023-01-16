@@ -49,9 +49,7 @@
             <h3>Michał Szkot</h3>
             <p>Kierownik działu wdrażania</p>
             <div id="btns">
-              <a href="/sampi/pages/komunikator.html" onclick="linkToChat()">
-                <button class="employee-action-button"><i class="fa fa-paper-plane"></i> Napisz wiadomość</button>
-              </a>
+              <button class="employee-action-button" onclick="linkToChat()" id="linkToChat"><i class="fa fa-paper-plane"></i> Napisz wiadomość</button>
             </div>
             <h5 id="mail-list-title">Email</h5>
             <div id="mail-list">
@@ -143,10 +141,15 @@
   <div id="menu-include"></div>
 </div>
 <script>
+  var thisPerson = "szkot-michal";
+  if (sessionStorage.getItem("loggedUserPage") === thisPerson) {
+    document.getElementById("linkToChat").style.display = 'none';
+  }
   includeNavbar();
   includeMenu();
   function linkToChat() {
     window.sessionStorage.setItem("openChat", "szkot-michal");
+    window.location.href = '/sampi/pages/komunikator.html';
   }
   autocomplete(document.getElementById("myInput"), employees);
   submitForm("myInput");

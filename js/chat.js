@@ -1,13 +1,13 @@
 function loadSavedChats() {
     if (window.sessionStorage.getItem("loaded") == null) {
         window.sessionStorage.setItem("openChat", "nowak-adam");
-        window.sessionStorage.setItem("brosz-odeta", "brosz-odeta;14:57;22 grudnia;Wesołych świąt! :)\nOdpocznij porządnie na urlopie;kowalski-jan;15:02;22 grudnia;nawzajem!");
-        window.sessionStorage.setItem("kowalski-jan", "brosz-odeta;14:57;22 grudnia;Wesołych świąt! :)\nOdpocznij porządnie na urlopie;kowalski-jan;15:02;22 grudnia;nawzajem!");
-        window.sessionStorage.setItem("galeza-agata", "galeza-agata;9:43;19 grudnia;Cześć, podesłałbyś mi proszę informacje na temat twojego urlopu?");
-        window.sessionStorage.setItem("kowalski-janusz", "kowalski-janusz;13:59;9 grudnia;Podejdź proszę do mojego biura.");
-        window.sessionStorage.setItem("nowak-adam", "kowalski-jan;11:48;4 stycznia;Cześć!;nowak-adam;12:03;4 stycznia;No hej;nowak-adam;12:03;4 stycznia;jak tam się masz?");
-        window.sessionStorage.setItem("szkot-michal", "kowalski-jan;12:11;24 listopada;Cześć! Witamy w firmie;kowalski-jan;12:14;24 listopada;Uderz kiedyś do mnie na kawę :)");
-        window.sessionStorage.setItem("wyz-andrzej", "wyz-andrzej;13:15;8 grudnia;Hej, próbowałem dodać te pola o których rozmawialiśmy, ale dla paru testów mi sie wywraca;wyz-andrzej;13:17;20 grudnia;Masz moze pomysł co z tym zrobić?");
+        window.localStorage.setItem("brosz-odeta", "brosz-odeta;14:57;22 grudnia;Wesołych świąt! :)\nOdpocznij porządnie na urlopie;kowalski-jan;15:02;22 grudnia;nawzajem!");
+        window.localStorage.setItem("kowalski-jan", "brosz-odeta;14:57;22 grudnia;Wesołych świąt! :)\nOdpocznij porządnie na urlopie;kowalski-jan;15:02;22 grudnia;nawzajem!");
+        window.localStorage.setItem("galeza-agata", "galeza-agata;9:43;19 grudnia;Cześć, podesłałbyś mi proszę informacje na temat twojego urlopu?");
+        window.localStorage.setItem("kowalski-janusz", "kowalski-janusz;13:59;9 grudnia;Podejdź proszę do mojego biura.");
+        window.localStorage.setItem("nowak-adam", "kowalski-jan;11:48;4 stycznia;Cześć!;nowak-adam;12:03;4 stycznia;No hej;nowak-adam;12:03;4 stycznia;jak tam się masz?");
+        window.localStorage.setItem("szkot-michal", "kowalski-jan;12:11;24 listopada;Cześć! Witamy w firmie;kowalski-jan;12:14;24 listopada;Uderz kiedyś do mnie na kawę :)");
+        window.localStorage.setItem("wyz-andrzej", "wyz-andrzej;13:15;8 grudnia;Hej, próbowałem dodać te pola o których rozmawialiśmy, ale dla paru testów mi sie wywraca;wyz-andrzej;13:17;20 grudnia;Masz moze pomysł co z tym zrobić?");
     }
 }
 
@@ -29,7 +29,7 @@ async function loadChatData() {
 }
 
 function getChatWith(person) {
-    return window.sessionStorage.getItem(person);
+    return window.localStorage.getItem(person);
 }
 
 function getPersonData(getPerson) {
@@ -159,13 +159,14 @@ async function newMessage(message) {
     var hour = String(today.getHours()).padStart(2, '0');
     var minute = String(today.getMinutes()).padStart(2, '0');
     var currentChat = window.sessionStorage.getItem("openChat");
-    let newMessage = window.sessionStorage.getItem(currentChat) + ";" +
+    let newMessage = window.localStorage.getItem(currentChat) + ";" +
         currentlyLoggedIn + ";" +
         hour + ":" + minute + ";" +
         day + " " + months[month] + ";" +
         message;
     console.log(newMessage);
-    window.sessionStorage.setItem(currentChat, newMessage);
+    window.localStorage.setItem(currentChat, newMessage);
+    window.localStorage.setItem(currentlyLoggedIn, newMessage);
 
     let messageBox = document.getElementById("current-chat");
 
