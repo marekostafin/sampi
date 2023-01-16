@@ -72,7 +72,8 @@ function loadszkolenia() {
         if (szkolenie.signed == true) {
             let st = document.createElement("button")
             let nd = document.createElement("button")
-            st.className = "btn btn-outline-dark mt-1 mb-1 col-9 active"
+            st.disabled = true
+            st.className = "btn btn-dark mt-1 mb-1 col-9 active"
             nd.className = "btn btn-outline-dark mt-1 mb-1 col-9"
             st.innerText = "Zapisano na szkolenie"
             nd.innerText = "Zrezygnuj"
