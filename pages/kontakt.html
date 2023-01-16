@@ -78,6 +78,8 @@
         includeNavbar();
         includeMenu();
         document.getElementById("send").addEventListener("click", async function () {
+            await resetFormErrors();
+
             let fn = document.getElementById("firstNameInput");
             let ln = document.getElementById("lastNameInput");
             let em = document.getElementById("emailInput");
@@ -103,7 +105,8 @@
                 nazwisko.classList.add("text-danger");
                 nonulls = false;
             }
-            if (em.value === '') {
+            const emailLike = new RegExp('^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$')
+            if (em.value === '' || emailLike.test(em.value)) {
                 em.classList.add("border");
                 em.classList.add("border-danger");
                 mail.classList.add("text-danger");
@@ -115,7 +118,7 @@
                 ask.classList.add("text-danger");
                 nonulls = false;
             }
-            if (inm.value !== '' && em.value !== '' && ln.value !== '' && fn.value !== '') {
+            if (nonulls) {
                 fn.value = '';
                 ln.value = '';
                 em.value = '';
@@ -134,6 +137,33 @@
                 inm.classList.remove("border-danger");
             }
         })
+
+        async function resetFormErrors(){
+            let fn = document.getElementById("firstNameInput");
+            let ln = document.getElementById("lastNameInput");
+            let em = document.getElementById("emailInput");
+            let inm = document.getElementById("messageInput");
+
+            let name = document.getElementById("imie");
+            let nazwisko = document.getElementById("nazwisko");
+            let mail = document.getElementById("email");
+            let ask = document.getElementById("ask");
+
+            name.classList.remove("text-danger")
+            nazwisko.classList.remove("text-danger")
+            mail.classList.remove("text-danger")
+            ask.classList.remove("text-danger")
+            fn.classList.remove("border");
+            ln.classList.remove("border");
+            em.classList.remove("border");
+            inm.classList.remove("border");
+            fn.classList.remove("border-danger");
+            ln.classList.remove("border-danger");
+            em.classList.remove("border-danger");
+            inm.classList.remove("border-danger");
+        }
     </script> 
 </body>
 </html>
+
+
