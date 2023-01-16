@@ -1,24 +1,44 @@
 var mode = ""
 
 $("#work").click(function () {
-    revert(mode)
-    mode = "schedule-work"
-    $("#work").addClass("schedule-button-active")
+    if(mode === "schedule-work"){
+        mode = ""
+        $("#work").removeClass("schedule-button-active")
+    } else {
+        revert(mode)
+        mode = "schedule-work"
+        $("#work").addClass("schedule-button-active")
+    }
 });
 $("#call").click(function () {
-    revert(mode)
-    mode = "schedule-call"
-    $("#call").addClass("schedule-button-call-active")
+    if(mode === "schedule-call"){
+        mode = ""
+        $("#call").removeClass("schedule-button-call-active")
+    } else {
+        revert(mode)
+        mode = "schedule-call"
+        $("#call").addClass("schedule-button-call-active")
+    }
 });
 $("#unavailable").click(function () {
-    revert(mode)
-    mode = "schedule-unavailable"
-    $("#unavailable").addClass("schedule-button-unavailable-active")
+    if(mode === "schedule-unavailable"){
+        mode = ""
+        $("#unavailable").removeClass("schedule-button-unavailable-active")
+    } else {
+        revert(mode)
+        mode = "schedule-unavailable"
+        $("#unavailable").addClass("schedule-button-unavailable-active")
+    }
 });
 $("#trip").click(function () {
-    revert(mode)
-    mode = "schedule-trip"
-    $("#trip").addClass("schedule-button-trip-active")
+    if(mode === "schedule-trip"){
+        mode = ""
+        $("#trip").removeClass("schedule-button-trip-active")
+    } else {
+        revert(mode)
+        mode = "schedule-trip"
+        $("#trip").addClass("schedule-button-trip-active")
+    }
 });
 let year
 let week
@@ -73,8 +93,12 @@ $(document).ready(function () {
     $('#grafik').click(function (event) {
         var target = $(event.target);
         $td = target.closest('td');
-        $td.removeClass()
-        $td.addClass(mode);
+        if($td[0].className === mode){
+            $td.removeClass()
+        } else {
+            $td.removeClass()
+            $td.addClass(mode);
+        }
 
         var index = tds.index(target);
         sessionStorage.setItem(index + ":" + week + year, mode);
