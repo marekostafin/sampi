@@ -127,3 +127,7 @@ function submitForm(inp) {
         }
     });
 }
+
+function openChat() {
+
+}
