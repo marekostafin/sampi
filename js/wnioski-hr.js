@@ -78,6 +78,11 @@ var usersTable = [
     "Jan Kowalski",
 ]
 
+var colors = {
+    "Oczekujący":"#FFB400",
+    "Zaakceptowany":"#000090",
+    "Odrzucony":"#8B0000"
+}
 
 function storeData() {
     sessionStorage.setItem("wnioski-hr", JSON.stringify(data.slice(0, 6)))
@@ -140,7 +145,7 @@ function loadWnioskiHR() {
                 <h5>${wniosek.data}</h5>
             </div>
             <div class="col-sm-2 p-2">
-                <h5>${wniosek.send}</h5>
+                <h5 style="color: ${colors[wniosek.send]}">${wniosek.send}</h5>
             </div>
             <div class="col-sm-3 p-0">
                 ${buttondiv.innerHTML}
