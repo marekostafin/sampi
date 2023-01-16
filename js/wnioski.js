@@ -125,7 +125,8 @@ function loadWnioski() {
         }
         else {
             let button = document.createElement("button")
-            button.className = "btn btn-outline-dark mt-1 mb-1 col-9 active"
+            button.disabled = true
+            button.className = "btn btn-dark mt-1 mb-1 col-9 active"
             button.id = index;
             button.innerText = "Wniosek został wypełniony"
             buttondiv.appendChild(button)
