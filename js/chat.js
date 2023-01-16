@@ -73,7 +73,7 @@ async function loadOpenChats() {
                     <div class="d-flex align-items-center justify-content-between mb-1">
                         <h6 class="mb-0">${person.first_name} ${person.last_name}</h6><small class="small font-weight-bold" id="last-message-date">${lastMessageDate}</small>
                     </div>
-                    <p class="font-italic mb-0 text-small" id="last-message">${lastMessage}</p>
+                    <p class="font-italic mb-0 text-small" id=${link + "-last-message"}>${lastMessage}</p>
                 </div>
             </div>
         `;
@@ -186,6 +186,6 @@ async function newMessage(message) {
             `
     messageBox.appendChild(div);
     console.log(message);
-    document.getElementById("last-message").innerText = message;
-    document.getElementById("last-message-date").innerText = day + " " + months[month];
+    document.getElementById(currentChat + "-last-message").innerText = message;
+    document.getElementById(currentChat + "-last-message-date").innerText = day + " " + months[month];
 }
