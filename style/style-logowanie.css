@@ -13,6 +13,7 @@
     height: 6vh;
     margin:3%;
     margin-top: 8vh;
+    padding-left: 10px;
 }
 
 #password-field {
@@ -20,6 +21,7 @@
     height: 6vh;
     margin:3%;
     margin-top: 0;
+    padding-left: 10px;
 }
 
 #sign-in-button {
