@@ -34,14 +34,25 @@ function loadEditor() {
 }
 
 function validate() {
+    document.getElementById("editor-title").style.border = 'none';
+    document.getElementById("formFile").style.border = 'none';
+    document.getElementById("editor").style.border = 'none';
+
+    var validation = true;
+
     if(document.getElementById("editor-title").value === "") {
-        return false;
-    } else if(document.getElementById("formFile").value === "" && (sessionStorage.getItem('editArticle') === null || sessionStorage.getItem('editArticle')==="")) {
-        return false;
-    } else if(editor.html.get() === "") {
-        return false;
+        document.getElementById("editor-title").style.border = '2px solid red';
+        validation = false;
     }
-    return true;
+    if(document.getElementById("formFile").value === "" && (sessionStorage.getItem('editArticle') === null || sessionStorage.getItem('editArticle')==="")) {
+        document.getElementById("formFile").style.border = '2px solid red';
+        validation = false;
+    }
+    if(editor.html.get() === "") {
+        document.getElementById("editor").style.border = '2px solid red';
+        validation = false;
+    }
+    return validation;
 }
 
 function articlePreview() {
@@ -50,8 +61,6 @@ function articlePreview() {
         newArticle['content'] = editor.html.get();
         sessionStorage.setItem("newArticle", JSON.stringify(newArticle));
         window.open("/sampi/pages/artykul-podglad.html", "Preview", "toolbar=yes,scrollbars=yes,resizable=yes,left=200,width=1200,height=1000");
-    } else {
-        window.alert("Uzupełnij brakujące informacje!");
     }
 }
 
@@ -154,8 +163,6 @@ function articlePublish() {
 
         window.location.href="/sampi/pages/artykul.html";
 
-    } else {
-        window.alert("Uzupełnij brakujące informacje!");
     }
 }
 
