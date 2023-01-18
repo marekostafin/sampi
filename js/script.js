@@ -1,16 +1,60 @@
-window.addEventListener("resize",navNotificationsOffOn)
+window.addEventListener("resize",navNotificationsOffOn);
+navNotificationsOffOn();
 
 function navNotificationsOffOn() {
-    var notification = document.getElementById("notification");
     var navUser = document.getElementById("nav-user");
+    var navUserProfile = document.getElementById('nav-user-profile');
+    var navMiddleArea = document.getElementById('nav-middle-area');
+    var navSampi = document.getElementById('nav-sampi');
+
+    if(window.innerWidth <= 1400) {
+        navUserProfile.classList.replace("col-sm-3","col-sm-4");
+        navMiddleArea.classList.replace("col-sm-4","col-sm-3");
+    } else {
+        navUserProfile.classList.replace("col-sm-4","col-sm-3");
+        navMiddleArea.classList.replace("col-sm-3","col-sm-4");
+    }
+
+    if(window.innerWidth <= 1300) {
+        navUserProfile.classList.replace("col-sm-4","col-sm-5");
+        navMiddleArea.classList.replace("col-sm-3","col-sm-2");
+    } else  if(window.innerWidth <= 1400){
+        navUserProfile.classList.replace("col-sm-5","col-sm-4");
+        navMiddleArea.classList.replace("col-sm-2","col-sm-3");
+    }
+
+    if(window.innerWidth <= 1000) {
+        navUserProfile.classList.replace("col-sm-5","col-6");
+        navMiddleArea.classList.replace("col-sm-2","col-1");
+    } else if(window.innerWidth <= 1300) {
+        navUserProfile.classList.replace("col-6","col-sm-5");
+        navMiddleArea.classList.replace("col-1","col-sm-2");
+    }
+    if(window.innerWidth <= 800) {
+        navUserProfile.classList.replace("col-sm-6","col-4");
+        navMiddleArea.classList.replace("col-sm-1","col-sm-2");
+    } else  if(window.innerWidth <= 1000){
+        navUserProfile.classList.replace("col-4","col-sm-6");
+        navMiddleArea.classList.replace("col-3","col-sm-1");
+    }
 
     if(window.innerWidth <= 800) {
-        notification.classList.replace("on","off");
         navUser.classList.replace("on","off");
-    } else {
-        notification.classList.replace("off","on");
+    } else if(window.innerWidth <= 1000){
         navUser.classList.replace("off","on");
     }
+
+    if(window.innerWidth <= 700) {
+        navUserProfile.classList.replace("col-4","col-1");
+        navMiddleArea.classList.replace("col-sm-2", 'col-sm-3');
+        //navSampi.classList.replace('col-4', 'col-5');
+        navUserProfile.classList.replace('offset-sm-1', "offset-1");
+    } else  if(window.innerWidth <= 800){
+        navUserProfile.classList.replace("col-5","col-4");
+        navMiddleArea.classList.replace("col-1","col-2");
+        //navSampi.classList.replace('col-5', 'col-4');
+    }
+
 }
 
 function menuButtonClick() {
@@ -44,11 +88,11 @@ function includeNavbar() {
     let loggedInAvatar = "/sampi/style/img/avatar-" + window.sessionStorage.getItem("loggedUserPage") + ".png";
     document.getElementById("navbar-include").innerHTML = `
     <nav class="navbar navbar-expand-sm border-bottom border-dark">
-        <div class="col-sm-4">
+        <div id="nav-sampi" class="col-4" style="position: relative;">
             <a href="/sampi/index.html"><img width="200px" src="/sampi/style/img/sampi.png"/></a>
         </div>
-        <div class="col-sm-4 text-center on"></div>
-        <div class="col-sm-3 offset-sm-1">
+        <div id="nav-middle-area" style="background-color: #a64d79; height: 20px;" class="col-sm-4 text-center on"></div>
+        <div id="nav-user-profile" class="col-sm-3 offset-sm-1">
         <div class="row">
         <div class="col-sm-9">
             <a href=${loggedInLink}>
