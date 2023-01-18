@@ -4,38 +4,37 @@ navNotificationsOffOn();
 function navNotificationsOffOn() {
     var navUser = document.getElementById("nav-user");
     var navUserProfile = document.getElementById('nav-user-profile');
-    var navMiddleArea = document.getElementById('nav-middle-area');
+    // var navMiddleArea = document.getElementById('nav-middle-area');
     var navSampi = document.getElementById('nav-sampi');
 
     if(window.innerWidth <= 1400) {
         navUserProfile.classList.replace("col-sm-3","col-sm-4");
-        navMiddleArea.classList.replace("col-sm-4","col-sm-3");
+        navUserProfile.classList.replace("offset-sm-5","offset-sm-4");
+        // navMiddleArea.classList.replace("col-sm-4","col-sm-3");
     } else {
         navUserProfile.classList.replace("col-sm-4","col-sm-3");
-        navMiddleArea.classList.replace("col-sm-3","col-sm-4");
+        navUserProfile.classList.replace("offset-sm-4","offset-sm-5");
+        // navMiddleArea.classList.replace("col-sm-3","col-sm-4");
     }
 
     if(window.innerWidth <= 1300) {
         navUserProfile.classList.replace("col-sm-4","col-sm-5");
-        navMiddleArea.classList.replace("col-sm-3","col-sm-2");
+        navUserProfile.classList.replace("offset-sm-4","offset-sm-3");
+        // navMiddleArea.classList.replace("col-sm-3","col-sm-2");
     } else  if(window.innerWidth <= 1400){
         navUserProfile.classList.replace("col-sm-5","col-sm-4");
-        navMiddleArea.classList.replace("col-sm-2","col-sm-3");
+        navUserProfile.classList.replace("offset-sm-3","offset-sm-4");
+        // navMiddleArea.classList.replace("col-sm-2","col-sm-3");
     }
 
     if(window.innerWidth <= 1000) {
-        navUserProfile.classList.replace("col-sm-5","col-6");
-        navMiddleArea.classList.replace("col-sm-2","col-1");
+        navUserProfile.classList.replace("col-sm-5","col-sm-6");
+        navUserProfile.classList.replace("offset-sm-3","offset-sm-2");
+        // navMiddleArea.classList.replace("col-sm-2","col-1");
     } else if(window.innerWidth <= 1300) {
-        navUserProfile.classList.replace("col-6","col-sm-5");
-        navMiddleArea.classList.replace("col-1","col-sm-2");
-    }
-    if(window.innerWidth <= 800) {
-        navUserProfile.classList.replace("col-sm-6","col-4");
-        navMiddleArea.classList.replace("col-sm-1","col-sm-2");
-    } else  if(window.innerWidth <= 1000){
-        navUserProfile.classList.replace("col-4","col-sm-6");
-        navMiddleArea.classList.replace("col-3","col-sm-1");
+        navUserProfile.classList.replace("col-sm-6","col-sm-5");
+        navUserProfile.classList.replace("offset-sm-2","offset-sm-3");
+        // navMiddleArea.classList.replace("col-1","col-sm-2");
     }
 
     if(window.innerWidth <= 800) {
@@ -44,15 +43,12 @@ function navNotificationsOffOn() {
         navUser.classList.replace("off","on");
     }
 
-    if(window.innerWidth <= 700) {
-        navUserProfile.classList.replace("col-4","col-1");
-        navMiddleArea.classList.replace("col-sm-2", 'col-sm-3');
-        //navSampi.classList.replace('col-4', 'col-5');
-        navUserProfile.classList.replace('offset-sm-1', "offset-1");
+    if(window.innerWidth <= 650) {
+        // navUserProfile.classList.replace("col-sm-6", "col-sm-4");
+        // navUserProfile.classList.replace("offset-sm-2", "offset-sm-3");
     } else  if(window.innerWidth <= 800){
-        navUserProfile.classList.replace("col-5","col-4");
-        navMiddleArea.classList.replace("col-1","col-2");
-        //navSampi.classList.replace('col-5', 'col-4');
+        // navUserProfile.classList.replace("col-sm-4","col-sm-6");
+        // navUserProfile.classList.replace("offset-sm-3","offset-sm-2");
     }
 
 }
@@ -91,25 +87,31 @@ function includeNavbar() {
         <div id="nav-sampi" class="col-4" style="position: relative;">
             <a href="/sampi/index.html"><img width="200px" src="/sampi/style/img/sampi.png"/></a>
         </div>
-        <div id="nav-middle-area" style="background-color: #a64d79; height: 20px;" class="col-sm-4 text-center on"></div>
-        <div id="nav-user-profile" class="col-sm-3 offset-sm-1">
-        <div class="row">
-        <div class="col-sm-9">
-            <a href=${loggedInLink}>
-                <div class="row">
-                    <div id="nav-user" class="col-sm-10 text-right float-right on"">
-                        <h4 style="margin-bottom: 0px">${loggedInName}</h4>
-                            ${loggedInPosition}
-                    </div>
-                    <div id="nav-user-icon" class="col-sm-2" style="padding-left: 0px">
-                        <h1>
-                            <img width="50em" src=${loggedInAvatar} style="border-radius: 50%;">
-                        </h1>
-                    </div>
+<!--        <div id="nav-middle-area" style="background-color: #a64d79; height: 20px;" class="col-sm-4 text-center on"></div>-->
+        <div id="nav-user-profile" class="col-sm-4 offset-sm-4">
+            <div class="row">
+                <div class="col-sm-9">
+                    <a href=${loggedInLink}>
+                        <div class="row">
+                            <div id="nav-user" class="col-sm-10 text-right float-right on"">
+                                <h4 style="margin-bottom: 0px">${loggedInName}</h4>
+                                    ${loggedInPosition}
+                            </div>
+                            <div id="nav-user-icon" class="col-sm-2" style="padding-left: 0px">
+                                <h1>
+                                    <img width="50em" src=${loggedInAvatar} style="border-radius: 50%;">
+                                </h1>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </a>
-            </div>
-            <a href="javascript:logOut();"><div class="col-sm-3"  id="log-out-button">Wyloguj<div id="log-out-icon"><i class="bi bi-box-arrow-right"></i></div></div></a>
+                <a href="javascript:logOut();">
+                    <div class="col-sm-3"  id="log-out-button">Wyloguj
+                        <div id="log-out-icon">
+                            <i class="bi bi-box-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </nav>`;
