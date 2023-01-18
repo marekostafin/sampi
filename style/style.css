@@ -181,3 +181,9 @@ a:visited {
     margin-left: 150%;
     font-size: 18px;
 }
+
+.c0 {
+    width: 0;
+    margin:0;
+    padding:0;
+}
