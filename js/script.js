@@ -1,7 +1,26 @@
-window.addEventListener("resize",navNotificationsOffOn);
-navNotificationsOffOn();
+window.addEventListener("resize",resizeMenus);
+window.addEventListener("load", resizeMenus)
+resizeNavbar();
 
-function navNotificationsOffOn() {
+function resizeMenus() {
+    resizeNavbar();
+    resizeSidebar();
+}
+
+function resizeSidebar() {
+    var menuContainer = document.getElementById("menu-container");
+
+    if(window.innerWidth <= 950) {
+        menuContainer.style.width="150px";
+        menuContainer.classList.add("h-100");
+        menuContainer.style.paddingBottom="80px";
+    } else {
+        menuContainer.style.width="350px";
+        menuContainer.classList.remove("h-100")
+    }
+}
+
+function resizeNavbar() {
     var navUser = document.getElementById("nav-user");
     var navUserProfile = document.getElementById('nav-user-profile');
     // var navMiddleArea = document.getElementById('nav-middle-area');
@@ -50,7 +69,6 @@ function navNotificationsOffOn() {
         // navUserProfile.classList.replace("col-sm-4","col-sm-6");
         // navUserProfile.classList.replace("offset-sm-3","offset-sm-2");
     }
-
 }
 
 function menuButtonClick() {
@@ -63,17 +81,21 @@ function menuButtonClick() {
     if(menu.classList.contains("on")) {
         menu.classList.replace("on","off");
         menu.classList.remove("col-sm-10");
-        menuContainer.classList.remove("col-sm-3")
-        content.classList.replace("col-sm-9","col-sm-12");
+        menuContainer.style.background="none";
+        menuContainer.style.width="0";
+        content.classList.replace("col-sm-12","col-sm-12");
         button.classList.add("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-right-fill", "bi-caret-left-fill");
     } else {
         menu.classList.replace("off","on");
         menu.classList.add("col-sm-10");
-        menuContainer.classList.add("col-sm-3");
-        content.classList.replace("col-sm-12","col-sm-9");
+        menuContainer.style.background="white";
+        menuContainer.style.width="350px";
+        menuContainer.style.zIndex="999";
+        content.classList.replace("col-sm-12","col-sm-12");
         button.classList.remove("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-left-fill", "bi-caret-right-fill");
+        resizeSidebar();
     }
 }
 
