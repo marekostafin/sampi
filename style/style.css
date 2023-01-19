@@ -188,3 +188,8 @@ a:visited {
     margin:0;
     padding:0;
 }
+
+.resize-menu {
+    width: 150px !important;
+    padding-bottom: 80px;
+}

@@ -7,19 +7,6 @@ function resizeMenus() {
     resizeSidebar();
 }
 
-function resizeSidebar() {
-    var menuContainer = document.getElementById("menu-container");
-
-    if(window.innerWidth <= 950) {
-        menuContainer.style.width="150px";
-        menuContainer.classList.add("h-100");
-        menuContainer.style.paddingBottom="80px";
-    } else {
-        menuContainer.style.width="350px";
-        menuContainer.classList.remove("h-100")
-    }
-}
-
 function resizeNavbar() {
     var navUser = document.getElementById("nav-user");
     var navUserProfile = document.getElementById('nav-user-profile');
@@ -68,6 +55,18 @@ function resizeNavbar() {
     } else  if(window.innerWidth <= 800){
         // navUserProfile.classList.replace("col-sm-4","col-sm-6");
         // navUserProfile.classList.replace("offset-sm-3","offset-sm-2");
+    }
+}
+
+function resizeSidebar() {
+    var menuContainer = document.getElementById("menu-container");
+
+    if(window.innerWidth <= 700) {
+        menuContainer.classList.add("h-100");
+        menuContainer.classList.add('resize-menu');
+    } else {
+        menuContainer.classList.remove('resize-menu');
+        menuContainer.classList.remove("h-100")
     }
 }
 
