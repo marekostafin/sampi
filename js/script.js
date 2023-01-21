@@ -60,13 +60,21 @@ function resizeNavbar() {
 
 function resizeSidebar() {
     var menuContainer = document.getElementById("menu-container");
+    var menu = document.getElementById("menu");
+    var content = document.getElementById("content");
 
     if(window.innerWidth <= 700) {
         menuContainer.classList.add("h-100");
         menuContainer.classList.add('resize-menu');
     } else {
         menuContainer.classList.remove('resize-menu');
-        menuContainer.classList.remove("h-100")
+        menuContainer.classList.remove("h-100");
+        if(menu.classList.contains("on")) {
+            if(!menuContainer.classList.contains('col-sm-3')) {
+                content.classList.replace("col-sm-12","col-sm-9");
+                menuContainer.classList.add("col-sm-3");
+            }
+        }
     }
 }
 
