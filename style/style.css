@@ -193,3 +193,8 @@ a:visited {
     width: 150px !important;
     padding-bottom: 80px;
 }
+
+#menu-small-device {
+    width: 350px;
+    z-index: 999;
+}

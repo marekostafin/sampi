@@ -88,7 +88,7 @@ function menuButtonClick() {
             }
             content.classList.replace("col-sm-9","col-sm-12");
         } else {
-            menuContainer.style.width="0";
+            menuContainer.classList.remove('menu-small-device');
         }
         button.classList.add("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-right-fill", "bi-caret-left-fill");
@@ -100,8 +100,7 @@ function menuButtonClick() {
             menuContainer.classList.add("col-sm-3");
             content.classList.replace("col-sm-12","col-sm-9");
         } else {
-            menuContainer.style.width="350px";
-            menuContainer.style.zIndex="999";
+            menuContainer.classList.add('menu-small-device');
         }
         button.classList.remove("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-left-fill", "bi-caret-right-fill");
