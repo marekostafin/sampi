@@ -1,7 +1,13 @@
-window.addEventListener("resize",navNotificationsOffOn);
-navNotificationsOffOn();
+window.addEventListener("resize",resizeMenus);
+window.addEventListener("load", resizeMenus)
+resizeNavbar();
 
-function navNotificationsOffOn() {
+function resizeMenus() {
+    resizeNavbar();
+    resizeSidebar();
+}
+
+function resizeNavbar() {
     var navUser = document.getElementById("nav-user");
     var navUserProfile = document.getElementById('nav-user-profile');
     // var navMiddleArea = document.getElementById('nav-middle-area');
@@ -28,12 +34,12 @@ function navNotificationsOffOn() {
     }
 
     if(window.innerWidth <= 1000) {
-        navUserProfile.classList.replace("col-sm-5","col-sm-6");
-        navUserProfile.classList.replace("offset-sm-3","offset-sm-2");
+        navUserProfile.classList.replace("col-sm-5","col-6");
+        navUserProfile.classList.replace("offset-sm-3","offset-2");
         // navMiddleArea.classList.replace("col-sm-2","col-1");
     } else if(window.innerWidth <= 1300) {
-        navUserProfile.classList.replace("col-sm-6","col-sm-5");
-        navUserProfile.classList.replace("offset-sm-2","offset-sm-3");
+        navUserProfile.classList.replace("col-6","col-sm-5");
+        navUserProfile.classList.replace("offset-2","offset-sm-3");
         // navMiddleArea.classList.replace("col-1","col-sm-2");
     }
 
@@ -50,7 +56,26 @@ function navNotificationsOffOn() {
         // navUserProfile.classList.replace("col-sm-4","col-sm-6");
         // navUserProfile.classList.replace("offset-sm-3","offset-sm-2");
     }
+}
 
+function resizeSidebar() {
+    var menuContainer = document.getElementById("menu-container");
+    var menu = document.getElementById("menu");
+    var content = document.getElementById("content");
+
+    if(window.innerWidth <= 700) {
+        menuContainer.classList.add("h-100");
+        menuContainer.classList.add('resize-menu');
+    } else {
+        menuContainer.classList.remove('resize-menu');
+        menuContainer.classList.remove("h-100");
+        if(menu.classList.contains("on")) {
+            if(!menuContainer.classList.contains('col-sm-3')) {
+                content.classList.replace("col-sm-12","col-sm-9");
+                menuContainer.classList.add("col-sm-3");
+            }
+        }
+    }
 }
 
 function menuButtonClick() {
@@ -60,20 +85,34 @@ function menuButtonClick() {
     var content = document.getElementById("content");
     var buttonIcon = document.getElementById("menu-button-icon");
 
+
     if(menu.classList.contains("on")) {
         menu.classList.replace("on","off");
         menu.classList.remove("col-sm-10");
-        menuContainer.classList.remove("col-sm-3")
-        content.classList.replace("col-sm-9","col-sm-12");
+        menuContainer.style.background="none";
+        if(content.classList.contains("col-sm-9")) {
+            if(menuContainer.classList.contains('col-sm-3')) {
+                menuContainer.classList.remove("col-sm-3");
+            }
+            content.classList.replace("col-sm-9","col-sm-12");
+        } else {
+            menuContainer.classList.remove('menu-small-device');
+        }
         button.classList.add("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-right-fill", "bi-caret-left-fill");
     } else {
         menu.classList.replace("off","on");
         menu.classList.add("col-sm-10");
-        menuContainer.classList.add("col-sm-3");
-        content.classList.replace("col-sm-12","col-sm-9");
+        menuContainer.style.background="white";
+        if(window.innerWidth > 700) {
+            menuContainer.classList.add("col-sm-3");
+            content.classList.replace("col-sm-12","col-sm-9");
+        } else {
+            menuContainer.classList.add('menu-small-device');
+        }
         button.classList.remove("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-left-fill", "bi-caret-right-fill");
+        resizeSidebar();
     }
 }
 
@@ -90,14 +129,14 @@ function includeNavbar() {
 <!--        <div id="nav-middle-area" style="background-color: #a64d79; height: 20px;" class="col-sm-4 text-center on"></div>-->
         <div id="nav-user-profile" class="col-sm-4 offset-sm-4">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-9">
                     <a href=${loggedInLink}>
                         <div class="row">
-                            <div id="nav-user" class="col-sm-10 text-right float-right on"">
+                            <div id="nav-user" class="col-10 text-right float-right on"">
                                 <h4 style="margin-bottom: 0px">${loggedInName}</h4>
                                     ${loggedInPosition}
                             </div>
-                            <div id="nav-user-icon" class="col-sm-2" style="padding-left: 0px">
+                            <div id="nav-user-icon" class="col-2" style="padding-left: 0px">
                                 <h1>
                                     <img width="50em" src=${loggedInAvatar} style="border-radius: 50%;">
                                 </h1>
@@ -106,7 +145,7 @@ function includeNavbar() {
                     </a>
                 </div>
                 <a href="javascript:logOut();">
-                    <div class="col-sm-3"  id="log-out-button">Wyloguj
+                    <div class="col-3"  id="log-out-button">Wyloguj
                         <div id="log-out-icon">
                             <i class="bi bi-box-arrow-right"></i>
                         </div>

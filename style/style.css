@@ -20,6 +20,7 @@
     height:100%;
     margin:0;
     padding:0;
+    z-index: 300;
 }
 
 #menu {
@@ -40,6 +41,7 @@
     display: block;
     padding:0;
     margin:0;
+
 }
 
 .off {
@@ -131,6 +133,7 @@ a:visited {
     padding:0;
     width:100%;
     left:0;
+    z-index: 0;
 }
 
 .carousel-caption h2 {
@@ -149,6 +152,7 @@ a:visited {
     width:100%;
     margin:0;
     padding-bottom: 2.5vh;
+    z-index: 1;
 }
 
 .schedule-work {
@@ -186,4 +190,14 @@ a:visited {
     width: 0;
     margin:0;
     padding:0;
+}
+
+.resize-menu {
+    width: 150px !important;
+    padding-bottom: 80px;
+}
+
+#menu-small-device {
+    width: 350px;
+    z-index: 999;
 }
