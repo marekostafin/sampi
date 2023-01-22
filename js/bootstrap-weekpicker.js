@@ -36,7 +36,20 @@
             }
             selectedYear = year;
 
-            element.val("Tydzień " + calendarWeek + ", " + year);
+            let yikes = ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paź", "Lis", "Gru"];
+
+            var dayofWeek = currentDate.day();
+
+            let startofWeek = currentDate.subtract( dayofWeek, 'days')
+            let start = startofWeek.format("DD");
+            let startMonth = startofWeek.month();
+            let endofWeek = currentDate.add( 6 , 'days')
+            if(startMonth != endofWeek.month()) {
+                start += (", " + yikes[startMonth])
+            }
+            let end = endofWeek.format("DD, ");
+            end += yikes[endofWeek.month()];
+            element.val(start + " - " + end + " " + currentDate.year());
             loadCalendar(calendarWeek, year);
         }
 
