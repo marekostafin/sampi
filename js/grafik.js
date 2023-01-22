@@ -95,6 +95,7 @@ $(document).ready(function () {
         $td = target.closest('td');
         if($td[0].className === mode){
             $td.removeClass()
+            mode = "none"
         } else {
             $td.removeClass()
             $td.addClass(mode);
