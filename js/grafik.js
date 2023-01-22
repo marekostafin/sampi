@@ -4,7 +4,6 @@ $("#work").click(function () {
     if(mode === "schedule-work"){
         mode = ""
         $("#work").removeClass("schedule-button-active")
-        sessionStorage.setItem(i + ":" + week + year, "none");
     } else {
         revert(mode)
         mode = "schedule-work"
