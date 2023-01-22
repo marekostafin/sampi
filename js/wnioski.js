@@ -62,6 +62,11 @@ function onStart(){
     if(szkolenia != null) {
         retriveData();
     }
+
+    let ishr = sessionStorage.getItem("isLoggedUserHr");
+    if(ishr == 0) {
+        document.getElementById("hr-button").style.display = "none";
+    }
 }
 
 function hideWnioski(value) {
@@ -206,32 +211,6 @@ function sendWniosek(index) {
         alert("Nie wszystkie wymagane pola są wypełnione!")
         return -1;
     }
-
-    // if(document.getElementById("firstInput").value == "") {
-    //     document.getElementById("firstInput").checkValidity();
-    //     alert("Nie wszystkie wymagane pola są wypełnione!")
-    //     return -1;
-    // }
-    // if(document.getElementById("secondInput").value == "") {
-    //     document.getElementById("firstInput").checkValidity();
-    //     alert("Nie wszystkie wymagane pola są wypełnione!")
-    //     return -1;
-    // }
-    // if(document.getElementById("thirdInput").value == "") {
-    //     document.getElementById("firstInput").checkValidity();
-    //     alert("Nie wszystkie wymagane pola są wypełnione!")
-    //     return -1;
-    // }
-    // if(document.getElementById("fourthInput").value == "") {
-    //     document.getElementById("firstInput").checkValidity();
-    //     alert("Nie wszystkie wymagane pola są wypełnione!")
-    //     return -1;
-    // }
-    // if(document.getElementById("fifthInput").value == "") {
-    //     document.getElementById("firstInput").checkValidity();
-    //     alert("Nie wszystkie wymagane pola są wypełnione!")
-    //     return -1;
-    // }
 
     data[index].data = `${day}/${month}/${now.getFullYear()}`
     data[index].firstInput = document.getElementById("firstInput").value;

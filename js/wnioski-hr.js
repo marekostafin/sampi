@@ -76,6 +76,7 @@ var data = [
 var usersTable = [
     "Michał Szkot",
     "Jan Kowalski",
+    "Odeta Brosz"
 ]
 
 var colors = {
@@ -230,7 +231,7 @@ function changeState(state) {
         else {
             getdata[2].send = state;
         }
-        sessionStorage.setItem("wnioski-Michał Szkot", JSON.stringify(getdata));
+        sessionStorage.setItem("wnioski-" + data[current].user, JSON.stringify(getdata));
     }
     storeData();
 }
