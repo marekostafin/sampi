@@ -1,5 +1,5 @@
 window.addEventListener("resize",resizeMenus);
-window.addEventListener("load", resizeMenus)
+window.addEventListener("load", resizeMenus);
 resizeNavbar();
 
 function resizeMenus() {
@@ -10,51 +10,70 @@ function resizeMenus() {
 function resizeNavbar() {
     var navUser = document.getElementById("nav-user");
     var navUserProfile = document.getElementById('nav-user-profile');
-    // var navMiddleArea = document.getElementById('nav-middle-area');
-    var navSampi = document.getElementById('nav-sampi');
 
     if(window.innerWidth <= 1400) {
         navUserProfile.classList.replace("col-sm-3","col-sm-4");
+        navUserProfile.classList.replace("col-sm-5","col-sm-4");
+        navUserProfile.classList.replace("col-6","col-sm-4");
+
         navUserProfile.classList.replace("offset-sm-5","offset-sm-4");
-        // navMiddleArea.classList.replace("col-sm-4","col-sm-3");
+        navUserProfile.classList.replace("offset-sm-3","offset-sm-4");
+        navUserProfile.classList.replace("offset-2","offset-sm-4");
     } else {
-        navUserProfile.classList.replace("col-sm-4","col-sm-3");
-        navUserProfile.classList.replace("offset-sm-4","offset-sm-5");
-        // navMiddleArea.classList.replace("col-sm-3","col-sm-4");
+        navUserProfile.classList.replace("col-sm-3","col-sm-4");
+        navUserProfile.classList.replace("col-sm-5","col-sm-4");
+        navUserProfile.classList.replace("col-6","col-sm-4");
+
+        navUserProfile.classList.replace("offset-sm-5","offset-sm-4");
+        navUserProfile.classList.replace("offset-sm-3","offset-sm-4");
+        navUserProfile.classList.replace("offset-2","offset-sm-4");
     }
 
     if(window.innerWidth <= 1300) {
         navUserProfile.classList.replace("col-sm-4","col-sm-5");
+        navUserProfile.classList.replace("col-sm-3","col-sm-5");
+        navUserProfile.classList.replace("col-6","col-sm-5");
+
         navUserProfile.classList.replace("offset-sm-4","offset-sm-3");
-        // navMiddleArea.classList.replace("col-sm-3","col-sm-2");
+        navUserProfile.classList.replace("offset-2","offset-sm-3");
+        navUserProfile.classList.replace("offset-sm-5","offset-sm-3");
     } else  if(window.innerWidth <= 1400){
         navUserProfile.classList.replace("col-sm-5","col-sm-4");
+        navUserProfile.classList.replace("col-sm-3","col-sm-4");
+        navUserProfile.classList.replace("col-6","col-sm-4");
+
         navUserProfile.classList.replace("offset-sm-3","offset-sm-4");
+        navUserProfile.classList.replace("offset-2","offset-sm-4");
+        navUserProfile.classList.replace("offset-sm-5","offset-sm-4");
         // navMiddleArea.classList.replace("col-sm-2","col-sm-3");
     }
 
     if(window.innerWidth <= 1000) {
         navUserProfile.classList.replace("col-sm-5","col-6");
+        navUserProfile.classList.replace("col-sm-4","col-6");
+        navUserProfile.classList.replace("col-sm-3","col-6");
+
         navUserProfile.classList.replace("offset-sm-3","offset-2");
+        navUserProfile.classList.replace("offset-sm-4","offset-2");
+        navUserProfile.classList.replace("offset-sm-5","offset-2");
         // navMiddleArea.classList.replace("col-sm-2","col-1");
     } else if(window.innerWidth <= 1300) {
         navUserProfile.classList.replace("col-6","col-sm-5");
+        navUserProfile.classList.replace("col-sm-4","col-sm-5");
+        navUserProfile.classList.replace("col-sm-3","col-sm-5");
+
         navUserProfile.classList.replace("offset-2","offset-sm-3");
+        navUserProfile.classList.replace("offset-sm-4","offset-sm-3");
+        navUserProfile.classList.replace("offset-sm-5","offset-sm-3");
         // navMiddleArea.classList.replace("col-1","col-sm-2");
     }
 
     if(window.innerWidth <= 800) {
-        navUser.classList.replace("on","off");
-    } else if(window.innerWidth <= 1000){
-        navUser.classList.replace("off","on");
-    }
-
-    if(window.innerWidth <= 650) {
-        // navUserProfile.classList.replace("col-sm-6", "col-sm-4");
-        // navUserProfile.classList.replace("offset-sm-2", "offset-sm-3");
-    } else  if(window.innerWidth <= 800){
-        // navUserProfile.classList.replace("col-sm-4","col-sm-6");
-        // navUserProfile.classList.replace("offset-sm-3","offset-sm-2");
+        navUser.classList.add("off");
+        navUser.classList.remove("on");
+    } else {
+        navUser.classList.add("on");
+        navUser.classList.remove("off");
     }
 }
 
