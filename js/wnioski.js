@@ -155,9 +155,20 @@ function loadWnioski() {
     hideWnioski(document.getElementById("wyszukiwarka").value);
 }
 
+function getInputs() {
+    let result = [];
+    result.push(document.getElementById("firstInput"));
+    result.push(document.getElementById("secondInput"));
+    result.push(document.getElementById("thirdInput"));
+    result.push(document.getElementById("fourthInput"));
+    result.push(document.getElementById("fifthInput"));
+    return result;
+}
+
+
+
 function sendWniosek(index) {
     retriveData()
-    data[index].send = "Oczekujący";
     let now = new Date();
     let day = now.getDate()
     if(day < 10) {
@@ -167,13 +178,72 @@ function sendWniosek(index) {
     if(month < 10) {
         month = "0" + month;
     }
+
+    getInputs().forEach((element) => {
+        if(!element.checkValidity()) {
+            element.classList.add("is-invalid")
+            element.classList.add("border")
+            element.classList.add("border-5")
+            element.classList.add("border-danger")
+        }
+        else {
+            element.classList.remove("is-invalid")
+            element.classList.remove("border")
+            element.classList.remove("border-3")
+            element.classList.remove("border-danger")
+        }
+        console.log(element.checkValidity())
+    })
+
+    let git = true;
+    getInputs().forEach((element) => {
+        if(element.value == "") {
+            git = false;
+        }
+    })
+
+    if(!git) {
+        alert("Nie wszystkie wymagane pola są wypełnione!")
+        return -1;
+    }
+
+    // if(document.getElementById("firstInput").value == "") {
+    //     document.getElementById("firstInput").checkValidity();
+    //     alert("Nie wszystkie wymagane pola są wypełnione!")
+    //     return -1;
+    // }
+    // if(document.getElementById("secondInput").value == "") {
+    //     document.getElementById("firstInput").checkValidity();
+    //     alert("Nie wszystkie wymagane pola są wypełnione!")
+    //     return -1;
+    // }
+    // if(document.getElementById("thirdInput").value == "") {
+    //     document.getElementById("firstInput").checkValidity();
+    //     alert("Nie wszystkie wymagane pola są wypełnione!")
+    //     return -1;
+    // }
+    // if(document.getElementById("fourthInput").value == "") {
+    //     document.getElementById("firstInput").checkValidity();
+    //     alert("Nie wszystkie wymagane pola są wypełnione!")
+    //     return -1;
+    // }
+    // if(document.getElementById("fifthInput").value == "") {
+    //     document.getElementById("firstInput").checkValidity();
+    //     alert("Nie wszystkie wymagane pola są wypełnione!")
+    //     return -1;
+    // }
+
     data[index].data = `${day}/${month}/${now.getFullYear()}`
     data[index].firstInput = document.getElementById("firstInput").value;
     data[index].secondInput = document.getElementById("secondInput").value;
     data[index].thirdInput = document.getElementById("thirdInput").value;
     data[index].fourthInput = document.getElementById("fourthInput").value;
     data[index].fifthInput = document.getElementById("fifthInput").value;
+
+
+    data[index].send = "Oczekujący";
     storeData();
+    return 0;
 }
 
 function buttonlistener() {
@@ -186,5 +256,6 @@ function buttonlistener() {
         }
     })
 }
+
 
 document.addEventListener("DOMContentLoaded", buttonlistener)

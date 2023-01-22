@@ -33,19 +33,31 @@
                 <div class="container-fluid p-2" style="background-color: white">
                     <div class="container-fluid">
                         <h2>Zgłoszenie członka rodziny do ubezpieczenia</h2>
-                        <p>opis placehodler</p>
+                        <p>Poniższy formularz pozwala na zgłosznie członka rodziny do obezpieczenia</p>
                     </div>
                     <div class="row container-fluid mt-5 ml-5 mb-4">
                         <label for="firstInput" class="mr-5 col-sm-3">Imię</label>
-                        <input class="col-sm-6" type="text" name="" id="firstInput">
+                        <input class="col-sm-6" type="text" name="" id="firstInput" pattern="[A-Za-z]{3,}" required>
+                        <div class="col-sm-3 mr-5 "></div>
+                        <div class="invalid-feedback col-sm-6">
+                            Proszę podać imie!
+                        </div>
                     </div>
                     <div class="row container-fluid mt-5 ml-5 mb-4">
                         <label for="secondInput" class="mr-5 col-sm-3">Nazwisko</label>
-                        <input class="col-sm-6" type="text" name="" id="secondInput">
+                        <input class="col-sm-6" type="text" name="" id="secondInput" pattern="[A-Za-z]{3,}" required>
+                        <div class="col-sm-3 mr-5 "></div>
+                        <div class="invalid-feedback col-sm-6">
+                            Proszę podać nazwisko!
+                        </div>
                     </div>
                     <div class="row container-fluid mt-5 ml-5 mb-4">
                         <label for="thirdInput" class="mr-5 col-sm-3">Pesel</label>
-                        <input class="col-sm-6" type="text" name="" id="thirdInput">
+                        <input class="col-sm-6" type="text" name="" id="thirdInput" pattern="[0-9]{11}" required>
+                        <div class="col-sm-3 mr-5 "></div>
+                        <div class="invalid-feedback col-sm-6">
+                            Proszę podać poprawny pesel!
+                        </div>
                     </div>
                     <div class="row container-fluid mt-5 ml-5 mb-4">
                         <label for="fourthInput" class="mr-5 col-sm-3">Status zatrudnienia</label>
@@ -74,7 +86,8 @@
     includeNavbar();
     includeMenu();
     document.getElementById("send").addEventListener("click", () => {
-        sendWniosek(2)
+        if(sendWniosek(2) == -1)
+            return
         location.href = "/sampi/pages/wnioski.html"
     })
 </script>

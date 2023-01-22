@@ -32,25 +32,37 @@
         <div class="container-fluid p-2" style="background-color: white">
           <div class="container-fluid">
             <h2>Wniosek o urlop macierzyński</h2>
-            <p>opis placehodler</p>
+            <p>Poniższy formularz pozwala na zgłosznie chęci wzięcia urlopu rodzicielskiego w celu wychowania dziecka</p>
           </div>
           <div class="row container-fluid mt-5 ml-5 mb-4">
             <label for="firstInput" class="mr-5 col-sm-3">Imię i nazwisko dziecka</label>
-            <input class="col-sm-6" type="text" name="" id="firstInput">
+            <input class="col-sm-6" type="text" name="" id="firstInput" required>
+            <div class="col-sm-3 mr-5 "></div>
+            <div class="invalid-feedback col-sm-6">
+              Proszę podać imię i nazwisko.
+            </div>
           </div>
           <div class="row container-fluid mt-5 ml-5 mb-4">
             <label for="secondInput" class="mr-5 col-sm-3">Data rozpoczęcia</label>
-            <input class="col-sm-6" type="date" name="" id="secondInput">
+            <input class="col-sm-6" type="date" name="" id="secondInput" required>
+            <div class="col-sm-3 mr-5 "></div>
+            <div class="invalid-feedback col-sm-6">
+              Proszę wybrać date!
+            </div>
           </div>
           <div class="row container-fluid mt-5 ml-5 mb-4">
             <label for="thirdInput" class="mr-5 col-sm-3">Data zakończenia</label>
-            <input class="col-sm-6" type="date" name="" id="thirdInput">
+            <input class="col-sm-6" type="date" name="" id="thirdInput" required>
+            <div class="col-sm-3 mr-5 "></div>
+            <div class="invalid-feedback col-sm-6">
+              Proszę wybrać date!
+            </div>
           </div>
           <div class="row container-fluid mt-5 ml-5 mb-4">
             <label for="fourthInput" class="mr-5 col-sm-3">Oświadczam również że drugi rodzic nie będzie korzystał z urlopu macierzyńskiego.</label>
             <input type="checkbox" id="fourthInput">
           </div>
-          <input type="text" id="fifthInput" style="display: none" value="">
+          <input type="text" id="fifthInput" style="display: none" value="coś">
 
           <div class="container-fluid d-flex justify-content-center mt-5">
             <a href="/sampi/pages/wnioski.html" id="powrot" class="btn btn-outline-dark mt-1 mb-1 ml-1 mr-1 col-2">Powrót</a>
@@ -66,7 +78,8 @@
   includeNavbar();
   includeMenu();
   document.getElementById("send").addEventListener("click", () => {
-    sendWniosek(1)
+    if(sendWniosek(1) == -1)
+      return
     location.href = "/sampi/pages/wnioski.html"
   })
 </script>

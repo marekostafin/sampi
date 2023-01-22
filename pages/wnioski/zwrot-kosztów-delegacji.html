@@ -40,16 +40,28 @@
           </div>
           <div class="row container-fluid mt-5 ml-5 mb-4">
             <label for="firstInput" class="mr-5 col-sm-3">Cel delegacji</label>
-            <input class="col-sm-6" type="text" name="" id="firstInput">
+            <input class="col-sm-6" type="text" name="" id="firstInput"  pattern="[A-Za-z]{3,}" required>
+            <div class="col-sm-3 mr-5 "></div>
+            <div class="invalid-feedback col-sm-6">
+              Proszę cel delegacji!
+            </div>
           </div>
           <div class="row container-fluid mt-5 ml-5 mb-4">
             <label for="secondInput" class="mr-5 col-sm-3">Miejsce docelowe</label>
-            <input class="col-sm-6" type="text" name="" id="secondInput">
+            <input class="col-sm-6" type="text" name="" id="secondInput" required>
+            <div class="col-sm-3 mr-5 "></div>
+            <div class="invalid-feedback col-sm-6">
+              Proszę podać miejsce docelowe!
+            </div>
           </div>
           <div class="row container-fluid mt-5 ml-5 mb-4">
             <label for="thirdInput" class="mr-5 col-sm-3">Koszt delegacji</label>
-            <input class="col-sm-6" type="text" name="" id="thirdInput">
+            <input class="col-sm-6" type="text" name="" id="thirdInput" pattern="[0-9]{1,}" required>
             <h6 class="p-0 d-flex align-items-center">PLN</h6>
+            <div class="col-sm-3 mr-5 "></div>
+            <div class="invalid-feedback col-sm-6">
+              Proszę podać koszt delegacji!
+            </div>
           </div>
           <div class="row container-fluid mt-5 ml-5 mb-4">
             <label for="fourthInput" class="mr-5 col-sm-3">Środek transportu</label>
@@ -60,7 +72,7 @@
           </div>
           <div class="row container-fluid mt-5 ml-5 mb-4">
             <label for="fifthInput" class="mr-5 col-sm-3">Długość trwania delegacji</label>
-            <input class="col-sm-1" type="number" min="1" max="14" value="1" id="fifthInput">
+            <input class="col-sm-1" type="number" min="1" max="14" value="1" id="fifthInput" required>
           </div>
 
           <div class="container-fluid d-flex justify-content-center mt-5">
@@ -78,7 +90,8 @@
   includeMenu();
 
   document.getElementById("send").addEventListener("click", () => {
-    sendWniosek(0)
+    if(sendWniosek(0) == -1)
+      return
     location.href = "/sampi/pages/wnioski.html"
   })
 </script>
