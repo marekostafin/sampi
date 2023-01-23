@@ -84,7 +84,9 @@ function resizeSidebar() {
 
     if(window.innerWidth <= 700) {
         menuContainer.classList.add("h-100");
-        menuContainer.classList.add('resize-menu');
+        if(menu.classList.contains("on")) {
+            menuContainer.classList.add('resize-menu');
+        }
     } else {
         menuContainer.classList.remove('resize-menu');
         menuContainer.classList.remove("h-100");
@@ -92,6 +94,7 @@ function resizeSidebar() {
             if(!menuContainer.classList.contains('col-sm-3')) {
                 content.classList.replace("col-sm-12","col-sm-9");
                 menuContainer.classList.add("col-sm-3");
+                menuContainer.classList.remove('menu-small-device');
             }
         }
     }
@@ -116,6 +119,7 @@ function menuButtonClick() {
             content.classList.replace("col-sm-9","col-sm-12");
         } else {
             menuContainer.classList.remove('menu-small-device');
+            menuContainer.classList.remove('resize-menu');
         }
         button.classList.add("menu-button-hidden");
         buttonIcon.classList.replace("bi-caret-right-fill", "bi-caret-left-fill");
