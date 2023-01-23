@@ -73,8 +73,8 @@ function loadszkolenia() {
             let st = document.createElement("button")
             let nd = document.createElement("button")
             st.disabled = true
-            st.className = "btn btn-dark mt-1 mb-1 col-9 active"
-            nd.className = "btn btn-outline-dark mt-1 mb-1 col-9"
+            st.className = "btn btn-dark mt-1 mb-1 col-md-9 active"
+            nd.className = "btn btn-outline-dark mt-1 mb-1 col-md-9"
             st.innerText = "Zapisano na szkolenie"
             nd.innerText = "Zrezygnuj"
             nd.id = index;
@@ -82,7 +82,7 @@ function loadszkolenia() {
             buttons.appendChild(nd)
         } else {
             let st = document.createElement("button")
-            st.className = "btn btn-outline-dark mt-1 mb-1 col-9 mt-4"
+            st.className = "btn btn-outline-dark mt-1 mb-1 col-md-9 mt-4"
             st.innerText = "Zapisz się na szkolenie"
             st.id = index;
             buttons.appendChild(st)
@@ -91,7 +91,7 @@ function loadszkolenia() {
         <div class="row container-fluid">
             <div class="head col-sm-6 p-0">
                 <h4>${szkolenie.name}</h4>
-                <div class="col-sm p-0 h6" style='width: 450px'>${szkolenie.description}</div>
+                <div class="col-sm p-0 h6" style='width: 90%;'>${szkolenie.description}</div>
             </div>
             <div class="mid col-sm-3 p-2">
                 <p class="h6">Data: ${szkolenie.data}</p>

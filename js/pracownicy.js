@@ -1,6 +1,6 @@
 var styles = `
     #avatar{
-        width: 110%;
+        width: 95%;
         margin: 5px;
         left: 0;
         right: 0;
@@ -51,7 +51,7 @@ function loadEmployees() {
             <div class="col-sm-1 p-0">
                 ${avatarDiv.innerHTML}
             </div>
-            <div class="head col-sm-7 p-1" style="margin-left: 2%">
+            <div class="head col-sm-7 p-1" style="margin-left: 10px;">
                 <h4 style="padding-top: 1%" id="name">${employee.first_name} ${employee.last_name}</h4>
                 <div class="col-sm p-0 h6">Adres e-mail: ${employee.email}</div>
                 <div class="col-sm p-0 h6">Lokalizacja: &nbsp ${employee.location}</div>

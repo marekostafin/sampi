@@ -148,7 +148,7 @@ function loadWnioskiHR() {
             <div class="col-sm-2 p-2">
                 <h5 style="color: ${colors[wniosek.send]}">${wniosek.send}</h5>
             </div>
-            <div class="col-sm-3 p-0">
+            <div class="col-md-3 p-0">
                 ${buttondiv.innerHTML}
             </div>
         </div>
