@@ -59,9 +59,9 @@
                                 <form action="#" class="bg-light">
                                     <div class="input-group">
 
-                                        <input type="text" placeholder="Napisz wiadomość" aria-describedby="button-addon2" class="form-control  border-0 py-4 bg-light" id="chat-box" autocomplete="off">
+                                        <input type="text" placeholder="Napisz wiadomość" class="form-control border-0 py-4 bg-light" id="chat-box" autocomplete="off">
                                         <div class="input-group-append">
-                                            <button id="button-addon2" type="submit" onclick="sendMsg()" class="btn btn-link"> <i class="bi bi-send-fill"></i></button>
+                                            <button id="button-addon2" onclick="sendMsg()" type="button" class="btn btn-link"> <i class="bi bi-send-fill"></i></button>
                                         </div>
                                     </div>
                                 </form>
@@ -81,9 +81,12 @@
         loadOpenChats();
         loadCurrentChat(window.sessionStorage.getItem("openChat"));
         async function sendMsg() {
+            console.log("sendMsg");
             const chatBox = document.getElementById("chat-box");
-            chatBox.value = '';
-            await newMessage(inputTextValue);
+            if ((chatBox.value !== "") && (typeof chatBox.value !== "undefined")) {
+                chatBox.value = '';
+                await newMessage(inputTextValue);
+            }
         }
     </script> 
 </body>

@@ -134,11 +134,17 @@ var inputTextValue;
 async function keyup(e) {
     const chatBox = document.getElementById("chat-box");
     inputTextValue = e.target.value;
-    if (e.keyCode === 13 && (inputTextValue !== "")) {
-        chatBox.value = '';
-        await newMessage(inputTextValue);
+    if (e.keyCode === 13) {
+        console.log("keyup");
+        if ((chatBox.value !== "") && (typeof chatBox.value !== "undefined")) {
+            chatBox.value = '';
+            await newMessage(inputTextValue);
+        } else {
+            console.log("Ahoj");
+        }
     }
 }
+
 const months = {
     1:"stycznia",
     2:"lutego",
@@ -161,14 +167,14 @@ async function newMessage(message) {
     var hour = String(today.getHours()).padStart(2, '0');
     var minute = String(today.getMinutes()).padStart(2, '0');
     var currentChat = window.sessionStorage.getItem("openChat");
-    let newMessage = window.localStorage.getItem(currentChat) + ";" +
+    let newMsg = window.localStorage.getItem(currentChat) + ";" +
         currentlyLoggedIn + ";" +
         hour + ":" + minute + ";" +
         day + " " + months[month] + ";" +
         message;
-    console.log(newMessage);
-    window.localStorage.setItem(currentChat, newMessage);
-    window.localStorage.setItem(currentlyLoggedIn, newMessage);
+    console.log(newMsg);
+    window.localStorage.setItem(currentChat, newMsg);
+    window.localStorage.setItem(currentlyLoggedIn, newMsg);
 
     let messageBox = document.getElementById("current-chat");
 
@@ -187,7 +193,6 @@ async function newMessage(message) {
                 </div>
             `
     messageBox.appendChild(div);
-    console.log(message);
     document.getElementById(currentChat + "-last-message").innerText = message;
     document.getElementById(currentChat + "-last-message-date").innerText = day + " " + months[month];
 }
