@@ -1,6 +1,8 @@
 function loadSavedChats() {
-    if (window.sessionStorage.getItem("loaded") == null) {
+    if (window.sessionStorage.getItem("openChat")==='') {
         window.sessionStorage.setItem("openChat", "nowak-adam");
+    }
+    if (window.sessionStorage.getItem("loaded") == null) {
         window.localStorage.setItem("brosz-odeta", "brosz-odeta;14:57;22 grudnia;Wesołych świąt! :)\nOdpocznij porządnie na urlopie;kowalski-jan;15:02;22 grudnia;nawzajem!");
         window.localStorage.setItem("kowalski-jan", "brosz-odeta;14:57;22 grudnia;Wesołych świąt! :)\nOdpocznij porządnie na urlopie;kowalski-jan;15:02;22 grudnia;nawzajem!");
         window.localStorage.setItem("galeza-agata", "galeza-agata;9:43;19 grudnia;Cześć, podesłałbyś mi proszę informacje na temat twojego urlopu?");
