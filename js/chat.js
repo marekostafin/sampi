@@ -135,8 +135,8 @@ async function keyup(e) {
     const chatBox = document.getElementById("chat-box");
     inputTextValue = e.target.value;
     if (e.keyCode === 13 && (inputTextValue !== "")) {
-        await newMessage(inputTextValue);
         chatBox.value = '';
+        await newMessage(inputTextValue);
     }
 }
 const months = {
