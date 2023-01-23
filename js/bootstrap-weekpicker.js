@@ -45,9 +45,9 @@
             let startMonth = startofWeek.month();
             let endofWeek = currentDate.add( 6 , 'days')
             if(startMonth != endofWeek.month()) {
-                start += (", " + yikes[startMonth])
+                start += (" " + yikes[startMonth])
             }
-            let end = endofWeek.format("DD, ");
+            let end = endofWeek.format("DD ");
             end += yikes[endofWeek.month()];
             element.val(start + " - " + end + " " + currentDate.year());
             loadCalendar(calendarWeek, year);
